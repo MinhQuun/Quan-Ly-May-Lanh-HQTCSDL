@@ -202,6 +202,13 @@ BEGIN
     END
 END;
 
+--3: Tải tất cả sản phẩm
+GO
+CREATE PROCEDURE NVSP_GetAllProducts
+AS
+BEGIN
+    SELECT * FROM SANPHAM;
+END;
 
 
 --UPDATE PRODUCT
