@@ -182,17 +182,16 @@ namespace QuanLyCuaHangMayLanh.User
             {
                 try
                 {
-                    string query = "NVSP_DeleteSupplierByName";
-                    SqlCommand cmd = new SqlCommand(query, cn);
+                    // Gọi stored procedure để xóa nhà cung cấp và các sản phẩm liên quan
+                    SqlCommand cmd = new SqlCommand("NVSP_DeleteSupplierByName", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     cmd.Parameters.AddWithValue("@tenncc", TenNCC);
 
                     db.openConnect(); // Mở kết nối đến cơ sở dữ liệu
-                    cmd.ExecuteNonQuery(); // Thực thi câu lệnh xóa
-                    db.closeConnect(); // Đóng kết nối sau khi xóa
+                    cmd.ExecuteNonQuery(); // Thực thi stored procedure
+                    db.closeConnect(); // Đóng kết nối
 
-                    MessageBox.Show("Đã xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Đã xóa nhà cung cấp và các sản phẩm liên quan thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Tải lại DataGridView sau khi xóa
                     Load_DataGridView();
@@ -203,6 +202,8 @@ namespace QuanLyCuaHangMayLanh.User
                 }
             }
         }
+
+
 
 
         private void btn_Update_Click(object sender, EventArgs e)

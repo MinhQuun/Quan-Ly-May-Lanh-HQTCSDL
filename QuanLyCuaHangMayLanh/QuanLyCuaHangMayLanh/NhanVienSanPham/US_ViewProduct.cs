@@ -177,15 +177,14 @@ namespace QuanLyCuaHangMayLanh.User
             {
                 try
                 {
-                    string query = "NVSP_DeleteProductByName";
-                    SqlCommand cmd = new SqlCommand(query, cn);
+                    // Gọi stored procedure để xóa sản phẩm
+                    SqlCommand cmd = new SqlCommand("NVSP_DeleteProductByName", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     cmd.Parameters.AddWithValue("@tensp", TenSP);
 
                     db.openConnect(); // Mở kết nối đến cơ sở dữ liệu
-                    cmd.ExecuteNonQuery(); // Thực thi câu lệnh xóa
-                    db.closeConnect(); // Đóng kết nối sau khi xóa
+                    cmd.ExecuteNonQuery(); // Thực thi stored procedure
+                    db.closeConnect(); // Đóng kết nối
 
                     MessageBox.Show("Đã xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -198,6 +197,7 @@ namespace QuanLyCuaHangMayLanh.User
                 }
             }
         }
+
 
         private void btn_Update_Click(object sender, EventArgs e)
         {

@@ -59,14 +59,48 @@ BEGIN
 END;
 
 --2: Xóa nhà cung cấp theo tên
+
+ALTER TABLE SANPHAM
+ADD CONSTRAINT FK_SANPHAM_NHACUNGCAP
+FOREIGN KEY (MANCC) REFERENCES NHACUNGCAP(MANCC)
+ON DELETE CASCADE;
+
 GO
 CREATE PROCEDURE NVSP_DeleteSupplierByName
     @tenncc NVARCHAR(50)
 AS
 BEGIN
-    DELETE FROM NHACUNGCAP
-    WHERE TENNCC = @tenncc;
+    DECLARE @mancc VARCHAR(10);
+
+    -- Lấy mã nhà cung cấp từ tên nhà cung cấp
+    SELECT @mancc = MANCC FROM NHACUNGCAP WHERE TENNCC = @tenncc;
+
+    -- Kiểm tra nếu mã nhà cung cấp tồn tại
+    IF @mancc IS NOT NULL
+    BEGIN
+        -- Xóa các bản ghi phụ thuộc trong CTHOADONNHAP trước
+        DELETE FROM CTHOADONNHAP 
+        WHERE MASANPHAM IN (SELECT MASANPHAM FROM SANPHAM WHERE MANCC = @mancc);
+
+        -- Xóa các bản ghi trong HOADONNHAP liên quan đến nhà cung cấp
+        DELETE FROM HOADONNHAP WHERE MANCC = @mancc;
+
+        -- Xóa các sản phẩm liên quan trong bảng SANPHAM
+        DELETE FROM SANPHAM WHERE MANCC = @mancc;
+
+        -- Cuối cùng, xóa nhà cung cấp từ NHACUNGCAP
+        DELETE FROM NHACUNGCAP WHERE MANCC = @mancc;
+
+        PRINT 'Xóa nhà cung cấp và các sản phẩm liên quan thành công!';
+    END
+    ELSE
+    BEGIN
+        PRINT 'Nhà cung cấp không tồn tại!';
+    END
 END;
+
+
+
 
 --3: Lưu trữ để tải tất cả nhà cung cấp
 GO
@@ -146,17 +180,28 @@ CREATE PROCEDURE NVSP_DeleteProductByName
     @tensp NVARCHAR(100)
 AS
 BEGIN
-    DELETE FROM SANPHAM
-    WHERE TENSANPHAM = @tensp;
+    DECLARE @masp VARCHAR(10);
+
+    -- Lấy mã sản phẩm từ tên sản phẩm
+    SELECT @masp = MASANPHAM FROM SANPHAM WHERE TENSANPHAM = @tensp;
+
+    -- Kiểm tra nếu mã sản phẩm tồn tại
+    IF @masp IS NOT NULL
+    BEGIN
+        -- Xóa các bản ghi phụ thuộc trong CTHOADONNHAP trước
+        DELETE FROM CTHOADONNHAP WHERE MASANPHAM = @masp;
+
+        -- Sau đó xóa sản phẩm từ SANPHAM
+        DELETE FROM SANPHAM WHERE MASANPHAM = @masp;
+
+        PRINT 'Xóa sản phẩm thành công!';
+    END
+    ELSE
+    BEGIN
+        PRINT 'Sản phẩm không tồn tại!';
+    END
 END;
 
---3: Tải tất cả sản phẩm
-GO
-CREATE PROCEDURE NVSP_GetAllProducts
-AS
-BEGIN
-    SELECT * FROM SANPHAM;
-END;
 
 
 --UPDATE PRODUCT
