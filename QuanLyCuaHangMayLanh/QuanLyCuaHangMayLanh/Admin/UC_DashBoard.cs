@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using May_Lanh_Library;
+
+namespace QuanLyCuaHangMayLanh.Admin
+{
+    public partial class UC_DashBoard : UserControl
+    {
+        DBConnect db = new DBConnect();
+        public UC_DashBoard()
+        {
+            InitializeComponent();
+        }
+
+        private void UC_DashBoard_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // Đếm số lượng Admin
+                int countAdmin = db.getCount("Admin_CountAdmins");
+                SetLabel(countAdmin, lbl_Admin);
+
+                // Đếm số lượng Nhân viên
+                int countEmployee = db.getCount("Admin_CountEmployees");
+                SetLabel(countEmployee, lbl_Employee);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu bảng điều khiển: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void SetLabel(int count, Label lbl)
+        {
+            lbl.Text = count.ToString();
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            UC_DashBoard_Load(this, null);
+        }
+
+
+
+        
+
+      
+    }
+}

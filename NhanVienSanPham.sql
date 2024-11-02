@@ -1,0 +1,191 @@
+﻿USE QL_MAYLANH_HQTCSDL 
+
+
+--DASHBOARD
+--1: Đếm số lượng Nhân viên sản phẩm:
+GO
+CREATE PROCEDURE NVSP_CountEmployees
+AS
+BEGIN
+    SELECT COUNT(*) AS EmployeeCount FROM NGUOIDUNG WHERE MAQUYEN = 'Q2';
+END;
+
+EXEC NVSP_CountEmployees;
+
+
+--ADD SUPPLIER
+--1: Thêm nhà cung cấp:
+GO
+CREATE PROCEDURE NVSP_AddSupplier
+    @MANCC VARCHAR(10),
+    @TENNCC NVARCHAR(50),
+    @DIACHI NVARCHAR(100)
+AS
+BEGIN
+    -- Kiểm tra mã nhà cung cấp đã tồn tại hay chưa
+    IF EXISTS (SELECT 1 FROM NHACUNGCAP WHERE MANCC = @MANCC)
+    BEGIN
+        -- Nếu tồn tại, trả về mã lỗi
+        RAISERROR('Mã nhà cung cấp đã tồn tại', 16, 1);
+        RETURN;
+    END
+
+    -- Thêm nhà cung cấp mới nếu mã chưa tồn tại
+    INSERT INTO NHACUNGCAP (MANCC, TENNCC, DIACHI)
+    VALUES (@MANCC, @TENNCC, @DIACHI);
+END;
+
+--2:
+GO
+CREATE PROCEDURE NVSP_CheckSupplierExistence
+    @MANCC VARCHAR(10)
+AS
+BEGIN
+    SELECT COUNT(*) AS SupplierCount
+    FROM NHACUNGCAP
+    WHERE MANCC = @MANCC;
+END;
+
+
+--VIEW SUPPLIER
+--1: Tìm kiếm nhà cung cấp theo tên
+GO
+CREATE PROCEDURE NVSP_SearchSupplierByName
+    @tenncc NVARCHAR(50)
+AS
+BEGIN
+    SELECT * FROM NHACUNGCAP
+    WHERE TENNCC LIKE '%' + @tenncc + '%';
+END;
+
+--2: Xóa nhà cung cấp theo tên
+GO
+CREATE PROCEDURE NVSP_DeleteSupplierByName
+    @tenncc NVARCHAR(50)
+AS
+BEGIN
+    DELETE FROM NHACUNGCAP
+    WHERE TENNCC = @tenncc;
+END;
+
+--3: Lưu trữ để tải tất cả nhà cung cấp
+GO
+CREATE PROCEDURE NVSP_GetAllSuppliers
+AS
+BEGIN
+    SELECT * FROM NHACUNGCAP;
+END;
+
+
+--UPDATE SUPPLIER
+--1: Tìm kiếm nhà cung cấp theo mã
+GO
+CREATE PROCEDURE NVSP_SearchSupplierByID
+    @MANCC VARCHAR(10)
+AS
+BEGIN
+    SELECT * FROM NHACUNGCAP WHERE MANCC = @MANCC;
+END;
+
+--2: Cập nhật thông tin nhà cung cấp
+GO
+CREATE PROCEDURE NVSP_UpdateSupplier
+    @MANCC VARCHAR(10),
+    @TENNCC NVARCHAR(50),
+    @DIACHI NVARCHAR(100)
+AS
+BEGIN
+    UPDATE NHACUNGCAP
+    SET TENNCC = @TENNCC, DIACHI = @DIACHI
+    WHERE MANCC = @MANCC;
+END;
+
+
+--ADD PRODUCT
+--1: Kiểm tra sự tồn tại của mã sản phẩm
+GO
+CREATE PROCEDURE NVSP_CheckProductExistence
+    @MASP VARCHAR(10)
+AS
+BEGIN
+    SELECT COUNT(*) AS ProductCount
+    FROM SANPHAM
+    WHERE MASANPHAM = @MASP;
+END;
+
+--2: Thêm sản phẩm mới
+GO
+CREATE PROCEDURE NVSP_AddProduct
+    @MASP VARCHAR(10),
+    @TENSP NVARCHAR(100),
+    @SOLUONG INT,
+    @DONGIANHAP DECIMAL(18,0),
+    @DONGIABAN DECIMAL(18,0),
+    @MANCC VARCHAR(10)
+AS
+BEGIN
+    INSERT INTO SANPHAM (MASANPHAM, TENSANPHAM, SOLUONG, DONGIANHAP, DONGIABAN, MANCC)
+    VALUES (@MASP, @TENSP, @SOLUONG, @DONGIANHAP, @DONGIABAN, @MANCC);
+END;
+
+
+--VIEW PRODUCT
+--1: Tìm kiếm sản phẩm theo tên
+GO
+CREATE PROCEDURE NVSP_SearchProductByName
+    @tensp NVARCHAR(100)
+AS
+BEGIN
+    SELECT * FROM SANPHAM
+    WHERE TENSANPHAM LIKE '%' + @tensp + '%';
+END;
+
+--2: Xóa sản phẩm theo tên
+GO
+CREATE PROCEDURE NVSP_DeleteProductByName
+    @tensp NVARCHAR(100)
+AS
+BEGIN
+    DELETE FROM SANPHAM
+    WHERE TENSANPHAM = @tensp;
+END;
+
+--3: Tải tất cả sản phẩm
+GO
+CREATE PROCEDURE NVSP_GetAllProducts
+AS
+BEGIN
+    SELECT * FROM SANPHAM;
+END;
+
+
+--UPDATE PRODUCT
+--1: Tìm kiếm sản phẩm theo mã
+GO
+CREATE PROCEDURE NVSP_SearchProductByID
+    @MASANPHAM VARCHAR(10)
+AS
+BEGIN
+    SELECT * FROM SANPHAM
+    WHERE MASANPHAM = @MASANPHAM;
+END;
+
+--2: Cập nhật thông tin sản phẩm
+GO
+CREATE PROCEDURE NVSP_UpdateProduct
+    @MASANPHAM VARCHAR(10),
+    @TENSANPHAM NVARCHAR(100),
+    @SOLUONG INT,
+    @DONGIANHAP DECIMAL(18,0),
+    @DONGIABAN DECIMAL(18,0),
+    @MANCC VARCHAR(10)
+AS
+BEGIN
+    UPDATE SANPHAM
+    SET TENSANPHAM = @TENSANPHAM,
+        SOLUONG = @SOLUONG,
+        DONGIANHAP = @DONGIANHAP,
+        DONGIABAN = @DONGIABAN,
+        MANCC = @MANCC
+    WHERE MASANPHAM = @MASANPHAM;
+END;

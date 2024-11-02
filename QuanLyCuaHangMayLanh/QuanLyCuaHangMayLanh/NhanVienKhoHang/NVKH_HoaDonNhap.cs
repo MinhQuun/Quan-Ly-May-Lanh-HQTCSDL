@@ -1,0 +1,545 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using May_Lanh_Library;
+
+namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
+{
+    public partial class NVKH_HoaDonNhap : UserControl
+    {
+        SqlConnection cn;
+        DBConnect db = new DBConnect();
+        public NVKH_HoaDonNhap()
+        {
+            cn = db.conn;
+            InitializeComponent();
+        }
+        private Color originalColor;
+        private void button_MouseEnter(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                // Lưu lại màu nền ban đầu để khôi phục khi rời chuột
+                originalColor = button.BackColor;
+                // Đổi màu nền của nút thành màu trắng khi di chuột vào
+                button.BackColor = Color.White;
+            }
+        }
+
+        private void button_MouseLeave(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                // Khôi phục màu nền ban đầu khi chuột rời khỏi
+                button.BackColor = originalColor;
+            }
+        }
+        private void NVKH_HoaDonNhap_Load(object sender, EventArgs e)
+        {
+            // Thiết lập placeholder mặc định cho TextBox
+            txt_Search.Text = "Search.......";
+            txt_Search.ForeColor = Color.Gray;
+            txt_Search.Font = new Font(txt_Search.Font.FontFamily, 14, FontStyle.Italic);
+
+            // Gắn sự kiện Enter và Leave cho TextBox
+            txt_Search.Enter += txt_Search_Enter;
+            txt_Search.Leave += txt_Search_Leave;
+
+            btn_AddHDN.MouseEnter += button_MouseEnter;
+            btn_AddHDN.MouseLeave += button_MouseLeave;
+
+            btn_UpdateHDN.MouseEnter += button_MouseEnter;
+            btn_UpdateHDN.MouseLeave += button_MouseLeave;
+
+            btn_Reload.MouseEnter += button_MouseEnter;
+            btn_Reload.MouseLeave += button_MouseLeave;
+
+            btn_Delete.MouseEnter += button_MouseEnter;
+            btn_Delete.MouseLeave += button_MouseLeave;
+
+            Load_Combobox_MaNCC();
+            Load_Combobox_NhanVien();
+            Load_Combobox_SanPham();
+
+            Load_DataGridView();
+            if(dgv_HoaDonNhap.Columns.Count > 0)
+            {
+                // Đổi tên các cột để phù hợp với yêu cầu hiển thị
+                dgv_HoaDonNhap.Columns["MAHDN"].HeaderText = "Mã Hóa Đơn Nhập";
+                dgv_HoaDonNhap.Columns["MANV"].HeaderText = "Mã Nhân Viên";
+                dgv_HoaDonNhap.Columns["TENNV"].HeaderText = "Nhân Viên";
+                dgv_HoaDonNhap.Columns["MANCC"].HeaderText = "Mã Nhà Cung Cấp";
+                dgv_HoaDonNhap.Columns["TENNCC"].HeaderText = "Nhà Cung Cấp";
+                dgv_HoaDonNhap.Columns["NGAYNHAP"].HeaderText = "Ngày Nhập";
+                dgv_HoaDonNhap.Columns["MASANPHAM"].HeaderText = "Mã Sản Phẩm";
+                dgv_HoaDonNhap.Columns["TENSANPHAM"].HeaderText = "Tên Sản Phẩm";
+                dgv_HoaDonNhap.Columns["SOLUONG"].HeaderText = "Số Lượng";
+                dgv_HoaDonNhap.Columns["DONGIA"].HeaderText = "Đơn Giá";
+                dgv_HoaDonNhap.Columns["TONGTIEN"].HeaderText = "Tổng Tiền";
+            }
+            // Tùy chỉnh DataGridView
+            dgv_HoaDonNhap.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold);
+            dgv_HoaDonNhap.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+            dgv_HoaDonNhap.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgv_HoaDonNhap.EnableHeadersVisualStyles = false;
+
+            dgv_HoaDonNhap.DefaultCellStyle.Font = new Font("Arial", 11);
+            dgv_HoaDonNhap.DefaultCellStyle.BackColor = Color.White;
+            dgv_HoaDonNhap.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_HoaDonNhap.DefaultCellStyle.SelectionBackColor = Color.LightSkyBlue;
+            dgv_HoaDonNhap.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgv_HoaDonNhap.GridColor = Color.DarkGray; // Đặt màu cho đường kẻ
+            dgv_HoaDonNhap.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical; // Thêm đường kẻ dọc cho các cột
+
+            foreach (DataGridViewColumn column in dgv_HoaDonNhap.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa dữ liệu
+                column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+                column.DefaultCellStyle.Padding = new Padding(5); // Thêm khoảng cách bên trong các ô
+            }
+
+            dgv_HoaDonNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_HoaDonNhap.AlternatingRowsDefaultCellStyle.BackColor = Color.LightYellow;
+        }
+        private void txt_Search_Enter(object sender, EventArgs e)
+        {
+            if (txt_Search.Text == "Search.......")
+            {
+                txt_Search.Text = ""; // Xóa chữ "Search" khi người dùng bấm vào
+                txt_Search.ForeColor = Color.Black; // Đổi màu chữ sang màu bình thường
+                txt_Search.Font = new Font(txt_Search.Font.FontFamily, 14, FontStyle.Regular);
+            }
+        }
+
+        private void txt_Search_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_Search.Text))
+            {
+                txt_Search.Text = "Search......."; // Đặt lại chữ "Search" khi không có nội dung
+                txt_Search.ForeColor = Color.Gray; // Đổi màu chữ sang màu nhạt
+                txt_Search.Font = new Font(txt_Search.Font.FontFamily, 14, FontStyle.Italic);
+            }
+        }
+        public void Load_Combobox_MaNCC()
+        {
+            string sqlNCC = "SELECT * FROM NHACUNGCAP";
+            DataTable dtNCC = new DataTable();
+            SqlDataAdapter daNCC = new SqlDataAdapter(sqlNCC, cn);
+            daNCC.Fill(dtNCC);
+
+            // Gán dữ liệu cho ComboBox
+            cbo_MaNCC.DataSource = dtNCC;
+            cbo_MaNCC.DisplayMember = "TENNCC";    // Tên nhà cung cấp để hiển thị
+            cbo_MaNCC.ValueMember = "MANCC";       // Giá trị là mã nhà cung cấp
+        }
+
+        public void Load_Combobox_NhanVien()
+        {
+            string sqlNV = "SELECT * FROM NHANVIEN";
+            DataTable dtNV = new DataTable();
+            SqlDataAdapter daNV = new SqlDataAdapter(sqlNV, cn);
+            daNV.Fill(dtNV);
+
+            // Gán dữ liệu cho ComboBox
+            cbo_NV.DataSource = dtNV;
+            cbo_NV.DisplayMember = "TENNV";      // Tên nhân viên để hiển thị
+            cbo_NV.ValueMember = "MANV";         // Giá trị là mã nhân viên
+        }
+
+        public void Load_Combobox_SanPham()
+        {
+            string sqlSP = "SELECT * FROM SANPHAM";
+            DataTable dtSP = new DataTable();
+            SqlDataAdapter daSP = new SqlDataAdapter(sqlSP, cn);
+            daSP.Fill(dtSP);
+
+            // Gán dữ liệu cho ComboBox
+            cbo_SP.DataSource = dtSP;
+            cbo_SP.DisplayMember = "TENSANPHAM"; // Tên sản phẩm để hiển thị
+            cbo_SP.ValueMember = "MASANPHAM";    // Giá trị là mã sản phẩm
+        }
+
+        private void Load_DataGridView()
+        {
+            try
+            {
+                // Câu truy vấn để lấy thông tin từ bảng HOADONNHAP và CTHOADONNHAP
+                string query = @"
+                SELECT HDN.MAHDN, NV.MANV, NV.TENNV, NCC.MANCC, NCC.TENNCC, HDN.NGAYNHAP, HDN.TONGTIEN, 
+                       CTHDN.MASANPHAM, SP.TENSANPHAM, CTHDN.SOLUONG, CTHDN.DONGIA
+                FROM HOADONNHAP HDN
+                INNER JOIN NHANVIEN NV ON HDN.MANV = NV.MANV
+                INNER JOIN NHACUNGCAP NCC ON HDN.MANCC = NCC.MANCC
+                INNER JOIN CTHOADONNHAP CTHDN ON HDN.MAHDN = CTHDN.MAHDN
+                INNER JOIN SANPHAM SP ON CTHDN.MASANPHAM = SP.MASANPHAM";
+
+
+                // Lấy dữ liệu từ cơ sở dữ liệu và gán vào DataTable
+                DataTable dt = db.getDataTable(query, "HOADONNHAP");
+
+                // Gán dữ liệu cho DataGridView
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dgv_HoaDonNhap.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu hóa đơn nhập để hiển thị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_HoaDonNhap.DataSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu hóa đơn nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_AddHDN_Click(object sender, EventArgs e)
+        {
+            string maHDN = txt_MaHDN.Text;
+            if (string.IsNullOrWhiteSpace(maHDN))
+            {
+                MessageBox.Show("Vui lòng nhập mã hóa đơn nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cbo_NV.SelectedIndex == -1 || cbo_MaNCC.SelectedIndex == -1 || cbo_SP.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên, nhà cung cấp và sản phẩm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string maNV = cbo_NV.SelectedValue.ToString();
+            string maNCC = cbo_MaNCC.SelectedValue.ToString();
+            DateTime ngayNhap = dt_NgayNhap.Value;
+            string maSP = cbo_SP.SelectedValue.ToString();
+
+            int soLuong;
+            decimal donGia;
+
+            if (!int.TryParse(txt_SL.Text, out soLuong) || soLuong <= 0)
+            {
+                MessageBox.Show("Vui lòng nhập số lượng hợp lệ (lớn hơn 0).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(txt_DonGiaBan.Text, out donGia) || donGia <= 0)
+            {
+                MessageBox.Show("Vui lòng nhập đơn giá hợp lệ (lớn hơn 0).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Tính tổng tiền
+            decimal tongTien = soLuong * donGia;
+            txt_TongTien.Text = tongTien.ToString();
+
+            try
+            {
+                // Mở kết nối
+                if (cn.State != ConnectionState.Open)
+                {
+                    db.openConnect();
+                }
+
+                // Thêm hóa đơn nhập
+                string queryHDN = "INSERT INTO HOADONNHAP (MAHDN, MANV, MANCC, TONGTIEN, NGAYNHAP) VALUES (@MAHDN, @MANV, @MANCC, @TONGTIEN, @NGAYNHAP)";
+                using (SqlCommand cmdHDN = new SqlCommand(queryHDN, cn))
+                {
+                    cmdHDN.Parameters.AddWithValue("@MAHDN", maHDN);
+                    cmdHDN.Parameters.AddWithValue("@MANV", maNV);
+                    cmdHDN.Parameters.AddWithValue("@MANCC", maNCC);
+                    cmdHDN.Parameters.AddWithValue("@TONGTIEN", tongTien);
+                    cmdHDN.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
+
+                    cmdHDN.ExecuteNonQuery();
+                }
+
+                // Thêm chi tiết hóa đơn nhập
+                string queryCTHDN = "INSERT INTO CTHOADONNHAP (MACTHDN, MAHDN, MASANPHAM, SOLUONG, DONGIA) VALUES (@MACTHDN, @MAHDN, @MASANPHAM, @SOLUONG, @DONGIA)";
+                using (SqlCommand cmdCTHDN = new SqlCommand(queryCTHDN, cn))
+                {
+                    cmdCTHDN.Parameters.AddWithValue("@MACTHDN", "CT" + maHDN);
+                    cmdCTHDN.Parameters.AddWithValue("@MAHDN", maHDN);
+                    cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);
+                    cmdCTHDN.Parameters.AddWithValue("@SOLUONG", soLuong);
+                    cmdCTHDN.Parameters.AddWithValue("@DONGIA", donGia);
+
+                    cmdCTHDN.ExecuteNonQuery();
+                }
+
+                db.closeConnect();
+
+                // Clear tất cả các trường sau khi thêm thành công
+                ClearAll();
+
+                MessageBox.Show("Thêm hóa đơn nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Tải lại dữ liệu DataGridView
+                Load_DataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra khi thêm hóa đơn nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Đảm bảo kết nối được đóng trong mọi trường hợp
+                if (cn.State == ConnectionState.Open)
+                {
+                    db.closeConnect();
+                }
+            }
+        }
+
+  
+        private void btn_Reload_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+        public void ClearAll()
+        {
+            txt_MaHDN.Clear();
+            cbo_NV.SelectedIndex = -1;
+            cbo_MaNCC.SelectedIndex = -1;
+            dt_NgayNhap.ResetText();
+            cbo_SP.SelectedIndex = -1;
+            txt_SL.Clear();
+            txt_DonGiaBan.Clear();
+            txt_TongTien.Clear();
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            NVKH_HoaDonNhap_Load(this, null);
+        }
+
+        string MaHDN;
+        private void dgv_HoaDonNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
+                {
+                    MaHDN = dgv_HoaDonNhap.Rows[e.RowIndex].Cells["MAHDN"].Value.ToString(); // Sử dụng tên cột "MAHDN" để lấy giá trị
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn mã hóa đơn nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MaHDN))
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn nhập để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hóa đơn nhập này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (cn.State != ConnectionState.Open)
+                    {
+                        db.openConnect();
+                    }
+
+                    // Xóa các chi tiết hóa đơn nhập trước
+                    string queryDeleteCTHDN = "DELETE FROM CTHOADONNHAP WHERE MAHDN = @MAHDN";
+                    SqlCommand cmdDeleteCTHDN = new SqlCommand(queryDeleteCTHDN, cn);
+                    cmdDeleteCTHDN.Parameters.AddWithValue("@MAHDN", MaHDN);
+                    cmdDeleteCTHDN.ExecuteNonQuery();
+
+                    // Xóa hóa đơn nhập
+                    string queryDeleteHDN = "DELETE FROM HOADONNHAP WHERE MAHDN = @MAHDN";
+                    SqlCommand cmdDeleteHDN = new SqlCommand(queryDeleteHDN, cn);
+                    cmdDeleteHDN.Parameters.AddWithValue("@MAHDN", MaHDN);
+                    cmdDeleteHDN.ExecuteNonQuery();
+
+                    db.closeConnect();
+
+                    MessageBox.Show("Xóa hóa đơn nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Tải lại dữ liệu DataGridView
+                    Load_DataGridView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            // Câu truy vấn SQL với cú pháp đúng
+            string query = @"
+                        SELECT HDN.MAHDN, NV.MANV, NV.TENNV, NCC.TENNCC, HDN.NGAYNHAP, HDN.TONGTIEN, 
+                               CTHDN.MASANPHAM, SP.TENSANPHAM, CTHDN.SOLUONG, CTHDN.DONGIA
+                        FROM HOADONNHAP HDN
+                        INNER JOIN NHANVIEN NV ON HDN.MANV = NV.MANV
+                        INNER JOIN NHACUNGCAP NCC ON HDN.MANCC = NCC.MANCC
+                        INNER JOIN CTHOADONNHAP CTHDN ON HDN.MAHDN = CTHDN.MAHDN
+                        INNER JOIN SANPHAM SP ON CTHDN.MASANPHAM = SP.MASANPHAM
+                        WHERE HDN.MAHDN LIKE @mahdn";
+
+            // Tạo parameter với giá trị tìm kiếm từ txt_Search
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@mahdn", "%" + txt_Search.Text.Trim() + "%")
+            };
+
+            try
+            {
+                // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
+                DataTable dt = db.getDataTable(query, "HOADONNHAP", parameters);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dgv_HoaDonNhap.DataSource = dt; // Gán kết quả cho DataGridView
+
+                }
+                else
+                {
+                    dgv_HoaDonNhap.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgv_HoaDonNhap_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = dgv_HoaDonNhap.Rows[e.RowIndex];
+
+                    txt_MaHDN.Text = row.Cells["MAHDN"].Value.ToString();
+
+                    // Đảm bảo dữ liệu đã có trong ComboBox trước khi gán giá trị
+                    Load_Combobox_NhanVien();
+                    Load_Combobox_MaNCC();
+                    Load_Combobox_SanPham();
+
+                    // Hiển thị mã nhân viên trong ComboBox
+                    cbo_NV.SelectedValue = row.Cells["MANV"].Value.ToString();
+
+                    // Hiển thị mã nhà cung cấp trong ComboBox
+                    cbo_MaNCC.SelectedValue = row.Cells["MANCC"].Value.ToString();
+
+                    // Hiển thị mã sản phẩm trong ComboBox
+                    cbo_SP.SelectedValue = row.Cells["MASANPHAM"].Value.ToString();
+
+                    dt_NgayNhap.Value = Convert.ToDateTime(row.Cells["NGAYNHAP"].Value);
+                    txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
+                    txt_DonGiaBan.Text = row.Cells["DONGIA"].Value.ToString();
+
+                    // Tính lại tổng tiền
+                    decimal donGia = Convert.ToDecimal(txt_DonGiaBan.Text);
+                    int soLuong = Convert.ToInt32(txt_SL.Text);
+                    txt_TongTien.Text = (donGia * soLuong).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        private void btn_UpdateHDN_Click(object sender, EventArgs e)
+        {
+            string maHDN = txt_MaHDN.Text;
+            string maNV = cbo_NV.SelectedValue.ToString();
+            string maNCC = cbo_MaNCC.SelectedValue.ToString();
+            DateTime ngayNhap = dt_NgayNhap.Value;
+            string maSP = cbo_SP.SelectedValue.ToString();
+            int soLuong;
+            decimal donGia;
+            decimal tongTien;
+
+            if (!int.TryParse(txt_SL.Text, out soLuong) || !decimal.TryParse(txt_DonGiaBan.Text, out donGia))
+            {
+                MessageBox.Show("Vui lòng nhập đúng giá trị cho Số lượng và Đơn giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Tính tổng tiền
+            tongTien = soLuong * donGia;
+            txt_TongTien.Text = tongTien.ToString();
+
+            try
+            {
+                string query = "UPDATE HOADONNHAP SET MANV = @MANV, MANCC = @MANCC, NGAYNHAP = @NGAYNHAP, TONGTIEN = @TONGTIEN WHERE MAHDN = @MAHDN";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@MAHDN", maHDN);
+                cmd.Parameters.AddWithValue("@MANV", maNV);
+                cmd.Parameters.AddWithValue("@MANCC", maNCC);
+                cmd.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
+                cmd.Parameters.AddWithValue("@TONGTIEN", tongTien);
+
+                if (cn.State != ConnectionState.Open)
+                {
+                    db.openConnect();
+                }
+
+                cmd.ExecuteNonQuery();
+
+                // Cập nhật chi tiết hóa đơn nhập
+                string queryCTHDN = "UPDATE CTHOADONNHAP SET MASANPHAM = @MASANPHAM, SOLUONG = @SOLUONG, DONGIA = @DONGIA WHERE MAHDN = @MAHDN";
+                SqlCommand cmdCTHDN = new SqlCommand(queryCTHDN, cn);
+                cmdCTHDN.Parameters.AddWithValue("@MAHDN", maHDN);
+                cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);
+                cmdCTHDN.Parameters.AddWithValue("@SOLUONG", soLuong);
+                cmdCTHDN.Parameters.AddWithValue("@DONGIA", donGia);
+
+                cmdCTHDN.ExecuteNonQuery();
+
+                db.closeConnect();
+
+                ClearAll();
+
+                MessageBox.Show("Cập nhật hóa đơn nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Tải lại dữ liệu DataGridView
+                Load_DataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txt_MaHDN_TextChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT COUNT(*) FROM HOADONNHAP WHERE MAHDN = '" + txt_MaHDN.Text + "'";
+            int count = db.getCount(query);
+            if (count == 0)
+            {
+                pic_AddHDN.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\Cong Nghe Dot Net\Project\Icon\yes.png";
+            }
+            else
+            {
+                pic_AddHDN.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\Cong Nghe Dot Net\Project\Icon\no.png";
+            }
+        }
+
+    }
+}
