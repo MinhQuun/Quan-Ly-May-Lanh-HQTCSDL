@@ -21,10 +21,16 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
 
         private void NVKH_DashBoard_Load(object sender, EventArgs e)
         {
-            // Đếm số lượng Nhân viên
-            string queryEmployee = "SELECT COUNT(*) FROM NGUOIDUNG WHERE MAQUYEN ='Q3'";
-            int countEmployee = db.getCount(queryEmployee);
-            SetLabel(countEmployee, lbl_Employee);
+            try
+            {
+                // Đếm số lượng Nhân viên
+                int countEmployee = db.getCount("NVKH_CountEmployees");
+                SetLabel(countEmployee, lbl_Employee);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu bảng điều khiển: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void SetLabel(int count, Label lbl)
         {

@@ -132,60 +132,62 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
         }
         public void Load_Combobox_MaNCC()
         {
-            string sqlNCC = "SELECT * FROM NHACUNGCAP";
-            DataTable dtNCC = new DataTable();
-            SqlDataAdapter daNCC = new SqlDataAdapter(sqlNCC, cn);
-            daNCC.Fill(dtNCC);
+            try
+            {
+                DataTable dtNCC = db.getDataTable("NVSP_GetAllSuppliers", "NHACUNGCAP");
 
-            // Gán dữ liệu cho ComboBox
-            cbo_MaNCC.DataSource = dtNCC;
-            cbo_MaNCC.DisplayMember = "TENNCC";    // Tên nhà cung cấp để hiển thị
-            cbo_MaNCC.ValueMember = "MANCC";       // Giá trị là mã nhà cung cấp
+                // Gán dữ liệu cho ComboBox
+                cbo_MaNCC.DataSource = dtNCC;
+                //cbo_MaNCC.DisplayMember = "TENNCC";    // Giá trị hiển thị mã
+                cbo_MaNCC.ValueMember = "MANCC";     // Giá trị là tên
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu vai trò: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void Load_Combobox_NhanVien()
         {
-            string sqlNV = "SELECT * FROM NHANVIEN";
-            DataTable dtNV = new DataTable();
-            SqlDataAdapter daNV = new SqlDataAdapter(sqlNV, cn);
-            daNV.Fill(dtNV);
+            try
+            {
+                DataTable dtNV = db.getDataTable("NVKH_GetAllNhanVien", "NHANVIEN");
 
-            // Gán dữ liệu cho ComboBox
-            cbo_NV.DataSource = dtNV;
-            cbo_NV.DisplayMember = "TENNV";      // Tên nhân viên để hiển thị
-            cbo_NV.ValueMember = "MANV";         // Giá trị là mã nhân viên
+                // Gán dữ liệu cho ComboBox
+                cbo_NV.DataSource = dtNV;
+                cbo_NV.DisplayMember = "TENNV";      // Tên nhân viên để hiển thị
+                cbo_NV.ValueMember = "MANV";         // Giá trị là mã nhân viên
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         public void Load_Combobox_SanPham()
         {
-            string sqlSP = "SELECT * FROM SANPHAM";
-            DataTable dtSP = new DataTable();
-            SqlDataAdapter daSP = new SqlDataAdapter(sqlSP, cn);
-            daSP.Fill(dtSP);
+            try
+            {
+                DataTable dtSP = db.getDataTable("NVSP_GetAllProducts", "SANPHAM");
 
-            // Gán dữ liệu cho ComboBox
-            cbo_SP.DataSource = dtSP;
-            cbo_SP.DisplayMember = "TENSANPHAM"; // Tên sản phẩm để hiển thị
-            cbo_SP.ValueMember = "MASANPHAM";    // Giá trị là mã sản phẩm
+                // Gán dữ liệu cho ComboBox
+                cbo_SP.DataSource = dtSP;
+                cbo_SP.DisplayMember = "TENSANPHAM"; // Tên sản phẩm để hiển thị
+                cbo_SP.ValueMember = "MASANPHAM";    // Giá trị là mã sản phẩm
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu vai trò: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Load_DataGridView()
         {
             try
             {
-                // Câu truy vấn để lấy thông tin từ bảng HOADONNHAP và CTHOADONNHAP
-                string query = @"
-                SELECT HDN.MAHDN, NV.MANV, NV.TENNV, NCC.MANCC, NCC.TENNCC, HDN.NGAYNHAP, HDN.TONGTIEN, 
-                       CTHDN.MASANPHAM, SP.TENSANPHAM, CTHDN.SOLUONG, CTHDN.DONGIA
-                FROM HOADONNHAP HDN
-                INNER JOIN NHANVIEN NV ON HDN.MANV = NV.MANV
-                INNER JOIN NHACUNGCAP NCC ON HDN.MANCC = NCC.MANCC
-                INNER JOIN CTHOADONNHAP CTHDN ON HDN.MAHDN = CTHDN.MAHDN
-                INNER JOIN SANPHAM SP ON CTHDN.MASANPHAM = SP.MASANPHAM";
-
-
                 // Lấy dữ liệu từ cơ sở dữ liệu và gán vào DataTable
-                DataTable dt = db.getDataTable(query, "HOADONNHAP");
+                DataTable dt = db.getDataTable("NVKH_GetAllHoaDonNhap", "HOADONNHAP");
 
                 // Gán dữ liệu cho DataGridView
                 if (dt != null && dt.Rows.Count > 0)
@@ -252,28 +254,26 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 }
 
                 // Thêm hóa đơn nhập
-                string queryHDN = "INSERT INTO HOADONNHAP (MAHDN, MANV, MANCC, TONGTIEN, NGAYNHAP) VALUES (@MAHDN, @MANV, @MANCC, @TONGTIEN, @NGAYNHAP)";
-                using (SqlCommand cmdHDN = new SqlCommand(queryHDN, cn))
+                using (SqlCommand cmdHDN = new SqlCommand("NVKH_AddHoaDonNhap", cn))
                 {
+                    cmdHDN.CommandType = CommandType.StoredProcedure;
                     cmdHDN.Parameters.AddWithValue("@MAHDN", maHDN);
                     cmdHDN.Parameters.AddWithValue("@MANV", maNV);
                     cmdHDN.Parameters.AddWithValue("@MANCC", maNCC);
-                    cmdHDN.Parameters.AddWithValue("@TONGTIEN", tongTien);
                     cmdHDN.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
-
+                    cmdHDN.Parameters.AddWithValue("@TONGTIEN", tongTien);
                     cmdHDN.ExecuteNonQuery();
                 }
 
                 // Thêm chi tiết hóa đơn nhập
-                string queryCTHDN = "INSERT INTO CTHOADONNHAP (MACTHDN, MAHDN, MASANPHAM, SOLUONG, DONGIA) VALUES (@MACTHDN, @MAHDN, @MASANPHAM, @SOLUONG, @DONGIA)";
-                using (SqlCommand cmdCTHDN = new SqlCommand(queryCTHDN, cn))
+                using (SqlCommand cmdCTHDN = new SqlCommand("NVKH_AddCTHoaDonNhap", cn))
                 {
+                    cmdCTHDN.CommandType = CommandType.StoredProcedure;
                     cmdCTHDN.Parameters.AddWithValue("@MACTHDN", "CT" + maHDN);
                     cmdCTHDN.Parameters.AddWithValue("@MAHDN", maHDN);
                     cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);
                     cmdCTHDN.Parameters.AddWithValue("@SOLUONG", soLuong);
                     cmdCTHDN.Parameters.AddWithValue("@DONGIA", donGia);
-
                     cmdCTHDN.ExecuteNonQuery();
                 }
 
@@ -356,17 +356,13 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                         db.openConnect();
                     }
 
-                    // Xóa các chi tiết hóa đơn nhập trước
-                    string queryDeleteCTHDN = "DELETE FROM CTHOADONNHAP WHERE MAHDN = @MAHDN";
-                    SqlCommand cmdDeleteCTHDN = new SqlCommand(queryDeleteCTHDN, cn);
-                    cmdDeleteCTHDN.Parameters.AddWithValue("@MAHDN", MaHDN);
-                    cmdDeleteCTHDN.ExecuteNonQuery();
-
-                    // Xóa hóa đơn nhập
-                    string queryDeleteHDN = "DELETE FROM HOADONNHAP WHERE MAHDN = @MAHDN";
-                    SqlCommand cmdDeleteHDN = new SqlCommand(queryDeleteHDN, cn);
-                    cmdDeleteHDN.Parameters.AddWithValue("@MAHDN", MaHDN);
-                    cmdDeleteHDN.ExecuteNonQuery();
+                    // Xóa hóa đơn nhập và các chi tiết liên quan
+                    using (SqlCommand cmdDelete = new SqlCommand("NVKH_DeleteHoaDonNhap", cn))
+                    {
+                        cmdDelete.CommandType = CommandType.StoredProcedure;
+                        cmdDelete.Parameters.AddWithValue("@MAHDN", MaHDN);
+                        cmdDelete.ExecuteNonQuery();
+                    }
 
                     db.closeConnect();
 
@@ -384,36 +380,18 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            // Câu truy vấn SQL với cú pháp đúng
-            string query = @"
-                        SELECT HDN.MAHDN, NV.MANV, NV.TENNV, NCC.TENNCC, HDN.NGAYNHAP, HDN.TONGTIEN, 
-                               CTHDN.MASANPHAM, SP.TENSANPHAM, CTHDN.SOLUONG, CTHDN.DONGIA
-                        FROM HOADONNHAP HDN
-                        INNER JOIN NHANVIEN NV ON HDN.MANV = NV.MANV
-                        INNER JOIN NHACUNGCAP NCC ON HDN.MANCC = NCC.MANCC
-                        INNER JOIN CTHOADONNHAP CTHDN ON HDN.MAHDN = CTHDN.MAHDN
-                        INNER JOIN SANPHAM SP ON CTHDN.MASANPHAM = SP.MASANPHAM
-                        WHERE HDN.MAHDN LIKE @mahdn";
-
-            // Tạo parameter với giá trị tìm kiếm từ txt_Search
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@mahdn", "%" + txt_Search.Text.Trim() + "%")
-            };
-
             try
             {
-                // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
-                DataTable dt = db.getDataTable(query, "HOADONNHAP", parameters);
+                SqlParameter[] parameters = { new SqlParameter("@MAHDN", "%" + txt_Search.Text.Trim() + "%") };
+                DataTable dt = db.getDataTable("NVKH_SearchHoaDonNhap", "HOADONNHAP", parameters);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    dgv_HoaDonNhap.DataSource = dt; // Gán kết quả cho DataGridView
-
+                    dgv_HoaDonNhap.DataSource = dt;
                 }
                 else
                 {
-                    dgv_HoaDonNhap.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
+                    dgv_HoaDonNhap.DataSource = null;
                 }
             }
             catch (Exception ex)
@@ -421,6 +399,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void dgv_HoaDonNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -487,30 +466,35 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
 
             try
             {
-                string query = "UPDATE HOADONNHAP SET MANV = @MANV, MANCC = @MANCC, NGAYNHAP = @NGAYNHAP, TONGTIEN = @TONGTIEN WHERE MAHDN = @MAHDN";
-                SqlCommand cmd = new SqlCommand(query, cn);
-                cmd.Parameters.AddWithValue("@MAHDN", maHDN);
-                cmd.Parameters.AddWithValue("@MANV", maNV);
-                cmd.Parameters.AddWithValue("@MANCC", maNCC);
-                cmd.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
-                cmd.Parameters.AddWithValue("@TONGTIEN", tongTien);
-
                 if (cn.State != ConnectionState.Open)
                 {
                     db.openConnect();
                 }
 
-                cmd.ExecuteNonQuery();
+
+                // Cập nhật hóa đơn nhập
+                using (SqlCommand cmdUpdate = new SqlCommand("NVKH_UpdateHoaDonNhap", cn))
+                {
+                    cmdUpdate.CommandType = CommandType.StoredProcedure;
+                    cmdUpdate.Parameters.AddWithValue("@MAHDN", maHDN);
+                    cmdUpdate.Parameters.AddWithValue("@MANV", maNV);
+                    cmdUpdate.Parameters.AddWithValue("@MANCC", maNCC);
+                    cmdUpdate.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
+                    cmdUpdate.Parameters.AddWithValue("@TONGTIEN", tongTien);
+                    cmdUpdate.ExecuteNonQuery();
+                }         
+
 
                 // Cập nhật chi tiết hóa đơn nhập
-                string queryCTHDN = "UPDATE CTHOADONNHAP SET MASANPHAM = @MASANPHAM, SOLUONG = @SOLUONG, DONGIA = @DONGIA WHERE MAHDN = @MAHDN";
-                SqlCommand cmdCTHDN = new SqlCommand(queryCTHDN, cn);
-                cmdCTHDN.Parameters.AddWithValue("@MAHDN", maHDN);
-                cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);
-                cmdCTHDN.Parameters.AddWithValue("@SOLUONG", soLuong);
-                cmdCTHDN.Parameters.AddWithValue("@DONGIA", donGia);
-
-                cmdCTHDN.ExecuteNonQuery();
+                using (SqlCommand cmdUpdateCT = new SqlCommand("NVKH_UpdateCTHoaDonNhap", cn))
+                {
+                    cmdUpdateCT.CommandType = CommandType.StoredProcedure;
+                    cmdUpdateCT.Parameters.AddWithValue("@MAHDN", maHDN);
+                    cmdUpdateCT.Parameters.AddWithValue("@MASANPHAM", maSP);
+                    cmdUpdateCT.Parameters.AddWithValue("@SOLUONG", soLuong);
+                    cmdUpdateCT.Parameters.AddWithValue("@DONGIA", donGia);
+                    cmdUpdateCT.ExecuteNonQuery();
+                }
 
                 db.closeConnect();
 
@@ -529,8 +513,8 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
 
         private void txt_MaHDN_TextChanged(object sender, EventArgs e)
         {
-            string query = "SELECT COUNT(*) FROM HOADONNHAP WHERE MAHDN = '" + txt_MaHDN.Text + "'";
-            int count = db.getCount(query);
+            SqlParameter[] parameters = { new SqlParameter("@MAHDN", txt_MaHDN.Text) };
+            int count = db.getCount("NVKH_CheckHoaDonNhapExists", parameters);
             if (count == 0)
             {
                 pic_AddHDN.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\Cong Nghe Dot Net\Project\Icon\yes.png";
