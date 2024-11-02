@@ -519,11 +519,11 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             int count = db.getCount("NVKH_CheckHoaDonXuatExistence", parameters);
             if (count == 0)
             {
-                pic_AddHDX.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\Cong Nghe Dot Net\Project\Icon\yes.png";
+                pic_AddHDX.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "yes.png");
             }
             else
             {
-                pic_AddHDX.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\Cong Nghe Dot Net\Project\Icon\no.png";
+                pic_AddHDX.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "no.png");
             }
         }
 

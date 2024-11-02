@@ -88,6 +88,7 @@
             this.txt_TongTien.Location = new System.Drawing.Point(849, 609);
             this.txt_TongTien.Multiline = true;
             this.txt_TongTien.Name = "txt_TongTien";
+            this.txt_TongTien.ReadOnly = true;
             this.txt_TongTien.Size = new System.Drawing.Size(369, 48);
             this.txt_TongTien.TabIndex = 105;
             // 
@@ -256,6 +257,7 @@
             this.dgv_HoaDonXuat.GridColor = System.Drawing.Color.White;
             this.dgv_HoaDonXuat.Location = new System.Drawing.Point(6, 683);
             this.dgv_HoaDonXuat.Name = "dgv_HoaDonXuat";
+            this.dgv_HoaDonXuat.RowHeadersWidth = 51;
             this.dgv_HoaDonXuat.RowTemplate.Height = 24;
             this.dgv_HoaDonXuat.Size = new System.Drawing.Size(1654, 298);
             this.dgv_HoaDonXuat.TabIndex = 87;

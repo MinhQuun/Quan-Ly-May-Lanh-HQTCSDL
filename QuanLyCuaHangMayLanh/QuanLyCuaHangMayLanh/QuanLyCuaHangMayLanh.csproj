@@ -315,9 +315,80 @@
   <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-warehouse-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Air Conditioning free icons designed by Smashicons1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\air-conditioner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-air-conditioner-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-air-conditioner-941.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-modify-302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplies-1281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-warehouse-801.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-out1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sync %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updated1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewUser %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewUser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

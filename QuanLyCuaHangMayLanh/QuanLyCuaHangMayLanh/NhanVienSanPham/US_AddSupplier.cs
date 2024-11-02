@@ -120,11 +120,11 @@ namespace QuanLyCuaHangMayLanh.User
                 // Cập nhật hình ảnh dựa trên kết quả
                 if (count == 0)
                 {
-                    pic_AddSupplier.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Icon\yes.png";
+                    pic_AddSupplier.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "yes.png");
                 }
                 else
                 {
-                    pic_AddSupplier.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Icon\no.png";
+                    pic_AddSupplier.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "no.png");
                 }
             }
             catch (Exception ex)

@@ -28,19 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Reload = new System.Windows.Forms.Button();
-            this.btn_AddHDN = new System.Windows.Forms.Button();
-            this.btn_UpdateHDN = new System.Windows.Forms.Button();
             this.dgv_HoaDonNhap = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_SL = new System.Windows.Forms.TextBox();
-            this.pic_AddHDN = new System.Windows.Forms.PictureBox();
             this.txt_MaHDN = new System.Windows.Forms.TextBox();
             this.lbl_SoLuong = new System.Windows.Forms.Label();
             this.lbl_NV = new System.Windows.Forms.Label();
@@ -56,33 +49,17 @@
             this.lbl_TongTien = new System.Windows.Forms.Label();
             this.cbo_NV = new System.Windows.Forms.ComboBox();
             this.cbo_SP = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pic_AddHDN = new System.Windows.Forms.PictureBox();
+            this.btn_UpdateHDN = new System.Windows.Forms.Button();
+            this.btn_Reload = new System.Windows.Forms.Button();
+            this.btn_AddHDN = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDonNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AddHDN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.BackColor = System.Drawing.Color.White;
-            this.btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Update.ForeColor = System.Drawing.Color.White;
-            this.btn_Update.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync__1_1;
-            this.btn_Update.Location = new System.Drawing.Point(320, 20);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(55, 51);
-            this.btn_Update.TabIndex = 39;
-            this.btn_Update.UseVisualStyleBackColor = false;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync;
-            this.pictureBox1.Location = new System.Drawing.Point(297, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 40;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -94,66 +71,6 @@
             this.label1.TabIndex = 38;
             this.label1.Text = "Hóa Đơn Nhập";
             // 
-            // btn_Delete
-            // 
-            this.btn_Delete.BackColor = System.Drawing.Color.Red;
-            this.btn_Delete.Font = new System.Drawing.Font("Century", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.ForeColor = System.Drawing.Color.White;
-            this.btn_Delete.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.delete;
-            this.btn_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Delete.Location = new System.Drawing.Point(1495, 969);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(162, 54);
-            this.btn_Delete.TabIndex = 42;
-            this.btn_Delete.Text = "Xóa";
-            this.btn_Delete.UseVisualStyleBackColor = false;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            // 
-            // btn_Reload
-            // 
-            this.btn_Reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.btn_Reload.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Reload.ForeColor = System.Drawing.Color.White;
-            this.btn_Reload.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.reset;
-            this.btn_Reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Reload.Location = new System.Drawing.Point(1273, 969);
-            this.btn_Reload.Name = "btn_Reload";
-            this.btn_Reload.Size = new System.Drawing.Size(171, 49);
-            this.btn_Reload.TabIndex = 44;
-            this.btn_Reload.Text = "Tải lại";
-            this.btn_Reload.UseVisualStyleBackColor = false;
-            this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
-            // 
-            // btn_AddHDN
-            // 
-            this.btn_AddHDN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.btn_AddHDN.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddHDN.ForeColor = System.Drawing.Color.White;
-            this.btn_AddHDN.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.add;
-            this.btn_AddHDN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddHDN.Location = new System.Drawing.Point(829, 969);
-            this.btn_AddHDN.Name = "btn_AddHDN";
-            this.btn_AddHDN.Size = new System.Drawing.Size(171, 49);
-            this.btn_AddHDN.TabIndex = 43;
-            this.btn_AddHDN.Text = "Thêm";
-            this.btn_AddHDN.UseVisualStyleBackColor = false;
-            this.btn_AddHDN.Click += new System.EventHandler(this.btn_AddHDN_Click);
-            // 
-            // btn_UpdateHDN
-            // 
-            this.btn_UpdateHDN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.btn_UpdateHDN.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_UpdateHDN.ForeColor = System.Drawing.Color.White;
-            this.btn_UpdateHDN.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.updated;
-            this.btn_UpdateHDN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_UpdateHDN.Location = new System.Drawing.Point(1051, 969);
-            this.btn_UpdateHDN.Name = "btn_UpdateHDN";
-            this.btn_UpdateHDN.Size = new System.Drawing.Size(171, 49);
-            this.btn_UpdateHDN.TabIndex = 54;
-            this.btn_UpdateHDN.Text = "Cập nhật";
-            this.btn_UpdateHDN.UseVisualStyleBackColor = false;
-            this.btn_UpdateHDN.Click += new System.EventHandler(this.btn_UpdateHDN_Click);
-            // 
             // dgv_HoaDonNhap
             // 
             this.dgv_HoaDonNhap.BackgroundColor = System.Drawing.Color.White;
@@ -161,6 +78,7 @@
             this.dgv_HoaDonNhap.GridColor = System.Drawing.Color.White;
             this.dgv_HoaDonNhap.Location = new System.Drawing.Point(3, 647);
             this.dgv_HoaDonNhap.Name = "dgv_HoaDonNhap";
+            this.dgv_HoaDonNhap.RowHeadersWidth = 51;
             this.dgv_HoaDonNhap.RowTemplate.Height = 24;
             this.dgv_HoaDonNhap.Size = new System.Drawing.Size(1654, 298);
             this.dgv_HoaDonNhap.TabIndex = 55;
@@ -205,15 +123,6 @@
             this.txt_SL.Name = "txt_SL";
             this.txt_SL.Size = new System.Drawing.Size(369, 48);
             this.txt_SL.TabIndex = 66;
-            // 
-            // pic_AddHDN
-            // 
-            this.pic_AddHDN.Location = new System.Drawing.Point(504, 174);
-            this.pic_AddHDN.Name = "pic_AddHDN";
-            this.pic_AddHDN.Size = new System.Drawing.Size(74, 48);
-            this.pic_AddHDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_AddHDN.TabIndex = 64;
-            this.pic_AddHDN.TabStop = false;
             // 
             // txt_MaHDN
             // 
@@ -331,6 +240,7 @@
             this.txt_TongTien.Location = new System.Drawing.Point(862, 587);
             this.txt_TongTien.Multiline = true;
             this.txt_TongTien.Name = "txt_TongTien";
+            this.txt_TongTien.ReadOnly = true;
             this.txt_TongTien.Size = new System.Drawing.Size(369, 48);
             this.txt_TongTien.TabIndex = 77;
             // 
@@ -363,6 +273,98 @@
             this.cbo_SP.Name = "cbo_SP";
             this.cbo_SP.Size = new System.Drawing.Size(541, 39);
             this.cbo_SP.TabIndex = 79;
+            // 
+            // pic_AddHDN
+            // 
+            this.pic_AddHDN.Location = new System.Drawing.Point(504, 174);
+            this.pic_AddHDN.Name = "pic_AddHDN";
+            this.pic_AddHDN.Size = new System.Drawing.Size(74, 48);
+            this.pic_AddHDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_AddHDN.TabIndex = 64;
+            this.pic_AddHDN.TabStop = false;
+            // 
+            // btn_UpdateHDN
+            // 
+            this.btn_UpdateHDN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.btn_UpdateHDN.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UpdateHDN.ForeColor = System.Drawing.Color.White;
+            this.btn_UpdateHDN.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.updated;
+            this.btn_UpdateHDN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_UpdateHDN.Location = new System.Drawing.Point(1051, 969);
+            this.btn_UpdateHDN.Name = "btn_UpdateHDN";
+            this.btn_UpdateHDN.Size = new System.Drawing.Size(171, 49);
+            this.btn_UpdateHDN.TabIndex = 54;
+            this.btn_UpdateHDN.Text = "Cập nhật";
+            this.btn_UpdateHDN.UseVisualStyleBackColor = false;
+            this.btn_UpdateHDN.Click += new System.EventHandler(this.btn_UpdateHDN_Click);
+            // 
+            // btn_Reload
+            // 
+            this.btn_Reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.btn_Reload.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Reload.ForeColor = System.Drawing.Color.White;
+            this.btn_Reload.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.reset;
+            this.btn_Reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Reload.Location = new System.Drawing.Point(1273, 969);
+            this.btn_Reload.Name = "btn_Reload";
+            this.btn_Reload.Size = new System.Drawing.Size(171, 49);
+            this.btn_Reload.TabIndex = 44;
+            this.btn_Reload.Text = "Tải lại";
+            this.btn_Reload.UseVisualStyleBackColor = false;
+            this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
+            // 
+            // btn_AddHDN
+            // 
+            this.btn_AddHDN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.btn_AddHDN.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddHDN.ForeColor = System.Drawing.Color.White;
+            this.btn_AddHDN.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.add;
+            this.btn_AddHDN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddHDN.Location = new System.Drawing.Point(829, 969);
+            this.btn_AddHDN.Name = "btn_AddHDN";
+            this.btn_AddHDN.Size = new System.Drawing.Size(171, 49);
+            this.btn_AddHDN.TabIndex = 43;
+            this.btn_AddHDN.Text = "Thêm";
+            this.btn_AddHDN.UseVisualStyleBackColor = false;
+            this.btn_AddHDN.Click += new System.EventHandler(this.btn_AddHDN_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.BackColor = System.Drawing.Color.Red;
+            this.btn_Delete.Font = new System.Drawing.Font("Century", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.ForeColor = System.Drawing.Color.White;
+            this.btn_Delete.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.delete;
+            this.btn_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Delete.Location = new System.Drawing.Point(1495, 969);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(162, 54);
+            this.btn_Delete.TabIndex = 42;
+            this.btn_Delete.Text = "Xóa";
+            this.btn_Delete.UseVisualStyleBackColor = false;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.BackColor = System.Drawing.Color.White;
+            this.btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Update.ForeColor = System.Drawing.Color.White;
+            this.btn_Update.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync__1_1;
+            this.btn_Update.Location = new System.Drawing.Point(320, 20);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(55, 51);
+            this.btn_Update.TabIndex = 39;
+            this.btn_Update.UseVisualStyleBackColor = false;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync;
+            this.pictureBox1.Location = new System.Drawing.Point(297, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 40;
+            this.pictureBox1.TabStop = false;
             // 
             // NVKH_HoaDonNhap
             // 
@@ -399,9 +401,9 @@
             this.Name = "NVKH_HoaDonNhap";
             this.Size = new System.Drawing.Size(1667, 1102);
             this.Load += new System.EventHandler(this.NVKH_HoaDonNhap_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDonNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AddHDN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

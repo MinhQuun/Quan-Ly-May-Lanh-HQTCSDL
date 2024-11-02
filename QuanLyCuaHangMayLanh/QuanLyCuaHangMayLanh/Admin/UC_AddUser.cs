@@ -161,11 +161,11 @@ namespace QuanLyCuaHangMayLanh.Admin
                 int count = db.getCount("Admin_CheckUsernameExists", parameters);
                 if (count == 0)
                 {
-                    pic_AddUser.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Icon\yes.png";
+                    pic_AddUser.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "yes.png");
                 }
                 else
                 {
-                    pic_AddUser.ImageLocation = @"E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Icon\no.png";
+                    pic_AddUser.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "yes.png");
                 }
             }
             catch (Exception ex)
