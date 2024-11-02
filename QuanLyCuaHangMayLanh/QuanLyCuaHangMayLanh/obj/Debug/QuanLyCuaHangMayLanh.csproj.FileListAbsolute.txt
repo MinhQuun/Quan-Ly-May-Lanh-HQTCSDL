@@ -28,3 +28,33 @@ E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\QL_MAYLANH\Q
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\QL_MAYLANH\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CopyComplete
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\QL_MAYLANH\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.exe
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\QL_MAYLANH\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.pdb
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.exe.config
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.exe
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.pdb
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.dll
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.pdb
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_AddUser.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_DashBoard.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Profile.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_ViewUser.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_Login.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_Admin.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_NhanVienKhoHang.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_NhanVienSanPham.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_DashBoard.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_HoaDonNhap.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_HoaDonXuat.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Properties.Resources.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_AddProduct.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_AddSupplier.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_DashBoard.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_UpdateProduct.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_UpdateSupplier.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_ViewProduct.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_ViewSupplier.resources
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.GenerateResource.cache
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.exe
+C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.pdb

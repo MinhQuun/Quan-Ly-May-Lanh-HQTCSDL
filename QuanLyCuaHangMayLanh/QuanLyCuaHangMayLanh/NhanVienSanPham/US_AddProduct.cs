@@ -64,8 +64,8 @@ namespace QuanLyCuaHangMayLanh.User
 
                 // Gán dữ liệu cho ComboBox
                 cbo_MaNCC.DataSource = dtNCC;
-                cbo_MaNCC.DisplayMember = "MANCC";    // Giá trị hiển thị mã
-                cbo_MaNCC.ValueMember = "TENNCC";     // Giá trị là tên
+                //cbo_MaNCC.DisplayMember = "TENNCC";    // Giá trị hiển thị mã
+                cbo_MaNCC.ValueMember = "MANCC";     // Giá trị là tên
             }
             catch (Exception ex)
             {

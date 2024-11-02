@@ -44,7 +44,7 @@
             this.lbl_MaSP = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_UpdateProduct = new System.Windows.Forms.Button();
-            this.txt_MaNCC = new System.Windows.Forms.TextBox();
+            this.cbo_MaNCC = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -219,21 +219,21 @@
             this.btn_UpdateProduct.UseVisualStyleBackColor = false;
             this.btn_UpdateProduct.Click += new System.EventHandler(this.btn_UpdateProduct_Click);
             // 
-            // txt_MaNCC
+            // cbo_MaNCC
             // 
-            this.txt_MaNCC.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_MaNCC.ForeColor = System.Drawing.Color.Black;
-            this.txt_MaNCC.Location = new System.Drawing.Point(949, 503);
-            this.txt_MaNCC.Multiline = true;
-            this.txt_MaNCC.Name = "txt_MaNCC";
-            this.txt_MaNCC.Size = new System.Drawing.Size(369, 48);
-            this.txt_MaNCC.TabIndex = 54;
+            this.cbo_MaNCC.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbo_MaNCC.ForeColor = System.Drawing.Color.Black;
+            this.cbo_MaNCC.FormattingEnabled = true;
+            this.cbo_MaNCC.Location = new System.Drawing.Point(949, 504);
+            this.cbo_MaNCC.Name = "cbo_MaNCC";
+            this.cbo_MaNCC.Size = new System.Drawing.Size(369, 39);
+            this.cbo_MaNCC.TabIndex = 54;
             // 
             // US_UpdateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txt_MaNCC);
+            this.Controls.Add(this.cbo_MaNCC);
             this.Controls.Add(this.btn_UpdateProduct);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txt_SL);
@@ -275,6 +275,6 @@
         private System.Windows.Forms.Label lbl_MaSP;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.Button btn_UpdateProduct;
-        private System.Windows.Forms.TextBox txt_MaNCC;
+        private System.Windows.Forms.ComboBox cbo_MaNCC;
     }
 }

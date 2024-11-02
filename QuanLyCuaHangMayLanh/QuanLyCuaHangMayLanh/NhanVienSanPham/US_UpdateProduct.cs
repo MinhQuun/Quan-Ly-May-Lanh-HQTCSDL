@@ -28,6 +28,7 @@ namespace QuanLyCuaHangMayLanh.User
             {
                 try
                 {
+                    Load_Combobox_MaNCC();
                     string query = "NVSP_SearchProductByID";
                     SqlParameter[] parameters = new SqlParameter[]
                     {
@@ -44,7 +45,7 @@ namespace QuanLyCuaHangMayLanh.User
                         txt_SL.Text = dt.Rows[0]["SOLUONG"].ToString();
                         txt_DonGiaNhap.Text = dt.Rows[0]["DONGIANHAP"].ToString();
                         txt_DonGiaBan.Text = dt.Rows[0]["DONGIABAN"].ToString();
-                        txt_MaNCC.Text = dt.Rows[0]["MANCC"].ToString(); // Gán giá trị cho combobox Mã Nhà Cung Cấp
+                        cbo_MaNCC.Text = dt.Rows[0]["MANCC"].ToString(); // Gán giá trị cho combobox Mã Nhà Cung Cấp
                     }
                     else
                     {
@@ -62,7 +63,23 @@ namespace QuanLyCuaHangMayLanh.User
                 MessageBox.Show("Vui lòng nhập mã sản phẩm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        public void Load_Combobox_MaNCC()
+        {
 
+            try
+            {
+                DataTable dtNCC = db.getDataTable("NVSP_GetAllSuppliers", "NHACUNGCAP");
+
+                // Gán dữ liệu cho ComboBox
+                cbo_MaNCC.DataSource = dtNCC;
+                //cbo_MaNCC.DisplayMember = "TENNCC";    // Giá trị hiển thị mã
+                cbo_MaNCC.ValueMember = "MANCC";     // Giá trị là tên
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu vai trò: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         public void ClearAll()
         {
             txt_MaSP.Clear();
@@ -70,7 +87,6 @@ namespace QuanLyCuaHangMayLanh.User
             txt_SL.Clear();
             txt_DonGiaNhap.Clear();
             txt_DonGiaBan.Clear();
-            txt_MaNCC.Clear();
         }
 
         private void btn_UpdateProduct_Click(object sender, EventArgs e)
@@ -79,7 +95,7 @@ namespace QuanLyCuaHangMayLanh.User
             string tenSP = txt_TenSP.Text;
             int soLuong;
             decimal donGiaNhap, donGiaBan;
-            string maNCC = txt_MaNCC.Text;
+            string maNCC = cbo_MaNCC.Text;
 
             if (string.IsNullOrEmpty(maSP) || string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(maNCC) ||
                 !int.TryParse(txt_SL.Text, out soLuong) ||
