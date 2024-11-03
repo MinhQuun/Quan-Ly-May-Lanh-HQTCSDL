@@ -260,8 +260,9 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                     cmdHDN.Parameters.AddWithValue("@MAHDN", maHDN);
                     cmdHDN.Parameters.AddWithValue("@MANV", maNV);
                     cmdHDN.Parameters.AddWithValue("@MANCC", maNCC);
-                    cmdHDN.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
                     cmdHDN.Parameters.AddWithValue("@TONGTIEN", tongTien);
+                    cmdHDN.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
+                    
                     cmdHDN.ExecuteNonQuery();
                 }
 
@@ -479,8 +480,9 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                     cmdUpdate.Parameters.AddWithValue("@MAHDN", maHDN);
                     cmdUpdate.Parameters.AddWithValue("@MANV", maNV);
                     cmdUpdate.Parameters.AddWithValue("@MANCC", maNCC);
-                    cmdUpdate.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
                     cmdUpdate.Parameters.AddWithValue("@TONGTIEN", tongTien);
+                    cmdUpdate.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
+                    
                     cmdUpdate.ExecuteNonQuery();
                 }         
 

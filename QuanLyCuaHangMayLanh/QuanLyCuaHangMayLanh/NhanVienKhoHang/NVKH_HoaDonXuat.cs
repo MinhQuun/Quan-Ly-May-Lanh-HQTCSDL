@@ -478,10 +478,10 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 {
                     cmdHDX.CommandType = CommandType.StoredProcedure;
                     cmdHDX.Parameters.AddWithValue("@MAHDX", maHDX);
-                    cmdHDX.Parameters.AddWithValue("@MANV", maNV);
                     cmdHDX.Parameters.AddWithValue("@MAKH", maKH);
-                    cmdHDX.Parameters.AddWithValue("@NGAY", ngayXuat);
+                    cmdHDX.Parameters.AddWithValue("@MANV", maNV);
                     cmdHDX.Parameters.AddWithValue("@TONGTIEN", tongTien);
+                    cmdHDX.Parameters.AddWithValue("@NGAY", ngayXuat);
 
                     cmdHDX.ExecuteNonQuery();
                 }
