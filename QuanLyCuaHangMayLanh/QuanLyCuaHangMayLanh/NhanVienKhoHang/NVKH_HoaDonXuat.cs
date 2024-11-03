@@ -255,6 +255,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 // Thêm hóa đơn xuất
                 using (SqlCommand cmdHDN = new SqlCommand("NVKH_AddHoaDonXuat", cn))
                 {
+                    cmdHDN.CommandType = CommandType.StoredProcedure;
                     cmdHDN.Parameters.AddWithValue("@MAHDX", maHDX);
                     cmdHDN.Parameters.AddWithValue("@MAKH", maKH);
                     cmdHDN.Parameters.AddWithValue("@MANV", maNV);
@@ -267,6 +268,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 // Thêm chi tiết hóa đơn xuất
                 using (SqlCommand cmdCTHDN = new SqlCommand("NVKH_AddChiTietHoaDonXuat", cn))
                 {
+                    cmdCTHDN.CommandType = CommandType.StoredProcedure;
                     cmdCTHDN.Parameters.AddWithValue("@MACTHDX", "CT" + maHDX);
                     cmdCTHDN.Parameters.AddWithValue("@MAHDX", maHDX);
                     cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);

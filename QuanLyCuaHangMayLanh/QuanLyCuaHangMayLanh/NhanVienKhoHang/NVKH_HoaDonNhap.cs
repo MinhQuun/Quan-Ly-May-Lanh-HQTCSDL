@@ -254,28 +254,28 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 }
 
                 // Thêm hóa đơn nhập
-                using (SqlCommand cmdHDN = new SqlCommand("NVKH_AddHoaDonNhap", cn))
+                using (SqlCommand cmdHDX = new SqlCommand("NVKH_AddHoaDonNhap", cn))
                 {
-                    cmdHDN.CommandType = CommandType.StoredProcedure;
-                    cmdHDN.Parameters.AddWithValue("@MAHDN", maHDN);
-                    cmdHDN.Parameters.AddWithValue("@MANV", maNV);
-                    cmdHDN.Parameters.AddWithValue("@MANCC", maNCC);
-                    cmdHDN.Parameters.AddWithValue("@TONGTIEN", tongTien);
-                    cmdHDN.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
+                    cmdHDX.CommandType = CommandType.StoredProcedure;
+                    cmdHDX.Parameters.AddWithValue("@MAHDN", maHDN);
+                    cmdHDX.Parameters.AddWithValue("@MANV", maNV);
+                    cmdHDX.Parameters.AddWithValue("@MANCC", maNCC);
+                    cmdHDX.Parameters.AddWithValue("@TONGTIEN", tongTien);
+                    cmdHDX.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
                     
-                    cmdHDN.ExecuteNonQuery();
+                    cmdHDX.ExecuteNonQuery();
                 }
 
                 // Thêm chi tiết hóa đơn nhập
-                using (SqlCommand cmdCTHDN = new SqlCommand("NVKH_AddCTHoaDonNhap", cn))
+                using (SqlCommand cmdCTHDX = new SqlCommand("NVKH_AddCTHoaDonNhap", cn))
                 {
-                    cmdCTHDN.CommandType = CommandType.StoredProcedure;
-                    cmdCTHDN.Parameters.AddWithValue("@MACTHDN", "CT" + maHDN);
-                    cmdCTHDN.Parameters.AddWithValue("@MAHDN", maHDN);
-                    cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);
-                    cmdCTHDN.Parameters.AddWithValue("@SOLUONG", soLuong);
-                    cmdCTHDN.Parameters.AddWithValue("@DONGIA", donGia);
-                    cmdCTHDN.ExecuteNonQuery();
+                    cmdCTHDX.CommandType = CommandType.StoredProcedure;
+                    cmdCTHDX.Parameters.AddWithValue("@MACTHDN", "CT" + maHDN);
+                    cmdCTHDX.Parameters.AddWithValue("@MAHDN", maHDN);
+                    cmdCTHDX.Parameters.AddWithValue("@MASANPHAM", maSP);
+                    cmdCTHDX.Parameters.AddWithValue("@SOLUONG", soLuong);
+                    cmdCTHDX.Parameters.AddWithValue("@DONGIA", donGia);
+                    cmdCTHDX.ExecuteNonQuery();
                 }
 
                 db.closeConnect();
