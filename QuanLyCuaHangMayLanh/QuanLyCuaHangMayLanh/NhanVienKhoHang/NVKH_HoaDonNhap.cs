@@ -454,7 +454,11 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             int soLuong;
             decimal donGia;
             decimal tongTien;
-
+            if (!db.checkExist("HOADONNHAP", "MAHDN", maHDN))
+            {
+                MessageBox.Show(string.Format("Mã hóa đơn {0} không tồn tại!", maHDN), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!int.TryParse(txt_SL.Text, out soLuong) || !decimal.TryParse(txt_DonGiaBan.Text, out donGia))
             {
                 MessageBox.Show("Vui lòng nhập đúng giá trị cho Số lượng và Đơn giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

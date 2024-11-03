@@ -71,6 +71,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             Load_Combobox_SanPham();
 
             Load_DataGridView();
+           
 
             if (dgv_HoaDonXuat.Columns.Count > 0)
             {
@@ -458,7 +459,11 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             int soLuong;
             decimal donGia;
             decimal tongTien;
-
+            if (!db.checkExist("HOADONXUAT", "MAHDX", maHDX))
+            {
+                MessageBox.Show(string.Format("Mã hóa đơn {0} không tồn tại!", maHDX), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!int.TryParse(txt_SL.Text, out soLuong) || !decimal.TryParse(txt_DonGiaBan.Text, out donGia))
             {
                 MessageBox.Show("Vui lòng nhập đúng giá trị cho Số lượng và Đơn giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
