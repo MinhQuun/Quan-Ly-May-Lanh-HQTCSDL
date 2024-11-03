@@ -165,7 +165,7 @@ namespace QuanLyCuaHangMayLanh.Admin
                 }
                 else
                 {
-                    pic_AddUser.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "yes.png");
+                    pic_AddUser.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "no.png");
                 }
             }
             catch (Exception ex)

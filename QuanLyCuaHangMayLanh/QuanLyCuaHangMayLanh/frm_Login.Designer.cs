@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_Error = new System.Windows.Forms.Label();
+            this.btn_Reload = new System.Windows.Forms.Button();
+            this.btn_SignIn = new System.Windows.Forms.Button();
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.txt_UserName = new System.Windows.Forms.TextBox();
             this.lbl_Login = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.btn_Reload = new System.Windows.Forms.Button();
-            this.btn_SignIn = new System.Windows.Forms.Button();
+            this.lbl_Error = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,9 +44,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lbl_Error);
             this.panel1.Controls.Add(this.btn_Reload);
             this.panel1.Controls.Add(this.btn_SignIn);
-            this.panel1.Controls.Add(this.lbl_Error);
             this.panel1.Controls.Add(this.txt_Password);
             this.panel1.Controls.Add(this.txt_UserName);
             this.panel1.Controls.Add(this.lbl_Login);
@@ -57,16 +57,34 @@
             this.panel1.Size = new System.Drawing.Size(1112, 550);
             this.panel1.TabIndex = 0;
             // 
-            // lbl_Error
+            // btn_Reload
             // 
-            this.lbl_Error.AutoSize = true;
-            this.lbl_Error.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Error.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Error.Location = new System.Drawing.Point(670, 443);
-            this.lbl_Error.Name = "lbl_Error";
-            this.lbl_Error.Size = new System.Drawing.Size(345, 29);
-            this.lbl_Error.TabIndex = 6;
-            this.lbl_Error.Text = "Tên đăng nhập hoặc mật khẩu sai";
+            this.btn_Reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.btn_Reload.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Reload.ForeColor = System.Drawing.Color.White;
+            this.btn_Reload.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.reset;
+            this.btn_Reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Reload.Location = new System.Drawing.Point(872, 344);
+            this.btn_Reload.Name = "btn_Reload";
+            this.btn_Reload.Size = new System.Drawing.Size(171, 49);
+            this.btn_Reload.TabIndex = 17;
+            this.btn_Reload.Text = "Tải lại";
+            this.btn_Reload.UseVisualStyleBackColor = false;
+            // 
+            // btn_SignIn
+            // 
+            this.btn_SignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.btn_SignIn.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SignIn.ForeColor = System.Drawing.Color.White;
+            this.btn_SignIn.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.add_friend;
+            this.btn_SignIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_SignIn.Location = new System.Drawing.Point(628, 344);
+            this.btn_SignIn.Name = "btn_SignIn";
+            this.btn_SignIn.Size = new System.Drawing.Size(171, 49);
+            this.btn_SignIn.TabIndex = 16;
+            this.btn_SignIn.Text = "Đăng nhập";
+            this.btn_SignIn.UseVisualStyleBackColor = false;
+            this.btn_SignIn.Click += new System.EventHandler(this.btn_SignIn_Click);
             // 
             // txt_Password
             // 
@@ -118,34 +136,13 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // btn_Reload
+            // lbl_Error
             // 
-            this.btn_Reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.btn_Reload.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Reload.ForeColor = System.Drawing.Color.White;
-            this.btn_Reload.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.reset;
-            this.btn_Reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Reload.Location = new System.Drawing.Point(872, 344);
-            this.btn_Reload.Name = "btn_Reload";
-            this.btn_Reload.Size = new System.Drawing.Size(171, 49);
-            this.btn_Reload.TabIndex = 17;
-            this.btn_Reload.Text = "Tải lại";
-            this.btn_Reload.UseVisualStyleBackColor = false;
-            // 
-            // btn_SignIn
-            // 
-            this.btn_SignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.btn_SignIn.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SignIn.ForeColor = System.Drawing.Color.White;
-            this.btn_SignIn.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.add_friend;
-            this.btn_SignIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_SignIn.Location = new System.Drawing.Point(628, 344);
-            this.btn_SignIn.Name = "btn_SignIn";
-            this.btn_SignIn.Size = new System.Drawing.Size(171, 49);
-            this.btn_SignIn.TabIndex = 16;
-            this.btn_SignIn.Text = "Đăng nhập";
-            this.btn_SignIn.UseVisualStyleBackColor = false;
-            this.btn_SignIn.Click += new System.EventHandler(this.btn_SignIn_Click);
+            this.lbl_Error.AutoSize = true;
+            this.lbl_Error.Location = new System.Drawing.Point(665, 459);
+            this.lbl_Error.Name = "lbl_Error";
+            this.lbl_Error.Size = new System.Drawing.Size(0, 17);
+            this.lbl_Error.TabIndex = 18;
             // 
             // frm_Login
             // 
@@ -174,9 +171,9 @@
         private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.TextBox txt_UserName;
         private System.Windows.Forms.Label lbl_Login;
-        private System.Windows.Forms.Label lbl_Error;
         private System.Windows.Forms.Button btn_Reload;
         private System.Windows.Forms.Button btn_SignIn;
+        private System.Windows.Forms.Label lbl_Error;
     }
 }
 

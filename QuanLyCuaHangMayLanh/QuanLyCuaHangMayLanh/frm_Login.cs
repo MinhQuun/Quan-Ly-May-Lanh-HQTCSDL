@@ -21,30 +21,37 @@ namespace QuanLyCuaHangMayLanh
             InitializeComponent();
             SetPlaceholder(txt_UserName, "UserName");
             SetPlaceholder(txt_Password, "Password");
+
+            // Thêm hiệu ứng đổ bóng và làm bo góc cho form
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.BackColor = Color.WhiteSmoke;
+            this.Padding = new Padding(10);
+            this.Paint += new PaintEventHandler(Form_Paint);
+        }
+        private void Form_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.LightGray, ButtonBorderStyle.Solid);
         }
         private void SetPlaceholder(TextBox textBox, string placeholderText)
         {
-            // Đặt văn bản mặc định (placeholder) và màu chữ ban đầu
             textBox.Text = placeholderText;
             textBox.ForeColor = Color.Gray;
-
-            // Đặt kích thước và loại phông chữ
-            textBox.Font = new Font("Arial", 14, FontStyle.Italic); // Phông chữ Arial, cỡ chữ 14, kiểu chữ nghiêng cho placeholder
-
-            // Căn chỉnh văn bản ở giữa theo chiều ngang
-            textBox.TextAlign = HorizontalAlignment.Center;
-
-            // Sử dụng multiline để căn chỉnh dọc (tùy chọn nếu cần thiết)
-            textBox.Multiline = true;
+            textBox.Font = new Font("Arial", 14, FontStyle.Italic);
+            textBox.TextAlign = HorizontalAlignment.Left;
+            textBox.BorderStyle = BorderStyle.FixedSingle;
+            textBox.BackColor = Color.White;
 
             textBox.Enter += (sender, e) =>
             {
                 if (textBox.Text == placeholderText)
                 {
                     textBox.Text = "";
-                    textBox.ForeColor = Color.Black; // Màu chữ bình thường
-                    textBox.Font = new Font("Arial", 14, FontStyle.Regular); // Phông chữ Arial, cỡ chữ 14, kiểu chữ thường
-                    textBox.TextAlign = HorizontalAlignment.Left;
+                    textBox.ForeColor = Color.Black;
+                    textBox.Font = new Font("Arial", 14, FontStyle.Regular);
+                    if (textBox == txt_Password)
+                    {
+                        textBox.PasswordChar = '*';
+                    }
                 }
             };
 
@@ -53,8 +60,12 @@ namespace QuanLyCuaHangMayLanh
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     textBox.Text = placeholderText;
-                    textBox.ForeColor = Color.Gray; // Màu chữ nhạt để người dùng biết đây là placeholder
-                    textBox.Font = new Font("Arial", 14, FontStyle.Italic); // Phông chữ Arial, cỡ chữ 14, kiểu chữ nghiêng cho placeholder
+                    textBox.ForeColor = Color.Gray;
+                    textBox.Font = new Font("Arial", 14, FontStyle.Italic);
+                    if (textBox == txt_Password)
+                    {
+                        textBox.PasswordChar = '\0';
+                    }
                 }
             };
         }
@@ -75,6 +86,10 @@ namespace QuanLyCuaHangMayLanh
         {
             try
             {
+                lbl_Error.Text = "Tên đăng nhập hoặc mật khẩu sai";
+                lbl_Error.ForeColor = Color.Red;
+                lbl_Error.Font = new Font("Arial", 10, FontStyle.Bold);
+                lbl_Error.Visible = true;
                 // Bước 1: Kiểm tra nếu không có tài khoản nào trong bảng NGUOIDUNG
                 int count = db.getCount("Login_CountUser");
 
