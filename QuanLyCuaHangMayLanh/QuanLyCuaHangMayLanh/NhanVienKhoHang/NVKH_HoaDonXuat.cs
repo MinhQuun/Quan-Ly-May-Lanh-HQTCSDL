@@ -71,6 +71,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             Load_Combobox_SanPham();
 
             Load_DataGridView();
+           
 
             if (dgv_HoaDonXuat.Columns.Count > 0)
             {
@@ -255,6 +256,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 // Thêm hóa đơn xuất
                 using (SqlCommand cmdHDN = new SqlCommand("NVKH_AddHoaDonXuat", cn))
                 {
+                    cmdHDN.CommandType = CommandType.StoredProcedure;
                     cmdHDN.Parameters.AddWithValue("@MAHDX", maHDX);
                     cmdHDN.Parameters.AddWithValue("@MAKH", maKH);
                     cmdHDN.Parameters.AddWithValue("@MANV", maNV);
@@ -267,6 +269,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 // Thêm chi tiết hóa đơn xuất
                 using (SqlCommand cmdCTHDN = new SqlCommand("NVKH_AddChiTietHoaDonXuat", cn))
                 {
+                    cmdCTHDN.CommandType = CommandType.StoredProcedure;
                     cmdCTHDN.Parameters.AddWithValue("@MACTHDX", "CT" + maHDX);
                     cmdCTHDN.Parameters.AddWithValue("@MAHDX", maHDX);
                     cmdCTHDN.Parameters.AddWithValue("@MASANPHAM", maSP);
@@ -456,7 +459,11 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             int soLuong;
             decimal donGia;
             decimal tongTien;
-
+            if (!db.checkExist("HOADONXUAT", "MAHDX", maHDX))
+            {
+                MessageBox.Show(string.Format("Mã hóa đơn {0} không tồn tại!", maHDX), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!int.TryParse(txt_SL.Text, out soLuong) || !decimal.TryParse(txt_DonGiaBan.Text, out donGia))
             {
                 MessageBox.Show("Vui lòng nhập đúng giá trị cho Số lượng và Đơn giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
