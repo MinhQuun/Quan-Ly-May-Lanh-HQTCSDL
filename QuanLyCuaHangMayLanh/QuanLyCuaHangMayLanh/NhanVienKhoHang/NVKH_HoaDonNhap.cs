@@ -235,7 +235,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 return;
             }
 
-            if (!decimal.TryParse(txt_DonGiaBan.Text, out donGia) || donGia <= 0)
+            if (!decimal.TryParse(txt_DonGiaNhap.Text, out donGia) || donGia <= 0)
             {
                 MessageBox.Show("Vui lòng nhập đơn giá hợp lệ (lớn hơn 0).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -315,7 +315,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             dt_NgayNhap.ResetText();
             cbo_SP.SelectedIndex = -1;
             txt_SL.Clear();
-            txt_DonGiaBan.Clear();
+            txt_DonGiaNhap.Clear();
             txt_TongTien.Clear();
         }
 
@@ -428,10 +428,10 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
 
                     dt_NgayNhap.Value = Convert.ToDateTime(row.Cells["NGAYNHAP"].Value);
                     txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
-                    txt_DonGiaBan.Text = row.Cells["DONGIA"].Value.ToString();
+                    txt_DonGiaNhap.Text = row.Cells["DONGIA"].Value.ToString();
 
                     // Tính lại tổng tiền
-                    decimal donGia = Convert.ToDecimal(txt_DonGiaBan.Text);
+                    decimal donGia = Convert.ToDecimal(txt_DonGiaNhap.Text);
                     int soLuong = Convert.ToInt32(txt_SL.Text);
                     txt_TongTien.Text = (donGia * soLuong).ToString();
                 }
@@ -459,7 +459,7 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 MessageBox.Show(string.Format("Mã hóa đơn {0} không tồn tại!", maHDN), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!int.TryParse(txt_SL.Text, out soLuong) || !decimal.TryParse(txt_DonGiaBan.Text, out donGia))
+            if (!int.TryParse(txt_SL.Text, out soLuong) || !decimal.TryParse(txt_DonGiaNhap.Text, out donGia))
             {
                 MessageBox.Show("Vui lòng nhập đúng giá trị cho Số lượng và Đơn giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -528,6 +528,50 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             else
             {
                 pic_AddHDN.ImageLocation = System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, @"..\..\")), "Resources"), "no.png");
+            }
+        }
+
+        private void cbo_SP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có sản phẩm nào được chọn không
+            if (cbo_SP.SelectedIndex != -1)
+            {
+                string maSP = cbo_SP.SelectedValue.ToString();  // Lấy mã sản phẩm từ ComboBox
+
+                try
+                {
+                    // Mở kết nối tới cơ sở dữ liệu
+                    if (cn.State != ConnectionState.Open)
+                    {
+                        db.openConnect();
+                    }
+
+                    // Sử dụng thủ tục lưu trữ để lấy giá nhập của sản phẩm theo mã sản phẩm
+                    SqlParameter[] parameters = new SqlParameter[]
+                    {
+                new SqlParameter("@MaSP", maSP)
+                    };
+
+                    // Gọi thủ tục lưu trữ "NVKH_LayDonGiaNhapTheoSP" để lấy giá nhập sản phẩm
+                    object result = db.getCount("NVKH_LayDonGiaNhapTheoSP", parameters);
+
+                    // Kiểm tra kết quả và hiển thị giá nhập
+                    if (result != null)
+                    {
+                        decimal giaNhap = Convert.ToDecimal(result);  // Convert kết quả thành decimal
+                        txt_DonGiaNhap.Text = giaNhap.ToString("N0");  // Hiển thị giá nhập vào TextBox, định dạng số
+                    }
+                    else
+                    {
+                        txt_DonGiaNhap.Clear();  // Nếu không tìm thấy giá, xóa TextBox
+                    }
+
+                    db.closeConnect();  // Đóng kết nối
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lấy giá nhập sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

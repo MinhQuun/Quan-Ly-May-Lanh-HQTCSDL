@@ -534,7 +534,48 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             }
         }
 
+        private void cbo_SP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có sản phẩm nào được chọn không
+            if (cbo_SP.SelectedIndex != -1)
+            {
+                string maSP = cbo_SP.SelectedValue.ToString();  // Lấy mã sản phẩm từ ComboBox
 
+                try
+                {
+                    // Mở kết nối tới cơ sở dữ liệu
+                    if (cn.State != ConnectionState.Open)
+                    {
+                        db.openConnect();
+                    }
 
+                    // Sử dụng thủ tục lưu trữ để lấy giá nhập của sản phẩm theo mã sản phẩm
+                    SqlParameter[] parameters = new SqlParameter[]
+                    {
+                new SqlParameter("@MaSP", maSP)
+                    };
+
+                    // Gọi thủ tục lưu trữ "NVKH_LayDonGiaNhapTheoSP" để lấy giá nhập sản phẩm
+                    object result = db.getCount("NVKH_LayDonGiaBanTheoSP", parameters);
+
+                    // Kiểm tra kết quả và hiển thị giá nhập
+                    if (result != null)
+                    {
+                        decimal giaBan = Convert.ToDecimal(result);  // Convert kết quả thành decimal
+                        txt_DonGiaBan.Text = giaBan.ToString("N0");  // Hiển thị giá nhập vào TextBox, định dạng số
+                    }
+                    else
+                    {
+                        txt_DonGiaBan.Clear();  // Nếu không tìm thấy giá, xóa TextBox
+                    }
+
+                    db.closeConnect();  // Đóng kết nối
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lấy giá nhập sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

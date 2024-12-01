@@ -135,6 +135,16 @@ BEGIN
 END;
 GO
 
+--8: Lấy đơn giá nhập theo sản phẩm tương ứng
+CREATE PROCEDURE NVKH_LayDonGiaNhapTheoSP
+    @MaSP  NVARCHAR(255)
+AS
+BEGIN
+    SELECT DONGIANHAP 
+    FROM SANPHAM 
+    WHERE MASANPHAM = @MaSP
+END;
+
 
 
 --HOA DON XUAT
@@ -259,4 +269,14 @@ BEGIN
     SELECT COUNT(*) AS CountResult FROM HOADONXUAT WHERE MAHDX = @MAHDX;
 END;
 GO
+
+--8: Lấy đơn giá bán theo sản phẩm tương ứng
+CREATE PROCEDURE NVKH_LayDonGiaBanTheoSP
+    @MaSP  NVARCHAR(255)
+AS
+BEGIN
+    SELECT DONGIABAN
+    FROM SANPHAM 
+    WHERE MASANPHAM = @MaSP
+END;
 

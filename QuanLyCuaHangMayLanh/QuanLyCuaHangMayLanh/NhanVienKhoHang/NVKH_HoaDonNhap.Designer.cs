@@ -38,10 +38,10 @@
             this.lbl_SoLuong = new System.Windows.Forms.Label();
             this.lbl_NV = new System.Windows.Forms.Label();
             this.lbl_MaHDN = new System.Windows.Forms.Label();
-            this.txt_DonGiaBan = new System.Windows.Forms.TextBox();
+            this.txt_DonGiaNhap = new System.Windows.Forms.TextBox();
             this.cbo_MaNCC = new System.Windows.Forms.ComboBox();
             this.lbl_MaNCC = new System.Windows.Forms.Label();
-            this.lbl_DonGiaBan = new System.Windows.Forms.Label();
+            this.lbl_DonGiaNhap = new System.Windows.Forms.Label();
             this.lbl_NgayNhap = new System.Windows.Forms.Label();
             this.dt_NgayNhap = new System.Windows.Forms.DateTimePicker();
             this.lbl_SP = new System.Windows.Forms.Label();
@@ -165,15 +165,15 @@
             this.lbl_MaHDN.TabIndex = 60;
             this.lbl_MaHDN.Text = "Mã Hóa Đơn Nhập";
             // 
-            // txt_DonGiaBan
+            // txt_DonGiaNhap
             // 
-            this.txt_DonGiaBan.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_DonGiaBan.ForeColor = System.Drawing.Color.Black;
-            this.txt_DonGiaBan.Location = new System.Drawing.Point(862, 453);
-            this.txt_DonGiaBan.Multiline = true;
-            this.txt_DonGiaBan.Name = "txt_DonGiaBan";
-            this.txt_DonGiaBan.Size = new System.Drawing.Size(369, 48);
-            this.txt_DonGiaBan.TabIndex = 72;
+            this.txt_DonGiaNhap.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_DonGiaNhap.ForeColor = System.Drawing.Color.Black;
+            this.txt_DonGiaNhap.Location = new System.Drawing.Point(862, 453);
+            this.txt_DonGiaNhap.Multiline = true;
+            this.txt_DonGiaNhap.Name = "txt_DonGiaNhap";
+            this.txt_DonGiaNhap.Size = new System.Drawing.Size(369, 48);
+            this.txt_DonGiaNhap.TabIndex = 72;
             // 
             // cbo_MaNCC
             // 
@@ -195,15 +195,15 @@
             this.lbl_MaNCC.TabIndex = 69;
             this.lbl_MaNCC.Text = "Mã Nhà Cung Cấp";
             // 
-            // lbl_DonGiaBan
+            // lbl_DonGiaNhap
             // 
-            this.lbl_DonGiaBan.AutoSize = true;
-            this.lbl_DonGiaBan.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_DonGiaBan.Location = new System.Drawing.Point(858, 387);
-            this.lbl_DonGiaBan.Name = "lbl_DonGiaBan";
-            this.lbl_DonGiaBan.Size = new System.Drawing.Size(218, 39);
-            this.lbl_DonGiaBan.TabIndex = 68;
-            this.lbl_DonGiaBan.Text = "Đơn Giá Bán";
+            this.lbl_DonGiaNhap.AutoSize = true;
+            this.lbl_DonGiaNhap.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_DonGiaNhap.Location = new System.Drawing.Point(858, 387);
+            this.lbl_DonGiaNhap.Name = "lbl_DonGiaNhap";
+            this.lbl_DonGiaNhap.Size = new System.Drawing.Size(242, 39);
+            this.lbl_DonGiaNhap.TabIndex = 68;
+            this.lbl_DonGiaNhap.Text = "Đơn Giá Nhập";
             // 
             // lbl_NgayNhap
             // 
@@ -273,6 +273,7 @@
             this.cbo_SP.Name = "cbo_SP";
             this.cbo_SP.Size = new System.Drawing.Size(541, 39);
             this.cbo_SP.TabIndex = 79;
+            this.cbo_SP.SelectedIndexChanged += new System.EventHandler(this.cbo_SP_SelectedIndexChanged);
             // 
             // pic_AddHDN
             // 
@@ -376,10 +377,10 @@
             this.Controls.Add(this.lbl_TongTien);
             this.Controls.Add(this.lbl_SP);
             this.Controls.Add(this.dt_NgayNhap);
-            this.Controls.Add(this.txt_DonGiaBan);
+            this.Controls.Add(this.txt_DonGiaNhap);
             this.Controls.Add(this.cbo_MaNCC);
             this.Controls.Add(this.lbl_MaNCC);
-            this.Controls.Add(this.lbl_DonGiaBan);
+            this.Controls.Add(this.lbl_DonGiaNhap);
             this.Controls.Add(this.lbl_NgayNhap);
             this.Controls.Add(this.txt_SL);
             this.Controls.Add(this.pic_AddHDN);
@@ -428,10 +429,10 @@
         private System.Windows.Forms.Label lbl_SoLuong;
         private System.Windows.Forms.Label lbl_NV;
         private System.Windows.Forms.Label lbl_MaHDN;
-        private System.Windows.Forms.TextBox txt_DonGiaBan;
+        private System.Windows.Forms.TextBox txt_DonGiaNhap;
         private System.Windows.Forms.ComboBox cbo_MaNCC;
         private System.Windows.Forms.Label lbl_MaNCC;
-        private System.Windows.Forms.Label lbl_DonGiaBan;
+        private System.Windows.Forms.Label lbl_DonGiaNhap;
         private System.Windows.Forms.Label lbl_NgayNhap;
         private System.Windows.Forms.DateTimePicker dt_NgayNhap;
         private System.Windows.Forms.Label lbl_SP;

@@ -70,6 +70,7 @@
             this.cbo_SP.Name = "cbo_SP";
             this.cbo_SP.Size = new System.Drawing.Size(541, 39);
             this.cbo_SP.TabIndex = 107;
+            this.cbo_SP.SelectedIndexChanged += new System.EventHandler(this.cbo_SP_SelectedIndexChanged);
             // 
             // cbo_NV
             // 
