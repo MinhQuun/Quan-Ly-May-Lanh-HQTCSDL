@@ -88,7 +88,12 @@ namespace QuanLyCuaHangMayLanh.Admin
             string sdt = txt_SDT.Text;
             string user_name = txt_UserName.Text.Trim();
             string pass = txt_MK.Text;
-
+            // Kiểm tra nếu ngày sinh không được trong tương lai
+            if (dob > DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không được là ngày trong tương lai.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Kiểm tra độ dài số điện thoại
             if (sdt.Length > 10)
             {

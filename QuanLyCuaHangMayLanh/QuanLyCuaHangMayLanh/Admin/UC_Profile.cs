@@ -33,7 +33,12 @@ namespace QuanLyCuaHangMayLanh.Admin
             string sdt = txt_SDT.Text;
             string mk = txt_MK.Text;
             string username = lbl_UserName.Text; // Lấy username của người dùng hiện tại
-
+            // Kiểm tra nếu ngày sinh không được trong tương lai
+            if (dob > DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không được là ngày trong tương lai.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 string query = "Admin_UpdateUser";
