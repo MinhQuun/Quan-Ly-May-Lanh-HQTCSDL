@@ -53,7 +53,7 @@ namespace QuanLyCuaHangMayLanh.Admin
             btn_Reload.MouseLeave += button_MouseLeave;
 
             Load_Combobox_VaiTroNguoiDung();
-            
+
         }
         public void Load_Combobox_VaiTroNguoiDung()
         {
@@ -100,6 +100,12 @@ namespace QuanLyCuaHangMayLanh.Admin
                 MessageBox.Show("Số điện thoại không được vượt quá 10 ký tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (string.IsNullOrEmpty(user_name) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(sdt) || string.IsNullOrEmpty(pass) || cbo_VaiTroNguoiDung.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+      
 
             try
             {

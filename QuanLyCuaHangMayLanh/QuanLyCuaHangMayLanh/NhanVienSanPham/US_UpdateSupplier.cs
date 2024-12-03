@@ -66,7 +66,11 @@ namespace QuanLyCuaHangMayLanh.User
             string ma = txt_MaNCC.Text;
             string ten = txt_TenNCC.Text;
             string dc = txt_DiaChi.Text;
-
+            if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(ma) || string.IsNullOrEmpty(dc))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 string query = "NVSP_UpdateSupplier";

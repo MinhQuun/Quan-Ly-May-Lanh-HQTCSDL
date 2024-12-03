@@ -39,6 +39,12 @@ namespace QuanLyCuaHangMayLanh.Admin
                 MessageBox.Show("Ngày sinh không được là ngày trong tương lai.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(sdt) || string.IsNullOrEmpty(mk) )
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
             try
             {
                 string query = "Admin_UpdateUser";

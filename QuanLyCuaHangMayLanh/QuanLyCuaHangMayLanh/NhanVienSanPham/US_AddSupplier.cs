@@ -58,7 +58,11 @@ namespace QuanLyCuaHangMayLanh.User
             string ma = txt_MaNCC.Text;
             string ten = txt_TenNCC.Text;
             string dc = txt_DiaChi.Text;
-
+            if (string.IsNullOrEmpty(ma) || string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(dc))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 // Sử dụng getCount để kiểm tra sự tồn tại của mã nhà cung cấp

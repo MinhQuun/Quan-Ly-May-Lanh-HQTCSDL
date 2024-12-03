@@ -93,7 +93,6 @@ C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLa
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.pdb
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.dll
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.pdb
-C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.AssemblyReference.cache
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_AddUser.resources
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_DashBoard.resources
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Profile.resources
