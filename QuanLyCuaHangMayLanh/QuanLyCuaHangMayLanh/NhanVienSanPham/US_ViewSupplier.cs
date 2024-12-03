@@ -123,34 +123,43 @@ namespace QuanLyCuaHangMayLanh.User
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            // Câu truy vấn SQL với cú pháp đúng
-            string query = "NVSP_SearchSupplierByName";
-
-            // Tạo parameter với giá trị tìm kiếm từ txt_Search
-            SqlParameter[] parameters = new SqlParameter[]
+            // Kiểm tra nếu ô tìm kiếm trống hoặc giá trị mặc định "Search......."
+            if (string.IsNullOrWhiteSpace(txt_Search.Text) || txt_Search.Text == "Search.......")
             {
+                // Nếu trống, tải lại tất cả dữ liệu từ cơ sở dữ liệu
+                Load_DataGridView();
+            }
+            else
+            {
+                // Câu truy vấn SQL với cú pháp đúng
+                string query = "NVSP_SearchSupplierByName";
+
+                // Tạo parameter với giá trị tìm kiếm từ txt_Search
+                SqlParameter[] parameters = new SqlParameter[]
+                {
                 new SqlParameter("@tenncc", txt_Search.Text.Trim())
-            };
+                };
 
-            try
-            {
-                // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
-                DataTable dt = db.getDataTable(query, "NHACUNGCAP", parameters);
-
-                if (dt != null && dt.Rows.Count > 0)
+                try
                 {
-                    dgv_ViewSupplier.DataSource = dt; // Gán kết quả cho DataGridView
+                    // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
+                    DataTable dt = db.getDataTable(query, "NHACUNGCAP", parameters);
 
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dgv_ViewSupplier.DataSource = dt; // Gán kết quả cho DataGridView
+
+                    }
+                    else
+                    {
+                        dgv_ViewSupplier.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    dgv_ViewSupplier.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
+                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }      
         }
 
         string TenNCC;

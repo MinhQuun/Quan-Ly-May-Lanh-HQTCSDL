@@ -302,43 +302,6 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
             }
         }
 
-  
-        private void btn_Reload_Click(object sender, EventArgs e)
-        {
-            ClearAll();
-        }
-        public void ClearAll()
-        {
-            txt_MaHDN.Clear();
-            cbo_NV.SelectedIndex = -1;
-            cbo_MaNCC.SelectedIndex = -1;
-            dt_NgayNhap.ResetText();
-            cbo_SP.SelectedIndex = -1;
-            txt_SL.Clear();
-            txt_DonGiaNhap.Clear();
-            txt_TongTien.Clear();
-        }
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            NVKH_HoaDonNhap_Load(this, null);
-        }
-
-        string MaHDN;
-        private void dgv_HoaDonNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
-                {
-                    MaHDN = dgv_HoaDonNhap.Rows[e.RowIndex].Cells["MAHDN"].Value.ToString(); // Sử dụng tên cột "MAHDN" để lấy giá trị
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi chọn mã hóa đơn nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(MaHDN))
@@ -378,71 +341,6 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 }
             }
         }
-
-        private void txt_Search_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                SqlParameter[] parameters = { new SqlParameter("@MAHDN", "%" + txt_Search.Text.Trim() + "%") };
-                DataTable dt = db.getDataTable("NVKH_SearchHoaDonNhap", "HOADONNHAP", parameters);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    dgv_HoaDonNhap.DataSource = dt;
-                }
-                else
-                {
-                    dgv_HoaDonNhap.DataSource = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void dgv_HoaDonNhap_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = dgv_HoaDonNhap.Rows[e.RowIndex];
-
-                    txt_MaHDN.Text = row.Cells["MAHDN"].Value.ToString();
-
-                    // Đảm bảo dữ liệu đã có trong ComboBox trước khi gán giá trị
-                    Load_Combobox_NhanVien();
-                    Load_Combobox_MaNCC();
-                    Load_Combobox_SanPham();
-
-                    // Hiển thị mã nhân viên trong ComboBox
-                    cbo_NV.SelectedValue = row.Cells["MANV"].Value.ToString();
-
-                    // Hiển thị mã nhà cung cấp trong ComboBox
-                    cbo_MaNCC.SelectedValue = row.Cells["MANCC"].Value.ToString();
-
-                    // Hiển thị mã sản phẩm trong ComboBox
-                    cbo_SP.SelectedValue = row.Cells["MASANPHAM"].Value.ToString();
-
-                    dt_NgayNhap.Value = Convert.ToDateTime(row.Cells["NGAYNHAP"].Value);
-                    txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
-                    txt_DonGiaNhap.Text = row.Cells["DONGIA"].Value.ToString();
-
-                    // Tính lại tổng tiền
-                    decimal donGia = Convert.ToDecimal(txt_DonGiaNhap.Text);
-                    int soLuong = Convert.ToInt32(txt_SL.Text);
-                    txt_TongTien.Text = (donGia * soLuong).ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi chọn dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
 
         private void btn_UpdateHDN_Click(object sender, EventArgs e)
         {
@@ -486,9 +384,9 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                     cmdUpdate.Parameters.AddWithValue("@MANCC", maNCC);
                     cmdUpdate.Parameters.AddWithValue("@TONGTIEN", tongTien);
                     cmdUpdate.Parameters.AddWithValue("@NGAYNHAP", ngayNhap);
-                    
+
                     cmdUpdate.ExecuteNonQuery();
-                }         
+                }
 
 
                 // Cập nhật chi tiết hóa đơn nhập
@@ -516,6 +414,116 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void btn_Reload_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+        public void ClearAll()
+        {
+            txt_MaHDN.Clear();
+            cbo_NV.SelectedIndex = -1;
+            cbo_MaNCC.SelectedIndex = -1;
+            dt_NgayNhap.ResetText();
+            cbo_SP.SelectedIndex = -1;
+            txt_SL.Clear();
+            txt_DonGiaNhap.Clear();
+            txt_TongTien.Clear();
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            NVKH_HoaDonNhap_Load(this, null);
+        }
+
+        string MaHDN;
+        private void dgv_HoaDonNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
+                {
+                    MaHDN = dgv_HoaDonNhap.Rows[e.RowIndex].Cells["MAHDN"].Value.ToString(); // Sử dụng tên cột "MAHDN" để lấy giá trị
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn mã hóa đơn nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+
+        private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu ô tìm kiếm trống hoặc giá trị mặc định "Search......."
+            if (string.IsNullOrWhiteSpace(txt_Search.Text) || txt_Search.Text == "Search.......")
+            {
+                // Nếu trống, tải lại tất cả dữ liệu từ cơ sở dữ liệu
+                Load_DataGridView();
+            }
+            else
+            {
+                try
+                {
+                    SqlParameter[] parameters = { new SqlParameter("@MAHDN", "%" + txt_Search.Text.Trim() + "%") };
+                    DataTable dt = db.getDataTable("NVKH_SearchHoaDonNhap", "HOADONNHAP", parameters);
+
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dgv_HoaDonNhap.DataSource = dt;
+                    }
+                    else
+                    {
+                        dgv_HoaDonNhap.DataSource = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }     
+        }
+
+
+        private void dgv_HoaDonNhap_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = dgv_HoaDonNhap.Rows[e.RowIndex];
+
+                    txt_MaHDN.Text = row.Cells["MAHDN"].Value.ToString();
+
+                    // Đảm bảo dữ liệu đã có trong ComboBox trước khi gán giá trị
+                    Load_Combobox_NhanVien();
+                    Load_Combobox_MaNCC();
+                    Load_Combobox_SanPham();
+
+                    // Hiển thị mã nhân viên trong ComboBox
+                    cbo_NV.SelectedValue = row.Cells["MANV"].Value.ToString();
+
+                    // Hiển thị mã nhà cung cấp trong ComboBox
+                    cbo_MaNCC.SelectedValue = row.Cells["MANCC"].Value.ToString();
+
+                    // Hiển thị mã sản phẩm trong ComboBox
+                    cbo_SP.SelectedValue = row.Cells["MASANPHAM"].Value.ToString();
+
+                    dt_NgayNhap.Value = Convert.ToDateTime(row.Cells["NGAYNHAP"].Value);
+                    txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
+                    txt_DonGiaNhap.Text = row.Cells["DONGIA"].Value.ToString();
+
+                    // Tính lại tổng tiền
+                    decimal donGia = Convert.ToDecimal(txt_DonGiaNhap.Text);
+                    int soLuong = Convert.ToInt32(txt_SL.Text);
+                    txt_TongTien.Text = (donGia * soLuong).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void txt_MaHDN_TextChanged(object sender, EventArgs e)
         {

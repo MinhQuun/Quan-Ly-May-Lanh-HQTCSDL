@@ -302,43 +302,6 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 }
             }
         }
-        public void ClearAll()
-        {
-            txt_MaHDX.Clear();
-            cbo_NV.SelectedIndex = -1;
-            cbo_KH.SelectedIndex = -1;
-            dt_NgayXuat.ResetText();
-            cbo_SP.SelectedIndex = -1;
-            txt_SL.Clear();
-            txt_DonGiaBan.Clear();
-            txt_TongTien.Clear();
-        }
-
-        private void btn_Reload_Click(object sender, EventArgs e)
-        {
-            ClearAll();
-        }
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            NVKH_HoaDonXuat_Load(this, null);
-        }
-        string MaHDX;
-
-        private void dgv_HoaDonXuat_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
-                {
-                    MaHDX = dgv_HoaDonXuat.Rows[e.RowIndex].Cells["MAHDX"].Value.ToString(); // Sử dụng tên cột "MAHDX" để lấy giá trị
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi chọn mã hóa đơn xuất: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
@@ -377,75 +340,6 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 {
                     MessageBox.Show("Có lỗi xảy ra khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-
-        private void txt_Search_TextChanged(object sender, EventArgs e)
-        {
-
-            // Tạo parameter với giá trị tìm kiếm từ txt_Search
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@mahdx", txt_Search.Text.Trim())
-            };
-            try
-            {
-                // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
-                DataTable dt = db.getDataTable("NVKH_SearchHoaDonXuat", "HOADONXUAT", parameters);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    dgv_HoaDonXuat.DataSource = dt; // Gán kết quả cho DataGridView
-
-                }
-                else
-                {
-                    dgv_HoaDonXuat.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgv_HoaDonXuat_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = dgv_HoaDonXuat.Rows[e.RowIndex];
-
-                    txt_MaHDX.Text = row.Cells["MAHDX"].Value.ToString();
-
-                    // Đảm bảo dữ liệu đã có trong ComboBox trước khi gán giá trị
-                    Load_Combobox_NhanVien();
-                    Load_Combobox_KhachHang();
-                    Load_Combobox_SanPham();
-
-                    // Hiển thị mã nhân viên trong ComboBox
-                    cbo_NV.SelectedValue = row.Cells["MANV"].Value.ToString();
-
-                    // Hiển thị mã nhà cung cấp trong ComboBox
-                    cbo_KH.SelectedValue = row.Cells["MAKH"].Value.ToString();
-
-                    // Hiển thị mã sản phẩm trong ComboBox
-                    cbo_SP.SelectedValue = row.Cells["MASANPHAM"].Value.ToString();
-
-                    dt_NgayXuat.Value = Convert.ToDateTime(row.Cells["NGAY"].Value);
-                    txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
-                    txt_DonGiaBan.Text = row.Cells["DONGIA"].Value.ToString();
-
-                    // Tính lại tổng tiền
-                    decimal donGia = Convert.ToDecimal(txt_DonGiaBan.Text);
-                    int soLuong = Convert.ToInt32(txt_SL.Text);
-                    txt_TongTien.Text = (donGia * soLuong).ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi chọn dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -519,6 +413,123 @@ namespace QuanLyCuaHangMayLanh.NhanVienKhoHang
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void ClearAll()
+        {
+            txt_MaHDX.Clear();
+            cbo_NV.SelectedIndex = -1;
+            cbo_KH.SelectedIndex = -1;
+            dt_NgayXuat.ResetText();
+            cbo_SP.SelectedIndex = -1;
+            txt_SL.Clear();
+            txt_DonGiaBan.Clear();
+            txt_TongTien.Clear();
+        }
+
+        private void btn_Reload_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            NVKH_HoaDonXuat_Load(this, null);
+        }
+        string MaHDX;
+
+        private void dgv_HoaDonXuat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
+                {
+                    MaHDX = dgv_HoaDonXuat.Rows[e.RowIndex].Cells["MAHDX"].Value.ToString(); // Sử dụng tên cột "MAHDX" để lấy giá trị
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn mã hóa đơn xuất: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+        private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu ô tìm kiếm trống
+            if (string.IsNullOrWhiteSpace(txt_Search.Text) || txt_Search.Text == "Search.......")
+            {
+                // Nếu trống, tải lại tất cả dữ liệu từ cơ sở dữ liệu
+                Load_DataGridView();
+            }
+            else
+            {
+                // Tạo parameter với giá trị tìm kiếm từ txt_Search
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                new SqlParameter("@mahdx", txt_Search.Text.Trim())
+                };
+                try
+                {
+                    // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
+                    DataTable dt = db.getDataTable("NVKH_SearchHoaDonXuat", "HOADONXUAT", parameters);
+
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dgv_HoaDonXuat.DataSource = dt; // Gán kết quả cho DataGridView
+
+                    }
+                    else
+                    {
+                        dgv_HoaDonXuat.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dgv_HoaDonXuat_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = dgv_HoaDonXuat.Rows[e.RowIndex];
+
+                    txt_MaHDX.Text = row.Cells["MAHDX"].Value.ToString();
+
+                    // Đảm bảo dữ liệu đã có trong ComboBox trước khi gán giá trị
+                    Load_Combobox_NhanVien();
+                    Load_Combobox_KhachHang();
+                    Load_Combobox_SanPham();
+
+                    // Hiển thị mã nhân viên trong ComboBox
+                    cbo_NV.SelectedValue = row.Cells["MANV"].Value.ToString();
+
+                    // Hiển thị mã nhà cung cấp trong ComboBox
+                    cbo_KH.SelectedValue = row.Cells["MAKH"].Value.ToString();
+
+                    // Hiển thị mã sản phẩm trong ComboBox
+                    cbo_SP.SelectedValue = row.Cells["MASANPHAM"].Value.ToString();
+
+                    dt_NgayXuat.Value = Convert.ToDateTime(row.Cells["NGAY"].Value);
+                    txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
+                    txt_DonGiaBan.Text = row.Cells["DONGIA"].Value.ToString();
+
+                    // Tính lại tổng tiền
+                    decimal donGia = Convert.ToDecimal(txt_DonGiaBan.Text);
+                    int soLuong = Convert.ToInt32(txt_SL.Text);
+                    txt_TongTien.Text = (donGia * soLuong).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void txt_MaHDX_TextChanged(object sender, EventArgs e)
         {

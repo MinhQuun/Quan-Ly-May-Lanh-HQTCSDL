@@ -118,35 +118,44 @@ namespace QuanLyCuaHangMayLanh.User
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            // Câu truy vấn SQL với cú pháp đúng
-            string query = "NVSP_SearchProductByName";
-
-            // Tạo parameter với giá trị tìm kiếm từ txt_Search
-            SqlParameter[] parameters = new SqlParameter[]
+            // Kiểm tra nếu ô tìm kiếm trống hoặc giá trị mặc định "Search......."
+            if (string.IsNullOrWhiteSpace(txt_Search.Text) || txt_Search.Text == "Search.......")
             {
-                new SqlParameter("@tensp", txt_Search.Text.Trim())
-            };
-
-            try
-            {
-                // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
-                DataTable dt = db.getDataTable(query, "SANPHAM", parameters);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    dgv_ViewProduct.DataSource = dt; // Gán kết quả cho DataGridView
-
-                }
-                else
-                {
-                    dgv_ViewProduct.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
-                }
+                // Nếu trống, tải lại tất cả dữ liệu từ cơ sở dữ liệu
+                Load_DataGridView();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Câu truy vấn SQL với cú pháp đúng
+                string query = "NVSP_SearchProductByName";
+
+                // Tạo parameter với giá trị tìm kiếm từ txt_Search
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+            new SqlParameter("@tensp", "%" + txt_Search.Text.Trim() + "%")
+                };
+
+                try
+                {
+                    // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
+                    DataTable dt = db.getDataTable(query, "SANPHAM", parameters);
+
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dgv_ViewProduct.DataSource = dt; // Gán kết quả cho DataGridView
+                    }
+                    else
+                    {
+                        dgv_ViewProduct.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
+
 
         string TenSP;
 
