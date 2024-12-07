@@ -148,3 +148,34 @@ E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Qua
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.AssemblyReference.cache
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CoreCompileInputs.cache
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CopyComplete
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.exe.config
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.exe
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.pdb
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.dll
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.pdb
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.AssemblyReference.cache
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_DashBoard.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_NhapHang.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Product.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Supplier.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_User.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_Login.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_Admin.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_NhanVienKhoHang.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_NhanVienSanPham.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_DashBoard.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_HoaDonNhap.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_HoaDonXuat.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Properties.Resources.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_AddProduct.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_AddSupplier.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_DashBoard.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_UpdateProduct.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_UpdateSupplier.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_ViewProduct.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_ViewSupplier.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.GenerateResource.cache
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CoreCompileInputs.cache
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CopyComplete
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.exe
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.pdb

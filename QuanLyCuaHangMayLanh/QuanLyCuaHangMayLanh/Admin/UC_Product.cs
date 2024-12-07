@@ -177,7 +177,7 @@ namespace QuanLyCuaHangMayLanh.Admin
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Load_Combobox_MaNCC();
+            
             // Lấy Mã Nhà Cung Cấp từ combobox
             string maNCC = cbo_MaNCC.SelectedValue.ToString();
             SqlParameter[] checkParams = { new SqlParameter("@MANCC", maNCC) };

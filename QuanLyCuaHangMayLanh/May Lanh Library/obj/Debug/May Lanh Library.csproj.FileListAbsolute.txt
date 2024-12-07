@@ -20,3 +20,9 @@ E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Qua
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.dll
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.pdb
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csprojResolveAssemblyReference.cache
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\Debug\May Lanh Library.dll
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\Debug\May Lanh Library.pdb
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csproj.AssemblyReference.cache
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csproj.CoreCompileInputs.cache
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.dll
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.pdb
