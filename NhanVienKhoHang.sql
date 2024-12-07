@@ -13,6 +13,16 @@ EXEC NVKH_CountEmployees;
 
 
 --HOA DON NHAP
+--Lấy danh sách sản phẩm theo mã nhà cung cấp
+CREATE PROCEDURE NVKH_GetProductsByMaNCC
+    @MaNCC VARCHAR(10)
+AS
+BEGIN
+    SELECT MASANPHAM, TENSANPHAM 
+    FROM SANPHAM
+    WHERE MANCC = @MaNCC
+END
+
 --Nhập hàng tăng số lượng
 CREATE PROCEDURE NVKH_UpdateInventoryUsingCursor
     @MAHDN VARCHAR(10)  -- Tham số đầu vào: mã hóa đơn nhập
