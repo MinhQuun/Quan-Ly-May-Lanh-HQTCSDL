@@ -26,8 +26,8 @@ namespace QuanLyCuaHangMayLanh
             InitializeComponent();
             lbl_UserName.Text = userName;
             user = userName; ////
-            uC_ViewUser1.ID = ID;
-            uC_Profile1.ID = ID;
+            //uC_ViewUser1.ID = ID;
+            //uC_Profile1.ID = ID;
         }
 
         private void btn_LogOut_Click(object sender, EventArgs e)
@@ -65,14 +65,14 @@ namespace QuanLyCuaHangMayLanh
             btn_DashBoard.MouseEnter += button_MouseEnter;
             btn_DashBoard.MouseLeave += button_MouseLeave;
 
-            btn_AddUser.MouseEnter += button_MouseEnter;
-            btn_AddUser.MouseLeave += button_MouseLeave;
+            btn_User.MouseEnter += button_MouseEnter;
+            btn_User.MouseLeave += button_MouseLeave;
 
-            btn_ViewUser.MouseEnter += button_MouseEnter;
-            btn_ViewUser.MouseLeave += button_MouseLeave;
+            btn_Product.MouseEnter += button_MouseEnter;
+            btn_Product.MouseLeave += button_MouseLeave;
 
-            btn_Profile.MouseEnter += button_MouseEnter;
-            btn_Profile.MouseLeave += button_MouseLeave;
+            btn_Supplier.MouseEnter += button_MouseEnter;
+            btn_Supplier.MouseLeave += button_MouseLeave;
 
             btn_LogOut.MouseEnter += button_MouseEnter;
             btn_LogOut.MouseLeave += button_MouseLeave;
@@ -86,9 +86,10 @@ namespace QuanLyCuaHangMayLanh
         private void HideAllUserControls()
         {
             uC_DashBoard1.Visible = false;
-            uC_AddUser1.Visible = false;
-            uC_ViewUser1.Visible = false;
-            uC_Profile1.Visible = false;
+            uC_User1.Visible = false;
+            uC_Supplier1.Visible = false;
+            uC_Product1.Visible = false;
+            uC_NhapHang1.Visible = false;
         }
 
         private void btn_DashBoard_Click(object sender, EventArgs e)
@@ -98,33 +99,33 @@ namespace QuanLyCuaHangMayLanh
             uC_DashBoard1.BringToFront();
         }
 
-        private void btn_AddUser_Click(object sender, EventArgs e)
+        private void btn_User_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uC_AddUser1.Visible = true;
-            uC_AddUser1.BringToFront();
+            uC_User1.Visible = true;
+            uC_User1.BringToFront();
         }
 
-        private void lbl_UserName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_ViewUser_Click(object sender, EventArgs e)
+        private void btn_Supplier_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uC_ViewUser1.Visible = true;
-            uC_ViewUser1.BringToFront();
+            uC_Supplier1.Visible = true;
+            uC_Supplier1.BringToFront();
         }
 
-        private void btn_Profile_Click(object sender, EventArgs e)
+        private void btn_Product_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uC_Profile1.Visible = true;
-            uC_Profile1.BringToFront();
+            uC_Product1.Visible = true;
+            uC_Product1.BringToFront();
         }
-        
-        
+
+        private void btn_NhapHang_Click(object sender, EventArgs e)
+        {
+            HideAllUserControls();
+            uC_NhapHang1.Visible = true;
+            uC_NhapHang1.BringToFront();
+        }
 
         
     }

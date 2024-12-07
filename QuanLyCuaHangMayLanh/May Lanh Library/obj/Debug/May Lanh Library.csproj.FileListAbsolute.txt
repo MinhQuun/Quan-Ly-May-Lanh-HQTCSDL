@@ -15,3 +15,8 @@ C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\D
 C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csproj.CoreCompileInputs.cache
 C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.dll
 C:\Users\LENOVO\Desktop\data\HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\Debug\May Lanh Library.dll
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\Debug\May Lanh Library.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.dll
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csprojResolveAssemblyReference.cache

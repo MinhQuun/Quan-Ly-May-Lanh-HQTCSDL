@@ -44,29 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\UC_AddUser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Admin\UC_AddUser.Designer.cs">
-      <DependentUpon>UC_AddUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\UC_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\UC_DashBoard.Designer.cs">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\UC_Profile.cs">
+    <Compile Include="Admin\UC_NhapHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admin\UC_Profile.Designer.cs">
-      <DependentUpon>UC_Profile.cs</DependentUpon>
+    <Compile Include="Admin\UC_NhapHang.Designer.cs">
+      <DependentUpon>UC_NhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\UC_ViewUser.cs">
+    <Compile Include="Admin\UC_Product.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admin\UC_ViewUser.Designer.cs">
-      <DependentUpon>UC_ViewUser.cs</DependentUpon>
+    <Compile Include="Admin\UC_Product.Designer.cs">
+      <DependentUpon>UC_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UC_Supplier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin\UC_Supplier.Designer.cs">
+      <DependentUpon>UC_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UC_User.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin\UC_User.Designer.cs">
+      <DependentUpon>UC_User.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
@@ -154,17 +160,20 @@
     <Compile Include="NhanVienSanPham\US_ViewSupplier.Designer.cs">
       <DependentUpon>US_ViewSupplier.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Admin\UC_AddUser.resx">
-      <DependentUpon>UC_AddUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\UC_Profile.resx">
-      <DependentUpon>UC_Profile.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\UC_NhapHang.resx">
+      <DependentUpon>UC_NhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\UC_ViewUser.resx">
-      <DependentUpon>UC_ViewUser.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\UC_Product.resx">
+      <DependentUpon>UC_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UC_Supplier.resx">
+      <DependentUpon>UC_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UC_User.resx">
+      <DependentUpon>UC_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
@@ -389,6 +398,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NhanVienBanHang\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-print-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-import-goods-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-import-goods-30 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

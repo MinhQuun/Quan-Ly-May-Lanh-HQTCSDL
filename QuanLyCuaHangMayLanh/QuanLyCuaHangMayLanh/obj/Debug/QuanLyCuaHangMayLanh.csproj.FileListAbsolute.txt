@@ -117,3 +117,32 @@ C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLa
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.CopyComplete
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.exe
 C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.exe.config
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.exe
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\QuanLyCuaHangMayLanh.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.dll
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\bin\Debug\May Lanh Library.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_DashBoard.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_Login.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_Admin.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_NhanVienKhoHang.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.frm_NhanVienSanPham.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_DashBoard.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_HoaDonNhap.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.NhanVienKhoHang.NVKH_HoaDonXuat.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Properties.Resources.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_AddProduct.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_AddSupplier.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_DashBoard.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_UpdateProduct.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_UpdateSupplier.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_ViewProduct.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.User.US_ViewSupplier.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csproj.GenerateResource.cache
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.exe
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.pdb
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_User.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.csprojResolveAssemblyReference.cache
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Supplier.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Product.resources
+E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\MinhQuun\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_NhapHang.resources

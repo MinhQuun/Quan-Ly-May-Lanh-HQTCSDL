@@ -199,7 +199,7 @@ namespace QuanLyCuaHangMayLanh.User
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-
+            US_AddProduct_Load(this, null);
         }
     }
 }

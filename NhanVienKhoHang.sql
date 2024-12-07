@@ -13,6 +13,37 @@ EXEC NVKH_CountEmployees;
 
 
 --HOA DON NHAP
+--Nhập hàng tăng số lượng
+CREATE PROCEDURE NVKH_UpdateInventoryUsingCursor
+    @MAHDN VARCHAR(10)  -- Tham số đầu vào: mã hóa đơn nhập
+AS
+BEGIN
+    DECLARE @MaSanPhamHDN VARCHAR(10), @SoLuongHDN INT;
+    
+    -- Cursor để lặp qua từng sản phẩm trong chi tiết hóa đơn nhập theo mã hóa đơn nhập
+    DECLARE receive_cursor CURSOR FOR 
+    SELECT CTHDN.MASANPHAM, CTHDN.SOLUONG 
+    FROM CTHOADONNHAP AS CTHDN
+    WHERE CTHDN.MAHDN = @MAHDN;  -- Chỉ lấy các sản phẩm trong hóa đơn nhập với mã hóa đơn nhập cụ thể
+    
+    OPEN receive_cursor;
+    
+    FETCH NEXT FROM receive_cursor INTO @MaSanPhamHDN, @SoLuongHDN;
+    
+    -- Lặp qua từng dòng và cập nhật tồn kho
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        UPDATE SANPHAM
+        SET SOLUONG = SOLUONG + @SoLuongHDN
+        WHERE MASANPHAM = @MaSanPhamHDN;
+        
+        FETCH NEXT FROM receive_cursor INTO @MaSanPhamHDN, @SoLuongHDN;
+    END
+
+    CLOSE receive_cursor;
+    DEALLOCATE receive_cursor;
+END
+
 --1: Thêm hóa đơn nhập và chi tiết hóa đơn nhập
 GO
 CREATE PROCEDURE NVKH_AddHoaDonNhap

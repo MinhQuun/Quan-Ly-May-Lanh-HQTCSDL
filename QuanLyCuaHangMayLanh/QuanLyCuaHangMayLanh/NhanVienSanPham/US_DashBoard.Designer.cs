@@ -117,10 +117,10 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(3, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(340, 116);
+            this.label6.Size = new System.Drawing.Size(395, 145);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm sản phẩm\r\n          *Xem sản phẩ" +
-    "m\r\n          *Quản sản phẩm\r\n";
+            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm sản phẩm, nhà cung cấp\r\n        " +
+    "  *Xem sản phẩm, nhà cung cấp\r\n          *Quản lí sản phẩm, nhà cung cấp\r\n\r\n";
             // 
             // label5
             // 
@@ -129,7 +129,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 214);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(450, 290);
+            this.label5.Size = new System.Drawing.Size(471, 290);
             this.label5.TabIndex = 5;
             this.label5.Text = resources.GetString("label5.Text");
             // 

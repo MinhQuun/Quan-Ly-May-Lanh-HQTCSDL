@@ -124,9 +124,9 @@ sau tư cách Admin.
 Nhân viên có thể thêm sản phẩm 
 chẳng hạn (tên sản phẩm, ...).
 
-Nhân viên chỉ có thể thêm sản phẩm, xóa 
-sản phẩm. Chứ không thể thêm người dùng
-như Admin
+Nhân viên chỉ có thể thêm, xóa 
+sản phẩm, nhà cung cấp. Chứ không thể thêm
+ người dùng như Admin
  
 </value>
   </data>

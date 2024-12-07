@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NVKH_DashBoard));
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_Employee = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -84,10 +83,10 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(3, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(340, 116);
+            this.label6.Size = new System.Drawing.Size(345, 145);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm sản phẩm\r\n          *Xem sản phẩ" +
-    "m\r\n          *Quản sản phẩm\r\n";
+            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm \r\n          *Xem \r\n          *Qu" +
+    "ản lí hóa đơn nhập xuất\r\n\r\n";
             // 
             // label5
             // 
@@ -96,9 +95,10 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 214);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(450, 290);
+            this.label5.Size = new System.Drawing.Size(387, 203);
             this.label5.TabIndex = 5;
-            this.label5.Text = resources.GetString("label5.Text");
+            this.label5.Text = "Nhân viên có vai trò quan trọng thứ 2\r\nsau tư cách Admin.\r\n\r\nNhân viên chỉ có thể" +
+    " thêm, xóa \r\nhóa đơn nhập xuất. Chứ không thể\r\n thêm người dùng như Admin.\r\n \r\n";
             // 
             // label2
             // 
