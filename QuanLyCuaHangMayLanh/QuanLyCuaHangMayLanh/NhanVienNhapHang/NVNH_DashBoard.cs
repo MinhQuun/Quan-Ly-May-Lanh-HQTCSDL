@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using May_Lanh_Library;
 
-namespace QuanLyCuaHangMayLanh.User
+namespace QuanLyCuaHangMayLanh.NhanVienNhapHang
 {
-    public partial class US_DashBoard : UserControl
+    public partial class NVNH_DashBoard : UserControl
     {
         DBConnect db = new DBConnect();
-        public US_DashBoard()
+        public NVNH_DashBoard()
         {
             InitializeComponent();
         }
 
-        private void US_DashBoard_Load(object sender, EventArgs e)
+        private void NVNH_DashBoard_Load(object sender, EventArgs e)
         {
             try
             {
@@ -39,7 +39,8 @@ namespace QuanLyCuaHangMayLanh.User
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            US_DashBoard_Load(this, null);
+            NVNH_DashBoard_Load(this, null);
         }
+
     }
 }

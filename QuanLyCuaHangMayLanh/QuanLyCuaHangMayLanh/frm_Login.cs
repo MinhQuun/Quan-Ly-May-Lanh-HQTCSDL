@@ -131,14 +131,14 @@ namespace QuanLyCuaHangMayLanh
                     }
                     else if (role == "Q2") // Vai trò Nhân Viên Sản Phẩm
                     {
-                        frm_NhanVienSanPham nv = new frm_NhanVienSanPham();
+                        frm_NhanVienNhapHang nv = new frm_NhanVienNhapHang();
                         nv.UserName = txt_UserName.Text;
                         nv.Show();
                         this.Hide();
                     }
                     else if (role == "Q3") // Vai trò Nhân Viên Kho Hàng
                     {
-                        frm_NhanVienKhoHang nvkh = new frm_NhanVienKhoHang();
+                        frm_NhanVienBanHang nvkh = new frm_NhanVienBanHang();
                         nvkh.UserName = txt_UserName.Text;
                         nvkh.Show();
                         this.Hide();

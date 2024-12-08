@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace QuanLyCuaHangMayLanh
 {
-    public partial class frm_NhanVienKhoHang : Form
+    public partial class frm_NhanVienBanHang : Form
     {
         private string currentUser;
-        public frm_NhanVienKhoHang()
+        public frm_NhanVienBanHang()
         {
             InitializeComponent();
         }
@@ -59,11 +59,11 @@ namespace QuanLyCuaHangMayLanh
             btn_DashBoard.MouseEnter += button_MouseEnter;
             btn_DashBoard.MouseLeave += button_MouseLeave;
 
-            btn_HoaDonNhap.MouseEnter += button_MouseEnter;
-            btn_HoaDonNhap.MouseLeave += button_MouseLeave;
+            btn_Product.MouseEnter += button_MouseEnter;
+            btn_Product.MouseLeave += button_MouseLeave;
 
-            btn_HoaDonXuat.MouseEnter += button_MouseEnter;
-            btn_HoaDonXuat.MouseLeave += button_MouseLeave;
+            btn_BanHang.MouseEnter += button_MouseEnter;
+            btn_BanHang.MouseLeave += button_MouseLeave;
 
             btn_DashBoard.PerformClick();
         }
@@ -71,8 +71,8 @@ namespace QuanLyCuaHangMayLanh
         private void HideAllUserControls()
         {
             nvkH_DashBoard1.Visible = false;
-            nvkH_HoaDonNhap1.Visible = false;
-            nvkH_HoaDonXuat1.Visible = false;
+            nvbH_XemKhoSanPham1.Visible = false;
+            uC_BanHang1.Visible = false;
         }
 
         private void btn_DashBoard_Click(object sender, EventArgs e)
@@ -82,18 +82,18 @@ namespace QuanLyCuaHangMayLanh
             nvkH_DashBoard1.BringToFront();
         }
 
-        private void btn_HoaDonNhap_Click(object sender, EventArgs e)
+        private void btn_Product_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            nvkH_HoaDonNhap1.Visible = true;
-            nvkH_HoaDonNhap1.BringToFront();
+            nvbH_XemKhoSanPham1.Visible = true;
+            nvbH_XemKhoSanPham1.BringToFront();
         }
 
-        private void btn_HoaDonXuat_Click(object sender, EventArgs e)
+        private void btn_BanHang_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            nvkH_HoaDonXuat1.Visible = true;
-            nvkH_HoaDonXuat1.BringToFront();
+            uC_BanHang1.Visible = true;
+            uC_BanHang1.BringToFront();
         }
 
     }

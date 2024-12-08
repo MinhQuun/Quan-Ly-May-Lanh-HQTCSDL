@@ -53,8 +53,8 @@ namespace May_Lanh_Library
         public DBConnect()
         {
             //strServerName = @".";
-            strServerName = @"MSI\TRNDON";//Tên máy server của mình (tên máy của SV)
-            /*strServerName = @"MinhQuun"*/;
+            //strServerName = @"MSI\TRNDON";//Tên máy server của mình (tên máy của SV)
+            strServerName = @"MinhQuun";
             //strDBName = "QL_SINHVIEN";
             strDBName = "QL_MAYLANH_HQTCSDL";
 

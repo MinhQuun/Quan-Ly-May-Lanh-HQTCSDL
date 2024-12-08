@@ -129,17 +129,4 @@ Họ có thể thêm và xóa người dùng quản trị
 khác, thêm có thể phê duyệt hoặc từ chối 
 các chỉnh sửa do người dùng thực hiện.</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Nhân viên có vai trò quan trọng thứ 2
-sau tư cách Admin.
-
-Nhân viên có thể thêm sản phẩm 
-chẳng hạn (tên sản phẩm, ...).
-
-Nhân viên chỉ có thể thêm sản phẩm, xóa 
-sản phẩm. Chứ không thể thêm người dùng
-như Admin
- 
-</value>
-  </data>
 </root>

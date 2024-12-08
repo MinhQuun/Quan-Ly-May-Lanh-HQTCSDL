@@ -1,6 +1,6 @@
-﻿namespace QuanLyCuaHangMayLanh.User
+﻿namespace QuanLyCuaHangMayLanh.NhanVienNhapHang
 {
-    partial class US_DashBoard
+    partial class NVNH_DashBoard
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,52 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(US_DashBoard));
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_Employee = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 39);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "DashBoard";
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.BackColor = System.Drawing.Color.White;
-            this.btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Update.ForeColor = System.Drawing.Color.White;
-            this.btn_Update.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync__1_1;
-            this.btn_Update.Location = new System.Drawing.Point(224, 12);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(55, 51);
-            this.btn_Update.TabIndex = 6;
-            this.btn_Update.UseVisualStyleBackColor = false;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync;
-            this.pictureBox1.Location = new System.Drawing.Point(201, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -86,7 +52,7 @@
             this.panel2.Location = new System.Drawing.Point(582, 205);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(469, 672);
-            this.panel2.TabIndex = 8;
+            this.panel2.TabIndex = 12;
             // 
             // lbl_Employee
             // 
@@ -117,21 +83,21 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(3, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(395, 145);
+            this.label6.Size = new System.Drawing.Size(435, 116);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm sản phẩm, nhà cung cấp\r\n        " +
-    "  *Xem sản phẩm, nhà cung cấp\r\n          *Quản lí sản phẩm, nhà cung cấp\r\n\r\n";
+            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n       *Tìm kiếm nhà cung cấp\r\n       *Tìm kiếm " +
+    "sản phẩm của nhà cung cấp\r\n       *Nhập hàng sản phẩm";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 214);
+            this.label5.Location = new System.Drawing.Point(3, 244);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(471, 290);
+            this.label5.Size = new System.Drawing.Size(387, 203);
             this.label5.TabIndex = 5;
-            this.label5.Text = resources.GetString("label5.Text");
+            this.label5.Text = "Nhân viên có vai trò quan trọng thứ 2\r\nsau tư cách Admin.\r\n\r\n\r\n\r\n\r\n \r\n";
             // 
             // label2
             // 
@@ -144,7 +110,40 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Employee";
             // 
-            // US_DashBoard
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(192, 39);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "DashBoard";
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.BackColor = System.Drawing.Color.White;
+            this.btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Update.ForeColor = System.Drawing.Color.White;
+            this.btn_Update.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync__1_1;
+            this.btn_Update.Location = new System.Drawing.Point(224, 12);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(55, 51);
+            this.btn_Update.TabIndex = 10;
+            this.btn_Update.UseVisualStyleBackColor = false;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLyCuaHangMayLanh.Properties.Resources.sync;
+            this.pictureBox1.Location = new System.Drawing.Point(201, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // NVNH_DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,12 +151,12 @@
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Name = "US_DashBoard";
+            this.Name = "NVNH_DashBoard";
             this.Size = new System.Drawing.Size(1667, 1102);
-            this.Load += new System.EventHandler(this.US_DashBoard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.NVNH_DashBoard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,14 +164,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_Update;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_Employee;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

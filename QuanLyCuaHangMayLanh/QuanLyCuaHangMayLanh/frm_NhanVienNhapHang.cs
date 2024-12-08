@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace QuanLyCuaHangMayLanh
 {
-    public partial class frm_NhanVienSanPham : Form
+    public partial class frm_NhanVienNhapHang : Form
     {
         private string currentUser;
-        public frm_NhanVienSanPham()
+        public frm_NhanVienNhapHang()
         {
             InitializeComponent();
         }
@@ -59,14 +59,14 @@ namespace QuanLyCuaHangMayLanh
             btn_DashBoard.MouseEnter += button_MouseEnter;
             btn_DashBoard.MouseLeave += button_MouseLeave;
 
-            btn_AddSupplier.MouseEnter += button_MouseEnter;
-            btn_AddSupplier.MouseLeave += button_MouseLeave;
+            btn_Supplier.MouseEnter += button_MouseEnter;
+            btn_Supplier.MouseLeave += button_MouseLeave;
 
-            btn_AddProduct.MouseEnter += button_MouseEnter;
-            btn_AddProduct.MouseLeave += button_MouseLeave;
+            btn_Product.MouseEnter += button_MouseEnter;
+            btn_Product.MouseLeave += button_MouseLeave;
 
-            btn_ViewProduct.MouseEnter += button_MouseEnter;
-            btn_ViewProduct.MouseLeave += button_MouseLeave;
+            btn_NhapHang.MouseEnter += button_MouseEnter;
+            btn_NhapHang.MouseLeave += button_MouseLeave;
 
             btn_LogOut.MouseEnter += button_MouseEnter;
             btn_LogOut.MouseLeave += button_MouseLeave;
@@ -77,64 +77,41 @@ namespace QuanLyCuaHangMayLanh
         }
         private void HideAllUserControls()
         {
-            uS_DashBoard1.Visible = false;
-            uS_AddSupplier1.Visible = false;
-            uS_ViewSupplier1.Visible = false;
-            uS_AddProduct1.Visible = false;
-            uS_ViewProduct1.Visible = false;
-            uS_UpdateProduct1.Visible = false;
+            nvnH_DashBoard1.Visible = false;
+            uC_Supplier1.Visible = false;
+            uC_Product1.Visible = false;
+            uC_NhapHang1.Visible = false;
         }
 
         private void btn_DashBoard_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uS_DashBoard1.Visible = true;
-            uS_DashBoard1.BringToFront();
+            nvnH_DashBoard1.Visible = true;
+            nvnH_DashBoard1.BringToFront();
         }
 
-        private void btn_AddSupplier_Click(object sender, EventArgs e)
+        private void btn_Supplier_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uS_AddSupplier1.Visible = true;
-            uS_AddSupplier1.BringToFront();
-            
+            uC_Supplier1.Visible = true;
+            uC_Supplier1.BringToFront();
         }
 
-        private void btn_ViewSupplier_Click(object sender, EventArgs e)
+        private void btn_Product_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uS_ViewSupplier1.Visible = true;
-            uS_ViewSupplier1.BringToFront();
+            uC_Product1.Visible = true;
+            uC_Product1.BringToFront();
         }
 
-        private void btn_UpdateSupplier_Click(object sender, EventArgs e)
+        private void btn_NhapHang_Click(object sender, EventArgs e)
         {
             HideAllUserControls();
-            uS_UpdateSupplier1.Visible = true;
-            uS_UpdateSupplier1.BringToFront();
+            uC_NhapHang1.Visible = true;
+            uC_NhapHang1.BringToFront();
         }
 
-        private void btn_AddProduct_Click(object sender, EventArgs e)
-        {
-            HideAllUserControls();
-            uS_AddProduct1.Visible = true;
-            uS_AddProduct1.BringToFront();
-        }
-
-        private void btn_ViewProduct_Click(object sender, EventArgs e)
-        {
-            HideAllUserControls();
-            uS_ViewProduct1.Visible = true;
-            uS_ViewProduct1.BringToFront();
-        }
-
-        private void btn_UpdateProduct_Click(object sender, EventArgs e)
-        {
-            HideAllUserControls();
-            uS_UpdateProduct1.Visible = true;
-            uS_UpdateProduct1.BringToFront();
-        }
-
+        
        
 
     }

@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using May_Lanh_Library;
 using System.Data.SqlClient;
+using May_Lanh_Library;
 
-namespace QuanLyCuaHangMayLanh.User
+namespace QuanLyCuaHangMayLanh.NhanVienBanHang
 {
-    public partial class US_ViewProduct : UserControl
+    public partial class NVBH_XemKhoSanPham : UserControl
     {
         SqlConnection cn;
         DBConnect db = new DBConnect();
-        public US_ViewProduct()
+        public NVBH_XemKhoSanPham()
         {
             cn = db.conn;
             InitializeComponent();
@@ -40,8 +40,12 @@ namespace QuanLyCuaHangMayLanh.User
                 txt_Search.Font = new Font(txt_Search.Font.FontFamily, 14, FontStyle.Italic);
             }
         }
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            NVBH_XemKhoSanPham_Load(this, null);
+        }
 
-        private void US_ViewProduct_Load(object sender, EventArgs e)
+        private void NVBH_XemKhoSanPham_Load(object sender, EventArgs e)
         {
             // Thiết lập placeholder mặc định cho TextBox
             txt_Search.Text = "Search.......";
@@ -115,103 +119,5 @@ namespace QuanLyCuaHangMayLanh.User
                 MessageBox.Show("Lỗi khi tải dữ liệu sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void txt_Search_TextChanged(object sender, EventArgs e)
-        {
-            // Kiểm tra nếu ô tìm kiếm trống hoặc giá trị mặc định "Search......."
-            if (string.IsNullOrWhiteSpace(txt_Search.Text) || txt_Search.Text == "Search.......")
-            {
-                // Nếu trống, tải lại tất cả dữ liệu từ cơ sở dữ liệu
-                Load_DataGridView();
-            }
-            else
-            {
-                // Câu truy vấn SQL với cú pháp đúng
-                string query = "NVSP_SearchProductByName";
-
-                // Tạo parameter với giá trị tìm kiếm từ txt_Search
-                SqlParameter[] parameters = new SqlParameter[]
-                {
-            new SqlParameter("@tensp", "%" + txt_Search.Text.Trim() + "%")
-                };
-
-                try
-                {
-                    // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
-                    DataTable dt = db.getDataTable(query, "SANPHAM", parameters);
-
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dgv_ViewProduct.DataSource = dt; // Gán kết quả cho DataGridView
-                    }
-                    else
-                    {
-                        dgv_ViewProduct.DataSource = null; // Xóa dữ liệu nếu không tìm thấy
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-
-        string TenSP;
-
-        private void dgv_ViewProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
-                {
-                    TenSP = dgv_ViewProduct.Rows[e.RowIndex].Cells["TENSANPHAM"].Value.ToString(); // Sử dụng tên cột "TENSANPHAM" để lấy giá trị
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi chọn tên sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btn_Delete_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(TenSP))
-            {
-                MessageBox.Show("Vui lòng chọn tên sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm không?", "Xóa thông tin!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                try
-                {
-                    // Gọi stored procedure để xóa sản phẩm
-                    SqlCommand cmd = new SqlCommand("NVSP_DeleteProductByName", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@tensp", TenSP);
-
-                    db.openConnect(); // Mở kết nối đến cơ sở dữ liệu
-                    cmd.ExecuteNonQuery(); // Thực thi stored procedure
-                    db.closeConnect(); // Đóng kết nối
-
-                    MessageBox.Show("Đã xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Tải lại DataGridView sau khi xóa
-                    Load_DataGridView();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            US_ViewProduct_Load(this, null);
-        }
-
     }
 }

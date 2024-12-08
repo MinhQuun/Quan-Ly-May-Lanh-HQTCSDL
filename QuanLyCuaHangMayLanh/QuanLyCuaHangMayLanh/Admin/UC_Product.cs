@@ -66,6 +66,7 @@ namespace QuanLyCuaHangMayLanh.Admin
         {
             lbl_MaSP.Visible = false;
             txt_MaSP.Visible = false;
+            pic_AddProduct.Visible = false;
             txt_SL.Text = "0";  // Đặt mặc định giá trị cho TextBox là 0
             // Khi nhấn vào dòng dữ liệu, vô hiệu hóa ô Số Lượng
             txt_SL.Enabled = false; // Vô hiệu hóa TextBox Số Lượng
@@ -263,7 +264,7 @@ namespace QuanLyCuaHangMayLanh.Admin
                 db.openConnect();
 
                 // Lấy mã sản phẩm cuối cùng từ cơ sở dữ liệu
-                string lastProductCode = cmd.ExecuteScalar()?.ToString();
+                string lastProductCode = cmd.ExecuteScalar().ToString();
 
                 db.closeConnect();
 

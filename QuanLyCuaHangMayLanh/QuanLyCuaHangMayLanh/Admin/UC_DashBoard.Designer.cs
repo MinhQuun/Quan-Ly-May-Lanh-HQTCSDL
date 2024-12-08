@@ -77,7 +77,7 @@
             this.lbl_Admin.BackColor = System.Drawing.Color.White;
             this.lbl_Admin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_Admin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbl_Admin.Location = new System.Drawing.Point(180, 597);
+            this.lbl_Admin.Location = new System.Drawing.Point(184, 618);
             this.lbl_Admin.Name = "lbl_Admin";
             this.lbl_Admin.Size = new System.Drawing.Size(43, 41);
             this.lbl_Admin.TabIndex = 6;
@@ -88,7 +88,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(88, 529);
+            this.label7.Location = new System.Drawing.Point(86, 557);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(266, 49);
             this.label7.TabIndex = 5;
@@ -99,7 +99,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 214);
+            this.label4.Location = new System.Drawing.Point(3, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(448, 290);
             this.label4.TabIndex = 4;
@@ -112,10 +112,11 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(3, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(340, 116);
+            this.label3.Size = new System.Drawing.Size(340, 174);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm người dùng\r\n          *Xem người" +
-    " dùng\r\n          *Quản lý hồ sơ\r\n";
+            this.label3.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Quản lý người dùng\r\n          *Quản l" +
+    "ý sản phẩm\r\n          *Quản lý nhà cung cấp\r\n          *Quản lý nhập hàng\r\n     " +
+    "     *Quản lý bán hàng\r\n";
             // 
             // lbl_TitleAdmin
             // 
@@ -146,7 +147,7 @@
             this.lbl_Employee.BackColor = System.Drawing.Color.White;
             this.lbl_Employee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_Employee.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbl_Employee.Location = new System.Drawing.Point(223, 597);
+            this.lbl_Employee.Location = new System.Drawing.Point(221, 618);
             this.lbl_Employee.Name = "lbl_Employee";
             this.lbl_Employee.Size = new System.Drawing.Size(43, 41);
             this.lbl_Employee.TabIndex = 8;
@@ -157,7 +158,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(78, 529);
+            this.label9.Location = new System.Drawing.Point(71, 557);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(322, 49);
             this.label9.TabIndex = 7;
@@ -170,10 +171,10 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(3, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(340, 116);
+            this.label6.Size = new System.Drawing.Size(276, 116);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm sản phẩm\r\n          *Xem sản phẩ" +
-    "m\r\n          *Quản sản phẩm\r\n";
+            this.label6.Text = "Có 2 loại nhân viên:\r\n       *Nhân viên nhập hàng\r\n       *Nhân viên bán hàng\r\n\r\n" +
+    "";
             // 
             // label5
             // 
@@ -182,9 +183,10 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 214);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(450, 290);
+            this.label5.Size = new System.Drawing.Size(448, 203);
             this.label5.TabIndex = 5;
-            this.label5.Text = resources.GetString("label5.Text");
+            this.label5.Text = "Nhân viên có vai trò quan trọng thứ 2\r\nsau tư cách Admin.\r\n\r\nTùy loại nhân viên m" +
+    "à có những chức năng,\r\nnghiệp vụ khác nhau.\r\n\r\n \r\n";
             // 
             // label2
             // 

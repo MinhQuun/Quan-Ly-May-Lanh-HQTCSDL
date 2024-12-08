@@ -83,22 +83,21 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(3, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(345, 145);
+            this.label6.Size = new System.Drawing.Size(381, 145);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Thêm \r\n          *Xem \r\n          *Qu" +
-    "ản lí hóa đơn nhập xuất\r\n\r\n";
+            this.label6.Text = "Nhiệm vụ có thể thực hiện được:\r\n          *Bán sản phẩm cho khách hàng\r\n        " +
+    "  *In hóa đơn khi bán\r\n          \r\n\r\n";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 214);
+            this.label5.Location = new System.Drawing.Point(3, 232);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(387, 203);
+            this.label5.Size = new System.Drawing.Size(387, 145);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Nhân viên có vai trò quan trọng thứ 2\r\nsau tư cách Admin.\r\n\r\nNhân viên chỉ có thể" +
-    " thêm, xóa \r\nhóa đơn nhập xuất. Chứ không thể\r\n thêm người dùng như Admin.\r\n \r\n";
+            this.label5.Text = "Nhân viên có vai trò quan trọng thứ 2\r\nsau tư cách Admin.\r\n\r\n\r\n \r\n";
             // 
             // label2
             // 

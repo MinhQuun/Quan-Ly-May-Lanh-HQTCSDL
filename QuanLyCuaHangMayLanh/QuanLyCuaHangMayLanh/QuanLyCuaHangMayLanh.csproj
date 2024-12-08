@@ -92,80 +92,38 @@
     <Compile Include="frm_Admin.Designer.cs">
       <DependentUpon>frm_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_NhanVienKhoHang.cs">
+    <Compile Include="frm_NhanVienBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_NhanVienKhoHang.Designer.cs">
-      <DependentUpon>frm_NhanVienKhoHang.cs</DependentUpon>
+    <Compile Include="frm_NhanVienBanHang.Designer.cs">
+      <DependentUpon>frm_NhanVienBanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_NhanVienSanPham.cs">
+    <Compile Include="frm_NhanVienNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_NhanVienSanPham.Designer.cs">
-      <DependentUpon>frm_NhanVienSanPham.cs</DependentUpon>
+    <Compile Include="frm_NhanVienNhapHang.Designer.cs">
+      <DependentUpon>frm_NhanVienNhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVienKhoHang\NVKH_DashBoard.cs">
+    <Compile Include="NhanVienBanHang\NVBH_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NhanVienKhoHang\NVKH_DashBoard.Designer.cs">
-      <DependentUpon>NVKH_DashBoard.cs</DependentUpon>
+    <Compile Include="NhanVienBanHang\NVBH_DashBoard.Designer.cs">
+      <DependentUpon>NVBH_DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVienKhoHang\NVKH_HoaDonNhap.cs">
+    <Compile Include="NhanVienBanHang\NVBH_XemKhoSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NhanVienKhoHang\NVKH_HoaDonNhap.Designer.cs">
-      <DependentUpon>NVKH_HoaDonNhap.cs</DependentUpon>
+    <Compile Include="NhanVienBanHang\NVBH_XemKhoSanPham.Designer.cs">
+      <DependentUpon>NVBH_XemKhoSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVienKhoHang\NVKH_HoaDonXuat.cs">
+    <Compile Include="NhanVienNhapHang\NVNH_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NhanVienKhoHang\NVKH_HoaDonXuat.Designer.cs">
-      <DependentUpon>NVKH_HoaDonXuat.cs</DependentUpon>
+    <Compile Include="NhanVienNhapHang\NVNH_DashBoard.Designer.cs">
+      <DependentUpon>NVNH_DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NhanVienSanPham\US_AddProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_AddProduct.Designer.cs">
-      <DependentUpon>US_AddProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_AddSupplier.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_AddSupplier.Designer.cs">
-      <DependentUpon>US_AddSupplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_DashBoard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_DashBoard.Designer.cs">
-      <DependentUpon>US_DashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_UpdateProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_UpdateProduct.Designer.cs">
-      <DependentUpon>US_UpdateProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_UpdateSupplier.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_UpdateSupplier.Designer.cs">
-      <DependentUpon>US_UpdateSupplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_ViewProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_ViewProduct.Designer.cs">
-      <DependentUpon>US_ViewProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_ViewSupplier.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NhanVienSanPham\US_ViewSupplier.Designer.cs">
-      <DependentUpon>US_ViewSupplier.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Admin\UC_BanHang.resx">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,20 +148,20 @@
     <EmbeddedResource Include="frm_Admin.resx">
       <DependentUpon>frm_Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_NhanVienKhoHang.resx">
-      <DependentUpon>frm_NhanVienKhoHang.cs</DependentUpon>
+    <EmbeddedResource Include="frm_NhanVienBanHang.resx">
+      <DependentUpon>frm_NhanVienBanHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_NhanVienSanPham.resx">
-      <DependentUpon>frm_NhanVienSanPham.cs</DependentUpon>
+    <EmbeddedResource Include="frm_NhanVienNhapHang.resx">
+      <DependentUpon>frm_NhanVienNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienKhoHang\NVKH_DashBoard.resx">
-      <DependentUpon>NVKH_DashBoard.cs</DependentUpon>
+    <EmbeddedResource Include="NhanVienBanHang\NVBH_DashBoard.resx">
+      <DependentUpon>NVBH_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienKhoHang\NVKH_HoaDonNhap.resx">
-      <DependentUpon>NVKH_HoaDonNhap.cs</DependentUpon>
+    <EmbeddedResource Include="NhanVienBanHang\NVBH_XemKhoSanPham.resx">
+      <DependentUpon>NVBH_XemKhoSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienKhoHang\NVKH_HoaDonXuat.resx">
-      <DependentUpon>NVKH_HoaDonXuat.cs</DependentUpon>
+    <EmbeddedResource Include="NhanVienNhapHang\NVNH_DashBoard.resx">
+      <DependentUpon>NVNH_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -215,27 +173,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="NhanVienSanPham\US_AddProduct.resx">
-      <DependentUpon>US_AddProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienSanPham\US_AddSupplier.resx">
-      <DependentUpon>US_AddSupplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienSanPham\US_DashBoard.resx">
-      <DependentUpon>US_DashBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienSanPham\US_UpdateProduct.resx">
-      <DependentUpon>US_UpdateProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienSanPham\US_UpdateSupplier.resx">
-      <DependentUpon>US_UpdateSupplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienSanPham\US_ViewProduct.resx">
-      <DependentUpon>US_ViewProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienSanPham\US_ViewSupplier.resx">
-      <DependentUpon>US_ViewSupplier.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -408,9 +345,7 @@
   <ItemGroup>
     <None Include="Resources\yes.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NhanVienBanHang\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\icons8-print-30.png" />
   </ItemGroup>
