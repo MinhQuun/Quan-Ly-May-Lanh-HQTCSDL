@@ -76,7 +76,7 @@
             this.cbo_NV.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbo_NV.ForeColor = System.Drawing.Color.Black;
             this.cbo_NV.FormattingEnabled = true;
-            this.cbo_NV.Location = new System.Drawing.Point(107, 309);
+            this.cbo_NV.Location = new System.Drawing.Point(104, 165);
             this.cbo_NV.Name = "cbo_NV";
             this.cbo_NV.Size = new System.Drawing.Size(369, 39);
             this.cbo_NV.TabIndex = 106;
@@ -115,7 +115,7 @@
             // dt_NgayNhap
             // 
             this.dt_NgayNhap.Font = new System.Drawing.Font("Times New Roman", 16.2F);
-            this.dt_NgayNhap.Location = new System.Drawing.Point(104, 573);
+            this.dt_NgayNhap.Location = new System.Drawing.Point(104, 466);
             this.dt_NgayNhap.Name = "dt_NgayNhap";
             this.dt_NgayNhap.Size = new System.Drawing.Size(400, 39);
             this.dt_NgayNhap.TabIndex = 102;
@@ -135,7 +135,7 @@
             this.cbo_MaNCC.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbo_MaNCC.ForeColor = System.Drawing.Color.Black;
             this.cbo_MaNCC.FormattingEnabled = true;
-            this.cbo_MaNCC.Location = new System.Drawing.Point(107, 443);
+            this.cbo_MaNCC.Location = new System.Drawing.Point(107, 309);
             this.cbo_MaNCC.Name = "cbo_MaNCC";
             this.cbo_MaNCC.Size = new System.Drawing.Size(369, 39);
             this.cbo_MaNCC.TabIndex = 100;
@@ -145,7 +145,7 @@
             // 
             this.lbl_MaNCC.AutoSize = true;
             this.lbl_MaNCC.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaNCC.Location = new System.Drawing.Point(100, 378);
+            this.lbl_MaNCC.Location = new System.Drawing.Point(100, 262);
             this.lbl_MaNCC.Name = "lbl_MaNCC";
             this.lbl_MaNCC.Size = new System.Drawing.Size(317, 39);
             this.lbl_MaNCC.TabIndex = 99;
@@ -165,7 +165,7 @@
             // 
             this.lbl_NgayNhap.AutoSize = true;
             this.lbl_NgayNhap.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NgayNhap.Location = new System.Drawing.Point(100, 508);
+            this.lbl_NgayNhap.Location = new System.Drawing.Point(100, 405);
             this.lbl_NgayNhap.Name = "lbl_NgayNhap";
             this.lbl_NgayNhap.Size = new System.Drawing.Size(198, 39);
             this.lbl_NgayNhap.TabIndex = 97;
@@ -185,10 +185,10 @@
             // 
             this.txt_MaHDN.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txt_MaHDN.ForeColor = System.Drawing.Color.Black;
-            this.txt_MaHDN.Location = new System.Drawing.Point(104, 165);
+            this.txt_MaHDN.Location = new System.Drawing.Point(550, 156);
             this.txt_MaHDN.Multiline = true;
             this.txt_MaHDN.Name = "txt_MaHDN";
-            this.txt_MaHDN.Size = new System.Drawing.Size(369, 48);
+            this.txt_MaHDN.Size = new System.Drawing.Size(110, 48);
             this.txt_MaHDN.TabIndex = 94;
             this.txt_MaHDN.TextChanged += new System.EventHandler(this.txt_MaHDN_TextChanged);
             // 
@@ -206,7 +206,7 @@
             // 
             this.lbl_NV.AutoSize = true;
             this.lbl_NV.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NV.Location = new System.Drawing.Point(100, 239);
+            this.lbl_NV.Location = new System.Drawing.Point(100, 100);
             this.lbl_NV.Name = "lbl_NV";
             this.lbl_NV.Size = new System.Drawing.Size(184, 39);
             this.lbl_NV.TabIndex = 92;
@@ -216,7 +216,7 @@
             // 
             this.lbl_MaHDN.AutoSize = true;
             this.lbl_MaHDN.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaHDN.Location = new System.Drawing.Point(100, 100);
+            this.lbl_MaHDN.Location = new System.Drawing.Point(441, 100);
             this.lbl_MaHDN.Name = "lbl_MaHDN";
             this.lbl_MaHDN.Size = new System.Drawing.Size(310, 39);
             this.lbl_MaHDN.TabIndex = 91;
@@ -276,7 +276,7 @@
             // 
             // pic_AddHDN
             // 
-            this.pic_AddHDN.Location = new System.Drawing.Point(504, 165);
+            this.pic_AddHDN.Location = new System.Drawing.Point(677, 156);
             this.pic_AddHDN.Name = "pic_AddHDN";
             this.pic_AddHDN.Size = new System.Drawing.Size(74, 48);
             this.pic_AddHDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

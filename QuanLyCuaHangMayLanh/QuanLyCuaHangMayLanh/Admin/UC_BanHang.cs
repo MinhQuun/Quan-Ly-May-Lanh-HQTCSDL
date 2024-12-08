@@ -65,6 +65,13 @@ namespace QuanLyCuaHangMayLanh.Admin
         private void UC_BanHang_Load(object sender, EventArgs e)
         {
             // Thiết lập placeholder mặc định cho TextBox
+            dt_NgayXuat.Value = DateTime.Now;
+            txt_MaHDX.Visible = false;
+            lbl_MaHDX.Visible = false;
+
+
+            // Vô hiệu hóa không cho phép người dùng chọn ngày khác
+            dt_NgayXuat.Enabled = false;
             txt_Search.Text = "Search.......";
             txt_Search.ForeColor = Color.Gray;
             txt_Search.Font = new Font(txt_Search.Font.FontFamily, 14, FontStyle.Italic);
@@ -98,8 +105,8 @@ namespace QuanLyCuaHangMayLanh.Admin
                 dgv_HoaDonXuat.Columns["MAHDX"].HeaderText = "Mã Hóa Đơn Xuất";
                 dgv_HoaDonXuat.Columns["MANV"].HeaderText = "Mã Nhân Viên";
                 dgv_HoaDonXuat.Columns["TENNV"].HeaderText = "Nhân Viên";
-                dgv_HoaDonXuat.Columns["MAKH"].HeaderText = "Mã Nhà Cung Cấp";
-                dgv_HoaDonXuat.Columns["TENKH"].HeaderText = "Nhà Cung Cấp";
+                dgv_HoaDonXuat.Columns["MAKH"].HeaderText = "Mã Khách Hàng";
+                dgv_HoaDonXuat.Columns["TENKH"].HeaderText = "Tên Khách Hàng";
                 dgv_HoaDonXuat.Columns["NGAY"].HeaderText = "Ngày Xuất";
                 dgv_HoaDonXuat.Columns["MASANPHAM"].HeaderText = "Mã Sản Phẩm";
                 dgv_HoaDonXuat.Columns["TENSANPHAM"].HeaderText = "Tên Sản Phẩm";
@@ -229,22 +236,18 @@ namespace QuanLyCuaHangMayLanh.Admin
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            // Kiểm tra nếu ô tìm kiếm trống
             if (string.IsNullOrWhiteSpace(txt_Search.Text) || txt_Search.Text == "Search.......")
             {
-                // Nếu trống, tải lại tất cả dữ liệu từ cơ sở dữ liệu
                 Load_DataGridView();
             }
             else
             {
-                // Tạo parameter với giá trị tìm kiếm từ txt_Search
                 SqlParameter[] parameters = new SqlParameter[]
                 {
                 new SqlParameter("@mahdx", txt_Search.Text.Trim())
                 };
                 try
                 {
-                    // Sử dụng DBConnect để lấy dữ liệu và cập nhật DataGridView
                     DataTable dt = db.getDataTable("NVKH_SearchHoaDonXuat", "HOADONXUAT", parameters);
 
                     if (dt != null && dt.Rows.Count > 0)
@@ -274,25 +277,20 @@ namespace QuanLyCuaHangMayLanh.Admin
 
                     txt_MaHDX.Text = row.Cells["MAHDX"].Value.ToString();
 
-                    // Đảm bảo dữ liệu đã có trong ComboBox trước khi gán giá trị
                     Load_Combobox_NhanVien();
                     Load_Combobox_KhachHang();
                     Load_Combobox_SanPham();
 
-                    // Hiển thị mã nhân viên trong ComboBox
                     cbo_NV.SelectedValue = row.Cells["MANV"].Value.ToString();
 
-                    // Hiển thị mã nhà cung cấp trong ComboBox
                     cbo_KH.SelectedValue = row.Cells["MAKH"].Value.ToString();
 
-                    // Hiển thị mã sản phẩm trong ComboBox
                     cbo_SP.SelectedValue = row.Cells["MASANPHAM"].Value.ToString();
 
                     dt_NgayXuat.Value = Convert.ToDateTime(row.Cells["NGAY"].Value);
                     txt_SL.Text = row.Cells["SOLUONG"].Value.ToString();
                     txt_DonGiaBan.Text = row.Cells["DONGIA"].Value.ToString();
 
-                    // Tính lại tổng tiền
                     decimal donGia = Convert.ToDecimal(txt_DonGiaBan.Text);
                     int soLuong = Convert.ToInt32(txt_SL.Text);
                     txt_TongTien.Text = (donGia * soLuong).ToString();
@@ -320,29 +318,24 @@ namespace QuanLyCuaHangMayLanh.Admin
 
         private void cbo_SP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Kiểm tra xem có sản phẩm nào được chọn không
             if (cbo_SP.SelectedIndex != -1)
             {
                 string maSP = cbo_SP.SelectedValue.ToString();  // Lấy mã sản phẩm từ ComboBox
 
                 try
                 {
-                    // Mở kết nối tới cơ sở dữ liệu
                     if (cn.State != ConnectionState.Open)
                     {
                         db.openConnect();
                     }
 
-                    // Sử dụng thủ tục lưu trữ để lấy giá nhập của sản phẩm theo mã sản phẩm
                     SqlParameter[] parameters = new SqlParameter[]
                     {
                 new SqlParameter("@MaSP", maSP)
                     };
 
-                    // Gọi thủ tục lưu trữ "NVKH_LayDonGiaNhapTheoSP" để lấy giá nhập sản phẩm
                     object result = db.getCount("NVKH_LayDonGiaBanTheoSP", parameters);
 
-                    // Kiểm tra kết quả và hiển thị giá nhập
                     if (result != null)
                     {
                         decimal giaBan = Convert.ToDecimal(result);  // Convert kết quả thành decimal
@@ -362,12 +355,64 @@ namespace QuanLyCuaHangMayLanh.Admin
             }
         }
 
+        private bool CheckInventory(string maSP, int soLuong)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MASANPHAM", maSP)
+            };
+
+            int availableStock = db.getCount("NVKH_GetInventory", parameters);  // Sử dụng stored procedure để lấy số lượng tồn kho
+
+            if (availableStock < soLuong)
+            {
+                MessageBox.Show("Số lượng bán vượt quá số lượng tồn kho của sản phẩm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;  // Trả về false nếu không đủ hàng
+            }
+
+            return true;  // Trả về true nếu đủ hàng
+        }
+        private string GenerateNewInvoiceCode()
+        {
+            string newInvoiceCode = string.Empty;
+
+            try
+            {
+                if (cn.State != ConnectionState.Open)
+                {
+                    db.openConnect();
+                }
+
+                using (SqlCommand cmd = new SqlCommand("SELECT MAX(MAHDX) FROM HOADONXUAT", cn))
+                {
+                    var result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        string lastInvoiceCode = result.ToString();
+                        int lastInvoiceNumber = int.Parse(lastInvoiceCode.Substring(3));  // Lấy phần số (sau "HDX")
+                        newInvoiceCode = "HDX" + (lastInvoiceNumber + 1).ToString("D3");  // Tăng số và định dạng lại (3 chữ số)
+                    }
+                    else
+                    {
+                        // Nếu chưa có hóa đơn nào, bắt đầu từ HDX001
+                        newInvoiceCode = "HDX001";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tạo mã hóa đơn mới: " + ex.Message);
+            }
+
+            return newInvoiceCode;
+        }
+
         private void btn_BanHang_Click(object sender, EventArgs e)
         {
-            string maHDX = txt_MaHDX.Text;
+            string maHDX = GenerateNewInvoiceCode();  // Gọi phương thức tạo mã hóa đơn mới tự động
             if (string.IsNullOrWhiteSpace(maHDX))
             {
-                MessageBox.Show("Vui lòng nhập mã hóa đơn xuất.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể tạo mã hóa đơn mới.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -382,7 +427,6 @@ namespace QuanLyCuaHangMayLanh.Admin
             DateTime ngayXuat = dt_NgayXuat.Value;
             string maSP = cbo_SP.SelectedValue.ToString();
 
-            // Kiểm tra nếu ngày xuất là ngày tương lai
             if (ngayXuat.Date > DateTime.Now.Date)
             {
                 MessageBox.Show("Ngày xuất không thể là ngày tương lai.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -404,7 +448,11 @@ namespace QuanLyCuaHangMayLanh.Admin
                 return;
             }
 
-            // Tính tổng tiền
+            if (!CheckInventory(maSP, soLuong))  // Nếu tồn kho không đủ
+            {
+                return;  // Dừng lại, không thực hiện tiếp
+            }
+
             decimal tongTien = soLuong * donGia;
             txt_TongTien.Text = tongTien.ToString();
 
@@ -416,11 +464,10 @@ namespace QuanLyCuaHangMayLanh.Admin
                     db.openConnect();
                 }
 
-                // Thêm hóa đơn xuất
                 using (SqlCommand cmdHDX = new SqlCommand("NVKH_AddHoaDonXuat", cn))
                 {
                     cmdHDX.CommandType = CommandType.StoredProcedure;
-                    cmdHDX.Parameters.AddWithValue("@MAHDX", maHDX);
+                    cmdHDX.Parameters.AddWithValue("@MAHDX", maHDX);  // Sử dụng mã hóa đơn mới tạo
                     cmdHDX.Parameters.AddWithValue("@MAKH", maKH);
                     cmdHDX.Parameters.AddWithValue("@MANV", maNV);
                     cmdHDX.Parameters.AddWithValue("@TONGTIEN", tongTien);
@@ -446,22 +493,17 @@ namespace QuanLyCuaHangMayLanh.Admin
                 using (SqlCommand cmdUpdateInventory = new SqlCommand("NVKH_UpdateInventoryAfterSale", cn))
                 {
                     cmdUpdateInventory.CommandType = CommandType.StoredProcedure;
-
-                    // Thêm tham số @MAHDX vào câu lệnh
                     cmdUpdateInventory.Parameters.AddWithValue("@MAHDX", maHDX);  // maHDX là mã hóa đơn xuất cần truyền vào
 
-                    // Thực thi stored procedure
                     cmdUpdateInventory.ExecuteNonQuery();
                 }
 
                 db.closeConnect();
 
-                // Clear tất cả các trường sau khi thêm thành công
                 ClearAll();
 
                 MessageBox.Show("Bán hàng và thêm hóa đơn xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Tải lại dữ liệu DataGridView
                 Load_DataGridView();
             }
             catch (Exception ex)
@@ -470,15 +512,11 @@ namespace QuanLyCuaHangMayLanh.Admin
             }
             finally
             {
-                // Đảm bảo kết nối được đóng trong mọi trường hợp
                 if (cn.State == ConnectionState.Open)
                 {
                     db.closeConnect();
                 }
             }
         }
-
-
-
     }
 }

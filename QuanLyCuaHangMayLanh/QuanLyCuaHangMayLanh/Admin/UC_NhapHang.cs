@@ -66,6 +66,10 @@ namespace QuanLyCuaHangMayLanh.Admin
         private void UC_NhapHang_Load(object sender, EventArgs e)
         {
             // Thiết lập placeholder mặc định cho TextBox
+            dt_NgayNhap.Enabled = false;
+            lbl_MaHDN.Visible = false;
+            txt_MaHDN.Visible = false;
+            dt_NgayNhap.Value = DateTime.Now;
             txt_Search.Text = "Search.......";
             txt_Search.ForeColor = Color.Gray;
             txt_Search.Font = new Font(txt_Search.Font.FontFamily, 14, FontStyle.Italic);
@@ -357,15 +361,60 @@ namespace QuanLyCuaHangMayLanh.Admin
             }
         }
 
+        public string GetNextMaHDN()
+        {
+            try
+            {
+                // Kết nối tới cơ sở dữ liệu
+                if (cn.State != ConnectionState.Open)
+                {
+                    db.openConnect();
+                }
+
+                // Truy vấn mã hóa đơn nhập lớn nhất
+                SqlCommand cmd = new SqlCommand("SELECT MAX(MAHDN) FROM HOADONNHAP", cn);
+                object result = cmd.ExecuteScalar();
+
+                if (result != DBNull.Value)
+                {
+                    string currentMaxMaHDN = result.ToString();  // Lấy mã hóa đơn nhập lớn nhất
+                    int lastNumber = int.Parse(currentMaxMaHDN.Substring(4));  // Lấy 3 chữ số cuối của mã hóa đơn nhập
+                    lastNumber++;  // Tăng số cuối lên 1
+                    return "HDN" + lastNumber.ToString("D3");  // Trả về mã hóa đơn nhập mới với 3 chữ số cuối tự động tăng
+                }
+                else
+                {
+                    // Nếu chưa có hóa đơn nhập nào, bắt đầu từ "HDN001"
+                    return "HDN001";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy mã hóa đơn nhập tiếp theo: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                // Đảm bảo đóng kết nối
+                if (cn.State == ConnectionState.Open)
+                {
+                    db.closeConnect();
+                }
+            }
+        }
+
         private void btn_AddHDN_Click(object sender, EventArgs e)
         {
-            string maHDN = txt_MaHDN.Text;
+            // Gọi phương thức để lấy mã hóa đơn nhập tự động
+            string maHDN = GetNextMaHDN();
+
             if (string.IsNullOrWhiteSpace(maHDN))
             {
-                MessageBox.Show("Vui lòng nhập mã hóa đơn nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể tạo mã hóa đơn nhập mới.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Các kiểm tra dữ liệu khác (như mã nhân viên, nhà cung cấp, sản phẩm, số lượng, đơn giá...) như trước
             if (cbo_NV.SelectedIndex == -1 || cbo_MaNCC.SelectedIndex == -1 || cbo_SP.SelectedIndex == -1)
             {
                 MessageBox.Show("Vui lòng chọn nhân viên, nhà cung cấp và sản phẩm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -439,11 +488,7 @@ namespace QuanLyCuaHangMayLanh.Admin
                 using (SqlCommand cmdCTHDN = new SqlCommand("NVKH_UpdateInventoryUsingCursor", cn))
                 {
                     cmdCTHDN.CommandType = CommandType.StoredProcedure;
-
-                    // Thêm tham số @MAHDN vào câu lệnh
                     cmdCTHDN.Parameters.AddWithValue("@MAHDN", maHDN);  // maHDN là mã hóa đơn nhập cần truyền vào
-
-                    // Thực thi stored procedure
                     cmdCTHDN.ExecuteNonQuery();
                 }
                 db.closeConnect();
@@ -469,6 +514,7 @@ namespace QuanLyCuaHangMayLanh.Admin
                 }
             }
         }
+
 
         private void cbo_MaNCC_SelectedIndexChanged(object sender, EventArgs e)
         {

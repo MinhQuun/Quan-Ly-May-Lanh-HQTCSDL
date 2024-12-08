@@ -64,6 +64,8 @@ namespace QuanLyCuaHangMayLanh.Admin
         }
         private void UC_Product_Load(object sender, EventArgs e)
         {
+            lbl_MaSP.Visible = false;
+            txt_MaSP.Visible = false;
             txt_SL.Text = "0";  // Đặt mặc định giá trị cho TextBox là 0
             // Khi nhấn vào dòng dữ liệu, vô hiệu hóa ô Số Lượng
             txt_SL.Enabled = false; // Vô hiệu hóa TextBox Số Lượng
@@ -170,14 +172,14 @@ namespace QuanLyCuaHangMayLanh.Admin
         private void btn_AddProduct_Click(object sender, EventArgs e)
         {
             // Kiểm tra nếu các trường nhập liệu có trống
-            if (string.IsNullOrEmpty(txt_MaSP.Text) || string.IsNullOrEmpty(txt_TenSP.Text) ||
-                string.IsNullOrEmpty(txt_SL.Text) || string.IsNullOrEmpty(txt_DonGiaNhap.Text) ||
-                string.IsNullOrEmpty(txt_DonGiaBan.Text) || cbo_MaNCC.SelectedValue == null)
+            if (string.IsNullOrEmpty(txt_TenSP.Text) || string.IsNullOrEmpty(txt_SL.Text) ||
+                string.IsNullOrEmpty(txt_DonGiaNhap.Text) || string.IsNullOrEmpty(txt_DonGiaBan.Text) ||
+                cbo_MaNCC.SelectedValue == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             // Lấy Mã Nhà Cung Cấp từ combobox
             string maNCC = cbo_MaNCC.SelectedValue.ToString();
             SqlParameter[] checkParams = { new SqlParameter("@MANCC", maNCC) };
@@ -189,10 +191,10 @@ namespace QuanLyCuaHangMayLanh.Admin
                 return;
             }
 
+            // Tạo mã sản phẩm tự động (SP001, SP002, ...)
+            string maSP = GenerateNewProductCode();
 
-
-            // Lấy dữ liệu từ các textbox và combobox
-            string maSP = txt_MaSP.Text.Trim();
+            // Lấy dữ liệu từ các textbox
             string tenSP = txt_TenSP.Text.Trim();
             decimal donGiaNhap, donGiaBan;
 
@@ -222,11 +224,11 @@ namespace QuanLyCuaHangMayLanh.Admin
                 // Chuỗi truy vấn để thêm sản phẩm vào cơ sở dữ liệu
                 SqlParameter[] parameters = new SqlParameter[]
                 {
-                    new SqlParameter("@MASP", maSP),
-                    new SqlParameter("@TENSP", tenSP),
-                    new SqlParameter("@DONGIANHAP", donGiaNhap),
-                    new SqlParameter("@DONGIABAN", donGiaBan),
-                    new SqlParameter("@MANCC", maNCC)
+            new SqlParameter("@MASP", maSP),
+            new SqlParameter("@TENSP", tenSP),
+            new SqlParameter("@DONGIANHAP", donGiaNhap),
+            new SqlParameter("@DONGIABAN", donGiaBan),
+            new SqlParameter("@MANCC", maNCC)
                 };
 
                 // Mở kết nối và thực thi câu lệnh thêm
@@ -247,6 +249,43 @@ namespace QuanLyCuaHangMayLanh.Admin
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Phương thức tạo mã sản phẩm tự động
+        private string GenerateNewProductCode()
+        {
+            string newProductCode = "SP001";  // Mã sản phẩm mặc định nếu chưa có dữ liệu nào
+
+            try
+            {
+                // Truy vấn lấy mã sản phẩm cuối cùng
+                string query = "SELECT TOP 1 MASANPHAM FROM SANPHAM ORDER BY MASANPHAM DESC";
+                SqlCommand cmd = new SqlCommand(query, db.conn);
+                db.openConnect();
+
+                // Lấy mã sản phẩm cuối cùng từ cơ sở dữ liệu
+                string lastProductCode = cmd.ExecuteScalar()?.ToString();
+
+                db.closeConnect();
+
+                // Kiểm tra nếu có mã sản phẩm nào
+                if (!string.IsNullOrEmpty(lastProductCode))
+                {
+                    // Tách phần số cuối của mã sản phẩm (3 số cuối)
+                    string numericPart = lastProductCode.Substring(2);  // Lấy phần sau "SP"
+                    int newNumber = int.Parse(numericPart) + 1;  // Tăng số lên 1
+
+                    // Tạo mã sản phẩm mới
+                    newProductCode = "SP" + newNumber.ToString("D3");  // Đảm bảo 3 chữ số
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tạo mã sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return newProductCode;
+        }
+
         public void ClearAll()
         {
             txt_MaSP.Clear();

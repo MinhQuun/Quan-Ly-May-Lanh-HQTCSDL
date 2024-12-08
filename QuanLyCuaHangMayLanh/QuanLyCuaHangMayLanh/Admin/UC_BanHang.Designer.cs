@@ -33,31 +33,31 @@
             this.txt_TongTien = new System.Windows.Forms.TextBox();
             this.lbl_TongTien = new System.Windows.Forms.Label();
             this.lbl_SP = new System.Windows.Forms.Label();
-            this.dt_NgayXuat = new System.Windows.Forms.DateTimePicker();
             this.txt_DonGiaBan = new System.Windows.Forms.TextBox();
             this.cbo_KH = new System.Windows.Forms.ComboBox();
             this.lbl_KH = new System.Windows.Forms.Label();
             this.lbl_DonGiaBan = new System.Windows.Forms.Label();
-            this.lbl_Ngãyuat = new System.Windows.Forms.Label();
             this.txt_SL = new System.Windows.Forms.TextBox();
-            this.txt_MaHDX = new System.Windows.Forms.TextBox();
             this.lbl_SoLuong = new System.Windows.Forms.Label();
             this.lbl_NV = new System.Windows.Forms.Label();
-            this.lbl_MaHDX = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_HoaDonXuat = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.pic_AddHDX = new System.Windows.Forms.PictureBox();
             this.btn_Reload = new System.Windows.Forms.Button();
             this.btn_BanHang = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_InHoaDon = new System.Windows.Forms.Button();
+            this.dt_NgayXuat = new System.Windows.Forms.DateTimePicker();
+            this.lbl_Ngãyuat = new System.Windows.Forms.Label();
+            this.lbl_MaHDX = new System.Windows.Forms.Label();
+            this.pic_AddHDX = new System.Windows.Forms.PictureBox();
+            this.txt_MaHDX = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDonXuat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_AddHDX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AddHDX)).BeginInit();
             this.SuspendLayout();
             // 
             // cbo_SP
@@ -76,7 +76,7 @@
             this.cbo_NV.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbo_NV.ForeColor = System.Drawing.Color.Black;
             this.cbo_NV.FormattingEnabled = true;
-            this.cbo_NV.Location = new System.Drawing.Point(94, 339);
+            this.cbo_NV.Location = new System.Drawing.Point(106, 195);
             this.cbo_NV.Name = "cbo_NV";
             this.cbo_NV.Size = new System.Drawing.Size(369, 39);
             this.cbo_NV.TabIndex = 134;
@@ -112,14 +112,6 @@
             this.lbl_SP.TabIndex = 131;
             this.lbl_SP.Text = "Sản Phẩm";
             // 
-            // dt_NgayXuat
-            // 
-            this.dt_NgayXuat.Font = new System.Drawing.Font("Times New Roman", 16.2F);
-            this.dt_NgayXuat.Location = new System.Drawing.Point(91, 603);
-            this.dt_NgayXuat.Name = "dt_NgayXuat";
-            this.dt_NgayXuat.Size = new System.Drawing.Size(400, 39);
-            this.dt_NgayXuat.TabIndex = 130;
-            // 
             // txt_DonGiaBan
             // 
             this.txt_DonGiaBan.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -135,7 +127,7 @@
             this.cbo_KH.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbo_KH.ForeColor = System.Drawing.Color.Black;
             this.cbo_KH.FormattingEnabled = true;
-            this.cbo_KH.Location = new System.Drawing.Point(94, 473);
+            this.cbo_KH.Location = new System.Drawing.Point(106, 339);
             this.cbo_KH.Name = "cbo_KH";
             this.cbo_KH.Size = new System.Drawing.Size(369, 39);
             this.cbo_KH.TabIndex = 128;
@@ -144,7 +136,7 @@
             // 
             this.lbl_KH.AutoSize = true;
             this.lbl_KH.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_KH.Location = new System.Drawing.Point(87, 408);
+            this.lbl_KH.Location = new System.Drawing.Point(99, 288);
             this.lbl_KH.Name = "lbl_KH";
             this.lbl_KH.Size = new System.Drawing.Size(215, 39);
             this.lbl_KH.TabIndex = 127;
@@ -160,16 +152,6 @@
             this.lbl_DonGiaBan.TabIndex = 126;
             this.lbl_DonGiaBan.Text = "Đơn Giá Bán";
             // 
-            // lbl_Ngãyuat
-            // 
-            this.lbl_Ngãyuat.AutoSize = true;
-            this.lbl_Ngãyuat.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Ngãyuat.Location = new System.Drawing.Point(87, 538);
-            this.lbl_Ngãyuat.Name = "lbl_Ngãyuat";
-            this.lbl_Ngãyuat.Size = new System.Drawing.Size(184, 39);
-            this.lbl_Ngãyuat.TabIndex = 125;
-            this.lbl_Ngãyuat.Text = "Ngày Xuất";
-            // 
             // txt_SL
             // 
             this.txt_SL.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -179,17 +161,6 @@
             this.txt_SL.Name = "txt_SL";
             this.txt_SL.Size = new System.Drawing.Size(369, 48);
             this.txt_SL.TabIndex = 124;
-            // 
-            // txt_MaHDX
-            // 
-            this.txt_MaHDX.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txt_MaHDX.ForeColor = System.Drawing.Color.Black;
-            this.txt_MaHDX.Location = new System.Drawing.Point(91, 195);
-            this.txt_MaHDX.Multiline = true;
-            this.txt_MaHDX.Name = "txt_MaHDX";
-            this.txt_MaHDX.Size = new System.Drawing.Size(369, 48);
-            this.txt_MaHDX.TabIndex = 122;
-            this.txt_MaHDX.TextChanged += new System.EventHandler(this.txt_MaHDX_TextChanged);
             // 
             // lbl_SoLuong
             // 
@@ -205,21 +176,11 @@
             // 
             this.lbl_NV.AutoSize = true;
             this.lbl_NV.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NV.Location = new System.Drawing.Point(87, 269);
+            this.lbl_NV.Location = new System.Drawing.Point(99, 142);
             this.lbl_NV.Name = "lbl_NV";
             this.lbl_NV.Size = new System.Drawing.Size(184, 39);
             this.lbl_NV.TabIndex = 120;
             this.lbl_NV.Text = "Nhân Viên";
-            // 
-            // lbl_MaHDX
-            // 
-            this.lbl_MaHDX.AutoSize = true;
-            this.lbl_MaHDX.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaHDX.Location = new System.Drawing.Point(87, 130);
-            this.lbl_MaHDX.Name = "lbl_MaHDX";
-            this.lbl_MaHDX.Size = new System.Drawing.Size(296, 39);
-            this.lbl_MaHDX.TabIndex = 119;
-            this.lbl_MaHDX.Text = "Mã Hóa Đơn Xuất";
             // 
             // panel1
             // 
@@ -272,15 +233,6 @@
             this.label1.Size = new System.Drawing.Size(198, 44);
             this.label1.TabIndex = 108;
             this.label1.Text = "Bán Hàng";
-            // 
-            // pic_AddHDX
-            // 
-            this.pic_AddHDX.Location = new System.Drawing.Point(491, 195);
-            this.pic_AddHDX.Name = "pic_AddHDX";
-            this.pic_AddHDX.Size = new System.Drawing.Size(74, 48);
-            this.pic_AddHDX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_AddHDX.TabIndex = 123;
-            this.pic_AddHDX.TabStop = false;
             // 
             // btn_Reload
             // 
@@ -349,6 +301,54 @@
             this.btn_InHoaDon.Text = "In hóa đơn";
             this.btn_InHoaDon.UseVisualStyleBackColor = false;
             // 
+            // dt_NgayXuat
+            // 
+            this.dt_NgayXuat.Font = new System.Drawing.Font("Times New Roman", 16.2F);
+            this.dt_NgayXuat.Location = new System.Drawing.Point(106, 483);
+            this.dt_NgayXuat.Name = "dt_NgayXuat";
+            this.dt_NgayXuat.Size = new System.Drawing.Size(400, 39);
+            this.dt_NgayXuat.TabIndex = 130;
+            // 
+            // lbl_Ngãyuat
+            // 
+            this.lbl_Ngãyuat.AutoSize = true;
+            this.lbl_Ngãyuat.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Ngãyuat.Location = new System.Drawing.Point(99, 427);
+            this.lbl_Ngãyuat.Name = "lbl_Ngãyuat";
+            this.lbl_Ngãyuat.Size = new System.Drawing.Size(184, 39);
+            this.lbl_Ngãyuat.TabIndex = 125;
+            this.lbl_Ngãyuat.Text = "Ngày Xuất";
+            // 
+            // lbl_MaHDX
+            // 
+            this.lbl_MaHDX.AutoSize = true;
+            this.lbl_MaHDX.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_MaHDX.Location = new System.Drawing.Point(442, 130);
+            this.lbl_MaHDX.Name = "lbl_MaHDX";
+            this.lbl_MaHDX.Size = new System.Drawing.Size(296, 39);
+            this.lbl_MaHDX.TabIndex = 119;
+            this.lbl_MaHDX.Text = "Mã Hóa Đơn Xuất";
+            // 
+            // pic_AddHDX
+            // 
+            this.pic_AddHDX.Location = new System.Drawing.Point(664, 186);
+            this.pic_AddHDX.Name = "pic_AddHDX";
+            this.pic_AddHDX.Size = new System.Drawing.Size(74, 48);
+            this.pic_AddHDX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_AddHDX.TabIndex = 123;
+            this.pic_AddHDX.TabStop = false;
+            // 
+            // txt_MaHDX
+            // 
+            this.txt_MaHDX.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_MaHDX.ForeColor = System.Drawing.Color.Black;
+            this.txt_MaHDX.Location = new System.Drawing.Point(506, 186);
+            this.txt_MaHDX.Multiline = true;
+            this.txt_MaHDX.Name = "txt_MaHDX";
+            this.txt_MaHDX.Size = new System.Drawing.Size(140, 48);
+            this.txt_MaHDX.TabIndex = 122;
+            this.txt_MaHDX.TextChanged += new System.EventHandler(this.txt_MaHDX_TextChanged);
+            // 
             // UC_BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -384,8 +384,8 @@
             this.Size = new System.Drawing.Size(1667, 1102);
             this.Load += new System.EventHandler(this.UC_BanHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDonXuat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_AddHDX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AddHDX)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,18 +398,13 @@
         private System.Windows.Forms.TextBox txt_TongTien;
         private System.Windows.Forms.Label lbl_TongTien;
         private System.Windows.Forms.Label lbl_SP;
-        private System.Windows.Forms.DateTimePicker dt_NgayXuat;
         private System.Windows.Forms.TextBox txt_DonGiaBan;
         private System.Windows.Forms.ComboBox cbo_KH;
         private System.Windows.Forms.Label lbl_KH;
         private System.Windows.Forms.Label lbl_DonGiaBan;
-        private System.Windows.Forms.Label lbl_Ngãyuat;
         private System.Windows.Forms.TextBox txt_SL;
-        private System.Windows.Forms.PictureBox pic_AddHDX;
-        private System.Windows.Forms.TextBox txt_MaHDX;
         private System.Windows.Forms.Label lbl_SoLuong;
         private System.Windows.Forms.Label lbl_NV;
-        private System.Windows.Forms.Label lbl_MaHDX;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.Label label2;
@@ -420,5 +415,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_InHoaDon;
+        private System.Windows.Forms.DateTimePicker dt_NgayXuat;
+        private System.Windows.Forms.Label lbl_Ngãyuat;
+        private System.Windows.Forms.Label lbl_MaHDX;
+        private System.Windows.Forms.PictureBox pic_AddHDX;
+        private System.Windows.Forms.TextBox txt_MaHDX;
     }
 }

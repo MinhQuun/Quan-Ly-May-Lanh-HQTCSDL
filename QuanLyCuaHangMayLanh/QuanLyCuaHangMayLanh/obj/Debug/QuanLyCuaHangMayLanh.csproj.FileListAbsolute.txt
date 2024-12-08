@@ -179,3 +179,4 @@ E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Quan-Ly-May-
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Product.resources
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_Supplier.resources
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_User.resources
+D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\QuanLyCuaHangMayLanh\obj\Debug\QuanLyCuaHangMayLanh.Admin.UC_BanHang.resources

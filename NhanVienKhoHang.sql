@@ -355,3 +355,14 @@ BEGIN
     CLOSE sale_cursor;
     DEALLOCATE sale_cursor;
 END
+
+--Kiểm tra tồn kho
+GO
+CREATE PROCEDURE NVKH_GetInventory
+    @MASANPHAM VARCHAR(10)
+AS
+BEGIN
+    SELECT SOLUONG 
+    FROM SANPHAM 
+    WHERE MASANPHAM = @MASANPHAM;
+END

@@ -144,7 +144,7 @@
             // 
             this.txt_SL.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txt_SL.ForeColor = System.Drawing.Color.Black;
-            this.txt_SL.Location = new System.Drawing.Point(89, 446);
+            this.txt_SL.Location = new System.Drawing.Point(89, 311);
             this.txt_SL.Multiline = true;
             this.txt_SL.Name = "txt_SL";
             this.txt_SL.Size = new System.Drawing.Size(369, 48);
@@ -154,7 +154,7 @@
             // 
             this.txt_TenSP.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txt_TenSP.ForeColor = System.Drawing.Color.Black;
-            this.txt_TenSP.Location = new System.Drawing.Point(89, 308);
+            this.txt_TenSP.Location = new System.Drawing.Point(89, 171);
             this.txt_TenSP.Multiline = true;
             this.txt_TenSP.Name = "txt_TenSP";
             this.txt_TenSP.Size = new System.Drawing.Size(369, 48);
@@ -162,7 +162,7 @@
             // 
             // pic_AddProduct
             // 
-            this.pic_AddProduct.Location = new System.Drawing.Point(489, 170);
+            this.pic_AddProduct.Location = new System.Drawing.Point(520, 170);
             this.pic_AddProduct.Name = "pic_AddProduct";
             this.pic_AddProduct.Size = new System.Drawing.Size(74, 48);
             this.pic_AddProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,10 +201,10 @@
             // 
             this.txt_MaSP.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txt_MaSP.ForeColor = System.Drawing.Color.Black;
-            this.txt_MaSP.Location = new System.Drawing.Point(89, 170);
+            this.txt_MaSP.Location = new System.Drawing.Point(475, 170);
             this.txt_MaSP.Multiline = true;
             this.txt_MaSP.Name = "txt_MaSP";
-            this.txt_MaSP.Size = new System.Drawing.Size(369, 48);
+            this.txt_MaSP.Size = new System.Drawing.Size(39, 48);
             this.txt_MaSP.TabIndex = 43;
             this.txt_MaSP.TextChanged += new System.EventHandler(this.txt_MaSP_TextChanged);
             // 
@@ -252,7 +252,7 @@
             // 
             this.lbl_SoLuong.AutoSize = true;
             this.lbl_SoLuong.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SoLuong.Location = new System.Drawing.Point(85, 381);
+            this.lbl_SoLuong.Location = new System.Drawing.Point(91, 245);
             this.lbl_SoLuong.Name = "lbl_SoLuong";
             this.lbl_SoLuong.Size = new System.Drawing.Size(157, 39);
             this.lbl_SoLuong.TabIndex = 38;
@@ -262,7 +262,7 @@
             // 
             this.lbl_TenSP.AutoSize = true;
             this.lbl_TenSP.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TenSP.Location = new System.Drawing.Point(85, 243);
+            this.lbl_TenSP.Location = new System.Drawing.Point(82, 105);
             this.lbl_TenSP.Name = "lbl_TenSP";
             this.lbl_TenSP.Size = new System.Drawing.Size(234, 39);
             this.lbl_TenSP.TabIndex = 37;
@@ -272,7 +272,7 @@
             // 
             this.lbl_MaSP.AutoSize = true;
             this.lbl_MaSP.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaSP.Location = new System.Drawing.Point(85, 105);
+            this.lbl_MaSP.Location = new System.Drawing.Point(363, 105);
             this.lbl_MaSP.Name = "lbl_MaSP";
             this.lbl_MaSP.Size = new System.Drawing.Size(231, 39);
             this.lbl_MaSP.TabIndex = 36;
