@@ -25,3 +25,9 @@ D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May La
 D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.dll
 D:\user\Truong Doan\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.pdb
 E:\MinhQuun\HUIT - 2022\Nam 3\HK5\He Quan Tri Co So Du Lieu\Project\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csprojResolveAssemblyReference.cache
+C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\Debug\May Lanh Library.dll
+C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\bin\Debug\May Lanh Library.pdb
+C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.dll
+C:\Users\LENOVO\Desktop\data\HQTCSDL\Quan-Ly-May-Lanh-HQTCSDL\QuanLyCuaHangMayLanh\May Lanh Library\obj\Debug\May Lanh Library.pdb

@@ -633,5 +633,55 @@ namespace QuanLyCuaHangMayLanh.Admin
             lblDiaChi.Visible = true;
             lblSDT.Visible = true;
         }
+
+        private void btn_InHoaDon_Click(object sender, EventArgs e)
+        {
+            string query = @"SELECT 
+    p.MAHDX,
+    p.MAKH,
+    kh.TENKH,
+    p.MANV,
+    nv.TENNV,
+    p.TONGTIEN,
+    p.NGAY,
+    c.MACTHDX,
+    c.MASANPHAM,
+    s.TENSANPHAM,
+    c.SOLUONG,
+    c.DONGIA
+FROM 
+    HOADONXUAT p
+JOIN 
+    CHITIETHOADONXUAT c ON p.MAHDX = c.MAHDX
+JOIN 
+    SANPHAM s ON c.MASANPHAM = s.MASANPHAM
+JOIN 
+    KHACHHANG kh ON p.MAKH = kh.MAKH
+JOIN 
+    NHANVIEN nv ON p.MANV = nv.MANV
+WHERE
+    p.MAHDX = @MaHDX;
+
+";
+
+
+            // Thêm tham số vào câu truy vấn
+            SqlCommand cmd = new SqlCommand(query, db.conn);
+            cmd.Parameters.AddWithValue("@MaHDX", txt_MaHDX.Text);  // Thêm giá trị tham số vào câu truy vấn
+
+            // Thực thi câu truy vấn và lấy dữ liệu
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+
+            rptHoaDonXuat rp = new rptHoaDonXuat();
+            rp.SetDataSource(dt);
+            frmHoaDonXuat hdx = new frmHoaDonXuat();
+            hdx.Show();
+            hdx.crvHoaDonXuat.ReportSource = rp;
+            hdx.crvHoaDonXuat.Refresh();
+            
+        }
     }
 }

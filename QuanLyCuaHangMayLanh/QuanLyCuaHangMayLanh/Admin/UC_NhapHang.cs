@@ -559,9 +559,57 @@ namespace QuanLyCuaHangMayLanh.Admin
             }
         }
 
+        private void btn_InHoaDon_Click(object sender, EventArgs e)
+        {
+            // Câu truy vấn SQL để lấy dữ liệu từ các bảng HOADONNHAP, CTHOADONNHAP, SANPHAM
+            string query = @"
+SELECT 
+    h.MAHDN,
+    h.MANV,
+    nv.TENNV,
+    h.MANCC,
+    ncc.TENNCC,
+    h.TONGTIEN,
+    h.NGAYNHAP,
+    c.MACTHDN,
+    c.MASANPHAM,
+    s.TENSANPHAM,
+    c.SOLUONG,
+    c.DONGIA
+FROM 
+    HOADONNHAP h
+JOIN 
+    CTHOADONNHAP c ON h.MAHDN = c.MAHDN
+JOIN 
+    SANPHAM s ON c.MASANPHAM = s.MASANPHAM
+JOIN 
+    NHANVIEN nv ON h.MANV = nv.MANV
+JOIN 
+    NHACUNGCAP ncc ON h.MANCC = ncc.MANCC
+WHERE
+    h.MAHDN = @MaHDN;
+
+";
+
+            // Thêm tham số vào câu truy vấn
+            SqlCommand cmd = new SqlCommand(query, db.conn);
+            cmd.Parameters.AddWithValue("@MaHDN", txt_MaHDN.Text);  // Thêm giá trị tham số vào câu truy vấn
+
+            // Thực thi câu truy vấn và lấy dữ liệu
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
 
+            rptHoaDonNhap rp = new rptHoaDonNhap();
+            rp.SetDataSource(dt);
+            frmHoaDonNhap hdn = new frmHoaDonNhap();
+            hdn.Show();
+            hdn.crvHoaDonNhap.ReportSource = rp;
+            hdn.crvHoaDonNhap.Refresh();
 
+
+        }
 
     }
 }

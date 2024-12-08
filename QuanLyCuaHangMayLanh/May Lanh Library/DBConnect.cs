@@ -54,7 +54,7 @@ namespace May_Lanh_Library
         {
             //strServerName = @".";
             //strServerName = @"MSI\TRNDON";//Tên máy server của mình (tên máy của SV)
-            strServerName = @"MinhQuun";
+            strServerName = @".";
             //strDBName = "QL_SINHVIEN";
             strDBName = "QL_MAYLANH_HQTCSDL";
 

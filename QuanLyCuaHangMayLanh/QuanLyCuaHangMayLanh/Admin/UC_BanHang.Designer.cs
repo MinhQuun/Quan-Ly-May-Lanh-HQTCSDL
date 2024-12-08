@@ -297,6 +297,7 @@
             this.btn_InHoaDon.TabIndex = 136;
             this.btn_InHoaDon.Text = "In hóa đơn";
             this.btn_InHoaDon.UseVisualStyleBackColor = false;
+            this.btn_InHoaDon.Click += new System.EventHandler(this.btn_InHoaDon_Click);
             // 
             // dt_NgayXuat
             // 
