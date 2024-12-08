@@ -323,3 +323,35 @@ BEGIN
     WHERE MASANPHAM = @MaSP
 END;
 
+
+-- Bán hàng giảm số lượng
+GO
+CREATE PROCEDURE NVKH_UpdateInventoryAfterSale
+    @MAHDX VARCHAR(10)  -- Tham số đầu vào: mã hóa đơn bán
+AS
+BEGIN
+    DECLARE @MaSanPhamHDX VARCHAR(10), @SoLuongHDX INT;
+    
+    -- Cursor để lặp qua từng sản phẩm trong chi tiết hóa đơn bán theo mã hóa đơn bán
+    DECLARE sale_cursor CURSOR FOR 
+    SELECT CTHDX.MASANPHAM, CTHDX.SOLUONG 
+    FROM CHITIETHOADONXUAT AS CTHDX
+    WHERE CTHDX.MAHDX = @MAHDX;  -- Chỉ lấy các sản phẩm trong hóa đơn bán với mã hóa đơn bán cụ thể
+    
+    OPEN sale_cursor;
+    
+    FETCH NEXT FROM sale_cursor INTO @MaSanPhamHDX, @SoLuongHDX;
+    
+    -- Lặp qua từng dòng và cập nhật tồn kho
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        UPDATE SANPHAM
+        SET SOLUONG = SOLUONG - @SoLuongHDX
+        WHERE MASANPHAM = @MaSanPhamHDX;
+        
+        FETCH NEXT FROM sale_cursor INTO @MaSanPhamHDX, @SoLuongHDX;
+    END
+
+    CLOSE sale_cursor;
+    DEALLOCATE sale_cursor;
+END

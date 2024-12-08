@@ -90,6 +90,7 @@ namespace QuanLyCuaHangMayLanh
             uC_Supplier1.Visible = false;
             uC_Product1.Visible = false;
             uC_NhapHang1.Visible = false;
+            uC_BanHang1.Visible = false;
         }
 
         private void btn_DashBoard_Click(object sender, EventArgs e)
@@ -125,6 +126,13 @@ namespace QuanLyCuaHangMayLanh
             HideAllUserControls();
             uC_NhapHang1.Visible = true;
             uC_NhapHang1.BringToFront();
+        }
+
+        private void btn_BanHang_Click(object sender, EventArgs e)
+        {
+            HideAllUserControls();
+            uC_BanHang1.Visible = true;
+            uC_BanHang1.BringToFront();
         }
 
         

@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\UC_BanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin\UC_BanHang.Designer.cs">
+      <DependentUpon>UC_BanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UC_DashBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     <Compile Include="NhanVienSanPham\US_ViewSupplier.Designer.cs">
       <DependentUpon>US_ViewSupplier.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\UC_BanHang.resx">
+      <DependentUpon>UC_BanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\UC_DashBoard.resx">
       <DependentUpon>UC_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
