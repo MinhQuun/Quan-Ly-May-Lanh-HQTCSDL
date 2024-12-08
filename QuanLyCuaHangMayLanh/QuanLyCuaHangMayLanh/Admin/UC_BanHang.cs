@@ -69,7 +69,16 @@ namespace QuanLyCuaHangMayLanh.Admin
             txt_MaHDX.Visible = false;
             lbl_MaHDX.Visible = false;
 
-
+            
+            cbo_KH.Visible = false;  // Hiển thị ComboBox cho khách hàng cũ
+            txtTenKH.Visible = false;  // Ẩn các TextBox cho khách hàng mới
+            lblTenKH.Visible = false;
+            lblSDT.Visible = false;
+            lblDiaChi.Visible = false;
+            txtDiaChi.Visible = false;
+            txtSDT.Visible = false;
+            
+            
             // Vô hiệu hóa không cho phép người dùng chọn ngày khác
             dt_NgayXuat.Enabled = false;
             txt_Search.Text = "Search.......";
@@ -222,6 +231,9 @@ namespace QuanLyCuaHangMayLanh.Admin
             txt_SL.Clear();
             txt_DonGiaBan.Clear();
             txt_TongTien.Clear();
+            txtTenKH.Clear();
+            txtDiaChi.Clear();
+            txtSDT.Clear();
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -407,8 +419,88 @@ namespace QuanLyCuaHangMayLanh.Admin
             return newInvoiceCode;
         }
 
+
+        private string GenerateNewCustomerCode()
+        {
+            string maKH;
+            bool isDuplicate;
+
+            do
+            {
+                // Mở kết nối nếu chưa mở
+                if (cn.State != ConnectionState.Open)
+                {
+                    db.openConnect();
+                }
+
+                // Lấy số khách hàng cuối cùng từ cơ sở dữ liệu
+                using (SqlCommand cmd = new SqlCommand("SELECT MAX(MAKH) FROM KHACHHANG", cn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        string lastCode = result.ToString();
+                        int lastNumber = int.Parse(lastCode.Substring(2)); // Lấy 3 số cuối
+                        maKH = "KH" + (lastNumber + 1).ToString("D3");  // Tạo mã khách hàng mới
+                    }
+                    else
+                    {
+                        maKH = "KH001";  // Nếu chưa có khách hàng nào, bắt đầu từ KH001
+                    }
+                }
+
+                // Kiểm tra xem mã khách hàng mới có bị trùng hay không
+                using (SqlCommand cmdCheck = new SqlCommand("SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = @MAKH", cn))
+                {
+                    cmdCheck.Parameters.AddWithValue("@MAKH", maKH);
+                    int count = (int)cmdCheck.ExecuteScalar();
+                    isDuplicate = count > 0;  // Nếu có ít nhất một khách hàng trùng mã, isDuplicate = true
+                }
+
+            } while (isDuplicate);  // Lặp lại cho đến khi không còn mã khách hàng trùng
+
+            return maKH;  // Trả về mã khách hàng mới duy nhất
+        }
+
+
         private void btn_BanHang_Click(object sender, EventArgs e)
         {
+            string maKH = "";
+
+            if (rbKhachHangCu.Checked)
+            {
+                // Lấy mã khách hàng từ ComboBox
+                maKH = cbo_KH.SelectedValue.ToString();
+            }
+            else if (rbKhachHangMoi.Checked)
+            {
+                // Kiểm tra thông tin nhập vào của khách hàng mới
+                string tenKH = txtTenKH.Text.Trim();
+                string diaChi = txtDiaChi.Text.Trim();
+                string sdt = txtSDT.Text.Trim();
+
+                if (string.IsNullOrEmpty(tenKH) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(sdt))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin khách hàng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Tạo mã khách hàng mới tự động
+                maKH = GenerateNewCustomerCode();
+
+                // Lưu thông tin khách hàng mới vào cơ sở dữ liệu
+                using (SqlCommand cmd = new SqlCommand("NVKH_AddNewCustomer", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MAKH", maKH);
+                    cmd.Parameters.AddWithValue("@TENKH", tenKH);
+                    cmd.Parameters.AddWithValue("@DIACHI", diaChi);
+                    cmd.Parameters.AddWithValue("@SODIENTHOAI", sdt);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
             string maHDX = GenerateNewInvoiceCode();  // Gọi phương thức tạo mã hóa đơn mới tự động
             if (string.IsNullOrWhiteSpace(maHDX))
             {
@@ -423,7 +515,7 @@ namespace QuanLyCuaHangMayLanh.Admin
             }
 
             string maNV = cbo_NV.SelectedValue.ToString();
-            string maKH = cbo_KH.SelectedValue.ToString();
+            
             DateTime ngayXuat = dt_NgayXuat.Value;
             string maSP = cbo_SP.SelectedValue.ToString();
 
@@ -517,6 +609,29 @@ namespace QuanLyCuaHangMayLanh.Admin
                     db.closeConnect();
                 }
             }
+        }
+
+        private void rbKhachHangCu_CheckedChanged(object sender, EventArgs e)
+        {
+            cbo_KH.Visible = true; 
+            txtTenKH.Visible = false;
+            lblTenKH.Visible = false;
+            lblDiaChi.Visible = false;
+            lblSDT.Visible = false;
+            txtDiaChi.Visible = false;
+            txtSDT.Visible = false;
+
+        }
+
+        private void rbKhachHangMoi_CheckedChanged(object sender, EventArgs e)
+        {
+            cbo_KH.Visible = false;
+            txtTenKH.Visible = true;
+            txtDiaChi.Visible = true;
+            txtSDT.Visible = true;
+            lblTenKH.Visible = true;
+            lblDiaChi.Visible = true;
+            lblSDT.Visible = true;
         }
     }
 }
